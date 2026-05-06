@@ -1,0 +1,1819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colors &amp; Tokens - Spark Design System</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <button class="sidebar-toggle" aria-label="Toggle navigation" aria-expanded="false">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+    </svg>
+  </button>
+
+  <div class="site-wrapper">
+    <aside class="sidebar" role="navigation" aria-label="Main navigation">
+      <div class="sidebar-header">
+        <h1>Spark DS</h1>
+        <div class="subtitle">Design System Docs</div>
+      </div>
+      <nav>
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Overview</div>
+          <a href="index.html" class="sidebar-link">Home</a>
+          <a href="accessibility.html" class="sidebar-link">Accessibility</a>
+        </div>
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Foundations</div>
+          <a href="colors.html" class="sidebar-link active">Colors &amp; Tokens</a>
+        </div>
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Components</div>
+          <span class="sidebar-link" style="color:#ADB5BD; font-style:italic;">Coming soon</span>
+        </div>
+      </nav>
+    </aside>
+
+    <main class="main-content" id="main">
+
+      <!-- Page Header -->
+      <div class="page-header">
+        <h1>Colors &amp; Tokens</h1>
+        <p>Spark uses a 3-tier token architecture: Primitive tokens define raw color values, Semantic tokens assign contextual meaning, and Component tokens scope usage to specific UI elements.</p>
+      </div>
+
+      <!-- Token Architecture Overview -->
+      <div class="doc-section">
+        <h2>Token Architecture</h2>
+        <div class="architecture-diagram">
+          <div class="arch-layer arch-layer-primitive">
+            <h4>Primitive</h4>
+            <p>Raw values</p>
+            <code>--primitive-blue-500</code>
+          </div>
+          <div class="arch-arrow" aria-hidden="true">&#8594;</div>
+          <div class="arch-layer arch-layer-semantic">
+            <h4>Semantic</h4>
+            <p>Purpose-driven aliases</p>
+            <code>--semantic-content-brand</code>
+          </div>
+          <div class="arch-arrow" aria-hidden="true">&#8594;</div>
+          <div class="arch-layer arch-layer-component">
+            <h4>Component</h4>
+            <p>Scoped to UI elements</p>
+            <code>--semantic-button-primary-bg</code>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search / Filter -->
+      <div class="token-search-wrapper">
+        <svg class="token-search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+        <input type="search" id="tokenSearch" class="token-search" placeholder="Search tokens..." aria-label="Search tokens">
+        <span class="token-search-count" id="searchCount"></span>
+      </div>
+
+      <!-- Brand Colors -->
+      <div class="doc-section">
+        <h2>Brand Colors</h2>
+        <p>The brand palette provides 5 shades (100-500) across 6 hue families.</p>
+
+        <div class="swatch-group">
+          <h3>Blue</h3>
+          <div class="swatch-grid">
+            <div class="swatch-card">
+              <div class="swatch-color" style="background-color: #D0EBFF;"></div>
+              <div class="swatch-info">
+                <span class="swatch-name">Blue-100</span>
+                <span class="swatch-value">#D0EBFF</span>
+              </div>
+            </div>
+            <div class="swatch-card">
+              <div class="swatch-color" style="background-color: #A5D8FF;"></div>
+              <div class="swatch-info">
+                <span class="swatch-name">Blue-200</span>
+                <span class="swatch-value">#A5D8FF</span>
+              </div>
+            </div>
+            <div class="swatch-card">
+              <div class="swatch-color" style="background-color: #74C0FC;"></div>
+              <div class="swatch-info">
+                <span class="swatch-name">Blue-300</span>
+                <span class="swatch-value">#74C0FC</span>
+              </div>
+            </div>
+            <div class="swatch-card">
+              <div class="swatch-color" style="background-color: #339AF0;"></div>
+              <div class="swatch-info">
+                <span class="swatch-name">Blue-400</span>
+                <span class="swatch-value">#339AF0</span>
+              </div>
+            </div>
+            <div class="swatch-card">
+              <div class="swatch-color" style="background-color: #1C7ED6;"></div>
+              <div class="swatch-info">
+                <span class="swatch-name">Blue-500</span>
+                <span class="swatch-value">#1C7ED6</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="swatch-group">
+          <h3>Deep Blue</h3>
+          <div class="swatch-grid">
+            <div class="swatch-card">
+              <div class="swatch-color" style="background-color: #D0D5DD;"></div>
+              <div class="swatch-info">
+                <span class="swatch-name">Deep Blue-100</span>
+                <span class="swatch-value">#D0D5DD</span>
+              </div>
+            </div>
+            <div class="swatch-card">
+              <div class="swatch-color" style="background-color: #98A2B3;"></div>
+              <div class="swatch-info">
+                <span class="swatch-name">Deep Blue-200</span>
+                <span class="swatch-value">#98A2B3</span>
+              </div>
+            </div>
+            <div class="swatch-card">
+              <div class="swatch-color" style="background-color: #475467;"></div>
+              <div class="swatch-info">
+                <span class="swatch-name">Deep Blue-300</span>
+                <span class="swatch-value">#475467</span>
+              </div>
+            </div>
+            <div class="swatch-card">
+              <div class="swatch-color" style="background-color: #344054;"></div>
+              <div class="swatch-info">
+                <span class="swatch-name">Deep Blue-400</span>
+                <span class="swatch-value">#344054</span>
+              </div>
+            </div>
+            <div class="swatch-card">
+              <div class="swatch-color" style="background-color: #1D2939;"></div>
+              <div class="swatch-info">
+                <span class="swatch-name">Deep Blue-500</span>
+                <span class="swatch-value">#1D2939</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="swatch-group">
+          <h3>Neutral</h3>
+          <div class="swatch-grid">
+            <div class="swatch-card">
+              <div class="swatch-color" style="background-color: #F1F3F5;"></div>
+              <div class="swatch-info">
+                <span class="swatch-name">Neutral-100</span>
+                <span class="swatch-value">#F1F3F5</span>
+              </div>
+            </div>
+            <div class="swatch-card">
+              <div class="swatch-color" style="background-color: #E9ECEF;"></div>
+              <div class="swatch-info">
+                <span class="swatch-name">Neutral-200</span>
+                <span class="swatch-value">#E9ECEF</span>
+              </div>
+            </div>
+            <div class="swatch-card">
+              <div class="swatch-color" style="background-color: #DEE2E6;"></div>
+              <div class="swatch-info">
+                <span class="swatch-name">Neutral-300</span>
+                <span class="swatch-value">#DEE2E6</span>
+              </div>
+            </div>
+            <div class="swatch-card">
+              <div class="swatch-color" style="background-color: #CED4DA;"></div>
+              <div class="swatch-info">
+                <span class="swatch-name">Neutral-400</span>
+                <span class="swatch-value">#CED4DA</span>
+              </div>
+            </div>
+            <div class="swatch-card">
+              <div class="swatch-color" style="background-color: #ADB5BD;"></div>
+              <div class="swatch-info">
+                <span class="swatch-name">Neutral-500</span>
+                <span class="swatch-value">#ADB5BD</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="swatch-group">
+          <h3>Orange</h3>
+          <div class="swatch-grid">
+            <div class="swatch-card">
+              <div class="swatch-color" style="background-color: #FFE8CC;"></div>
+              <div class="swatch-info">
+                <span class="swatch-name">Orange-100</span>
+                <span class="swatch-value">#FFE8CC</span>
+              </div>
+            </div>
+            <div class="swatch-card">
+              <div class="swatch-color" style="background-color: #FFD19A;"></div>
+              <div class="swatch-info">
+                <span class="swatch-name">Orange-200</span>
+                <span class="swatch-value">#FFD19A</span>
+              </div>
+            </div>
+            <div class="swatch-card">
+              <div class="swatch-color" style="background-color: #FFA94D;"></div>
+              <div class="swatch-info">
+                <span class="swatch-name">Orange-300</span>
+                <span class="swatch-value">#FFA94D</span>
+              </div>
+            </div>
+            <div class="swatch-card">
+              <div class="swatch-color" style="background-color: #FF922B;"></div>
+              <div class="swatch-info">
+                <span class="swatch-name">Orange-400</span>
+                <span class="swatch-value">#FF922B</span>
+              </div>
+            </div>
+            <div class="swatch-card">
+              <div class="swatch-color" style="background-color: #F76707;"></div>
+              <div class="swatch-info">
+                <span class="swatch-name">Orange-500</span>
+                <span class="swatch-value">#F76707</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="swatch-group">
+          <h3>Pink</h3>
+          <div class="swatch-grid">
+            <div class="swatch-card">
+              <div class="swatch-color" style="background-color: #FFDEEB;"></div>
+              <div class="swatch-info">
+                <span class="swatch-name">Pink-100</span>
+                <span class="swatch-value">#FFDEEB</span>
+              </div>
+            </div>
+            <div class="swatch-card">
+              <div class="swatch-color" style="background-color: #FCC2D7;"></div>
+              <div class="swatch-info">
+                <span class="swatch-name">Pink-200</span>
+                <span class="swatch-value">#FCC2D7</span>
+              </div>
+            </div>
+            <div class="swatch-card">
+              <div class="swatch-color" style="background-color: #FAA2C1;"></div>
+              <div class="swatch-info">
+                <span class="swatch-name">Pink-300</span>
+                <span class="swatch-value">#FAA2C1</span>
+              </div>
+            </div>
+            <div class="swatch-card">
+              <div class="swatch-color" style="background-color: #F06595;"></div>
+              <div class="swatch-info">
+                <span class="swatch-name">Pink-400</span>
+                <span class="swatch-value">#F06595</span>
+              </div>
+            </div>
+            <div class="swatch-card">
+              <div class="swatch-color" style="background-color: #E64980;"></div>
+              <div class="swatch-info">
+                <span class="swatch-name">Pink-500</span>
+                <span class="swatch-value">#E64980</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="swatch-group">
+          <h3>Violet</h3>
+          <div class="swatch-grid">
+            <div class="swatch-card">
+              <div class="swatch-color" style="background-color: #E5DBFF;"></div>
+              <div class="swatch-info">
+                <span class="swatch-name">Violet-100</span>
+                <span class="swatch-value">#E5DBFF</span>
+              </div>
+            </div>
+            <div class="swatch-card">
+              <div class="swatch-color" style="background-color: #D0BFFF;"></div>
+              <div class="swatch-info">
+                <span class="swatch-name">Violet-200</span>
+                <span class="swatch-value">#D0BFFF</span>
+              </div>
+            </div>
+            <div class="swatch-card">
+              <div class="swatch-color" style="background-color: #B197FC;"></div>
+              <div class="swatch-info">
+                <span class="swatch-name">Violet-300</span>
+                <span class="swatch-value">#B197FC</span>
+              </div>
+            </div>
+            <div class="swatch-card">
+              <div class="swatch-color" style="background-color: #9775FA;"></div>
+              <div class="swatch-info">
+                <span class="swatch-name">Violet-400</span>
+                <span class="swatch-value">#9775FA</span>
+              </div>
+            </div>
+            <div class="swatch-card">
+              <div class="swatch-color" style="background-color: #7950F2;"></div>
+              <div class="swatch-info">
+                <span class="swatch-name">Violet-500</span>
+                <span class="swatch-value">#7950F2</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Semantic Tokens - General -->
+      <div class="doc-section">
+        <h2>Semantic Tokens</h2>
+        <p>Semantic tokens map primitive values to contextual roles. Use these instead of primitives in production code.</p>
+
+        <!-- Border Tokens -->
+        <div class="token-category">
+          <h3>Border</h3>
+          <div class="token-table-wrapper">
+            <table class="token-table">
+              <thead>
+                <tr>
+                  <th>Swatch</th>
+                  <th>Token Name</th>
+                  <th>Value (reference)</th>
+                  <th>Description</th>
+                  <th>Usage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-token-name="semantic-border-active">
+                  <td><span class="token-swatch" style="background-color: var(--semantic-border-active);"></span></td>
+                  <td><span class="token-name">--semantic-border-active</span></td>
+                  <td class="token-value">primitive-blue-500</td>
+                  <td class="token-description">Used for active/selected element borders</td>
+                  <td class="token-usage">Input focus, selected tabs</td>
+                </tr>
+                <tr data-token-name="semantic-border-dark">
+                  <td><span class="token-swatch" style="background-color: var(--semantic-border-dark);"></span></td>
+                  <td><span class="token-name">--semantic-border-dark</span></td>
+                  <td class="token-value">primitive-neutral-700</td>
+                  <td class="token-description">Used for high-contrast dark borders</td>
+                  <td class="token-usage">Dividers on light surfaces</td>
+                </tr>
+                <tr data-token-name="semantic-border-default">
+                  <td><span class="token-swatch" style="background-color: var(--semantic-border-default);"></span></td>
+                  <td><span class="token-name">--semantic-border-default</span></td>
+                  <td class="token-value">primitive-neutral-300</td>
+                  <td class="token-description">Default border for containers and dividers</td>
+                  <td class="token-usage">Cards, inputs, tables</td>
+                </tr>
+                <tr data-token-name="semantic-border-inverse">
+                  <td><span class="token-swatch" style="background-color: var(--semantic-border-inverse);"></span></td>
+                  <td><span class="token-name">--semantic-border-inverse</span></td>
+                  <td class="token-value">primitive-neutral-0</td>
+                  <td class="token-description">Border for elements on dark surfaces</td>
+                  <td class="token-usage">Elements on inverse backgrounds</td>
+                </tr>
+                <tr data-token-name="semantic-border-strong">
+                  <td><span class="token-swatch" style="background-color: var(--semantic-border-strong);"></span></td>
+                  <td><span class="token-name">--semantic-border-strong</span></td>
+                  <td class="token-value">primitive-neutral-500</td>
+                  <td class="token-description">Prominent borders requiring more visual weight</td>
+                  <td class="token-usage">Emphasized containers</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Content Tokens -->
+        <div class="token-category">
+          <h3>Content</h3>
+          <div class="token-table-wrapper">
+            <table class="token-table">
+              <thead>
+                <tr>
+                  <th>Swatch</th>
+                  <th>Token Name</th>
+                  <th>Value (reference)</th>
+                  <th>Description</th>
+                  <th>Usage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-token-name="semantic-content-brand">
+                  <td><span class="token-swatch" style="background-color: var(--semantic-content-brand);"></span></td>
+                  <td><span class="token-name">--semantic-content-brand</span></td>
+                  <td class="token-value">primitive-blue-500</td>
+                  <td class="token-description">Brand-colored text and icons</td>
+                  <td class="token-usage">Links, branded labels</td>
+                </tr>
+                <tr data-token-name="semantic-content-inverse">
+                  <td><span class="token-swatch" style="background-color: var(--semantic-content-inverse);"></span></td>
+                  <td><span class="token-name">--semantic-content-inverse</span></td>
+                  <td class="token-value">primitive-neutral-0</td>
+                  <td class="token-description">Text and icons on dark/inverse backgrounds</td>
+                  <td class="token-usage">Text on filled buttons, dark cards</td>
+                </tr>
+                <tr data-token-name="semantic-content-primary">
+                  <td><span class="token-swatch" style="background-color: var(--semantic-content-primary);"></span></td>
+                  <td><span class="token-name">--semantic-content-primary</span></td>
+                  <td class="token-value">primitive-neutral-900</td>
+                  <td class="token-description">Default text and icon color for body content</td>
+                  <td class="token-usage">Headings, body text, primary icons</td>
+                </tr>
+                <tr data-token-name="semantic-content-secondary">
+                  <td><span class="token-swatch" style="background-color: var(--semantic-content-secondary);"></span></td>
+                  <td><span class="token-name">--semantic-content-secondary</span></td>
+                  <td class="token-value">primitive-neutral-600</td>
+                  <td class="token-description">Supporting text with less emphasis</td>
+                  <td class="token-usage">Captions, helper text, timestamps</td>
+                </tr>
+                <tr data-token-name="semantic-content-tertiary">
+                  <td><span class="token-swatch" style="background-color: var(--semantic-content-tertiary);"></span></td>
+                  <td><span class="token-name">--semantic-content-tertiary</span></td>
+                  <td class="token-value">primitive-neutral-500</td>
+                  <td class="token-description">Lowest emphasis text</td>
+                  <td class="token-usage">Placeholder text, disabled labels</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Surface Tokens -->
+        <div class="token-category">
+          <h3>Surface</h3>
+          <div class="token-table-wrapper">
+            <table class="token-table">
+              <thead>
+                <tr>
+                  <th>Swatch</th>
+                  <th>Token Name</th>
+                  <th>Value (reference)</th>
+                  <th>Description</th>
+                  <th>Usage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-token-name="semantic-surface-brand">
+                  <td><span class="token-swatch" style="background-color: var(--semantic-surface-brand);"></span></td>
+                  <td><span class="token-name">--semantic-surface-brand</span></td>
+                  <td class="token-value">primitive-blue-500</td>
+                  <td class="token-description">Brand-colored background</td>
+                  <td class="token-usage">Banners, highlighted sections</td>
+                </tr>
+                <tr data-token-name="semantic-surface-canvas">
+                  <td><span class="token-swatch" style="background-color: var(--semantic-surface-canvas);"></span></td>
+                  <td><span class="token-name">--semantic-surface-canvas</span></td>
+                  <td class="token-value">primitive-neutral-50</td>
+                  <td class="token-description">App-level page background</td>
+                  <td class="token-usage">Body/root background</td>
+                </tr>
+                <tr data-token-name="semantic-surface-inverse">
+                  <td><span class="token-swatch" style="background-color: var(--semantic-surface-inverse);"></span></td>
+                  <td><span class="token-name">--semantic-surface-inverse</span></td>
+                  <td class="token-value">primitive-neutral-900</td>
+                  <td class="token-description">Inverted dark background for contrast areas</td>
+                  <td class="token-usage">Dark cards, tooltips, overlays</td>
+                </tr>
+                <tr data-token-name="semantic-surface-muted">
+                  <td><span class="token-swatch" style="background-color: var(--semantic-surface-muted);"></span></td>
+                  <td><span class="token-name">--semantic-surface-muted</span></td>
+                  <td class="token-value">primitive-neutral-100</td>
+                  <td class="token-description">Slightly tinted background for grouped areas</td>
+                  <td class="token-usage">Sidebar backgrounds, code blocks</td>
+                </tr>
+                <tr data-token-name="semantic-surface-subtle">
+                  <td><span class="token-swatch" style="background-color: var(--semantic-surface-subtle);"></span></td>
+                  <td><span class="token-name">--semantic-surface-subtle</span></td>
+                  <td class="token-value">primitive-neutral-200</td>
+                  <td class="token-description">Subtle differentiation surface</td>
+                  <td class="token-usage">Hover states, secondary panels</td>
+                </tr>
+                <tr data-token-name="semantic-surface-sunken">
+                  <td><span class="token-swatch" style="background-color: var(--semantic-surface-sunken);"></span></td>
+                  <td><span class="token-name">--semantic-surface-sunken</span></td>
+                  <td class="token-value">primitive-neutral-100</td>
+                  <td class="token-description">Recessed background to indicate depth</td>
+                  <td class="token-usage">Inset containers</td>
+                </tr>
+                <tr data-token-name="semantic-surface-tooltip">
+                  <td><span class="token-swatch" style="background-color: var(--semantic-surface-tooltip);"></span></td>
+                  <td><span class="token-name">--semantic-surface-tooltip</span></td>
+                  <td class="token-value">primitive-neutral-800</td>
+                  <td class="token-description">Background for tooltip popups</td>
+                  <td class="token-usage">Tooltips</td>
+                </tr>
+                <tr data-token-name="semantic-surface-white">
+                  <td><span class="token-swatch" style="background-color: var(--semantic-surface-white);"></span></td>
+                  <td><span class="token-name">--semantic-surface-white</span></td>
+                  <td class="token-value">primitive-neutral-0</td>
+                  <td class="token-description">Pure white surface, always remains white</td>
+                  <td class="token-usage">Cards, modals, dropdowns</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Component Semantic Tokens - Action -->
+      <div class="doc-section">
+        <h2>Component Tokens: Action</h2>
+        <p>Action tokens control interactive element styles across the system (inputs, checkboxes, dropdowns, toggles).</p>
+
+        <!-- Primary -->
+        <div class="token-category">
+          <h3>Action / Primary</h3>
+          <div class="token-table-wrapper">
+            <table class="token-table">
+              <thead>
+                <tr>
+                  <th>Token Name</th>
+                  <th>Value</th>
+                  <th>Primitive</th>
+                  <th>Description</th>
+                  <th>Usage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-token-name="semantic-action-primary-bg-default">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-action-primary-bg-default);"></span><span class="token-name">--semantic-action-primary-bg-default</span><button class="copy-btn" data-copy="--semantic-action-primary-bg-default" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">blue-500</td>
+                  <td class="token-value">--primitive-blue-500</td>
+                  <td class="token-description">Used as the default background of primary action elements</td>
+                  <td class="token-usage">Checkbox, Dropdown, Toggle</td>
+                </tr>
+                <tr data-token-name="semantic-action-primary-bg-hover">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-action-primary-bg-hover);"></span><span class="token-name">--semantic-action-primary-bg-hover</span><button class="copy-btn" data-copy="--semantic-action-primary-bg-hover" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">blue-400</td>
+                  <td class="token-value">--primitive-blue-400</td>
+                  <td class="token-description">Hover background of primary action elements</td>
+                  <td class="token-usage">Checkbox, Segmented Control</td>
+                </tr>
+                <tr data-token-name="semantic-action-primary-bg-click-on">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-action-primary-bg-click-on);"></span><span class="token-name">--semantic-action-primary-bg-click-on</span><button class="copy-btn" data-copy="--semantic-action-primary-bg-click-on" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">blue-500</td>
+                  <td class="token-value">--primitive-blue-500</td>
+                  <td class="token-description">Pressed background of primary action elements</td>
+                  <td class="token-usage">Checkbox, Toggle</td>
+                </tr>
+                <tr data-token-name="semantic-action-primary-bg-inverse">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-action-primary-bg-inverse);"></span><span class="token-name">--semantic-action-primary-bg-inverse</span><button class="copy-btn" data-copy="--semantic-action-primary-bg-inverse" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-0</td>
+                  <td class="token-value">--primitive-neutral-0</td>
+                  <td class="token-description">Background on dark/inverted surfaces</td>
+                  <td class="token-usage">Toggle</td>
+                </tr>
+                <tr data-token-name="semantic-action-primary-border-default">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-action-primary-border-default);"></span><span class="token-name">--semantic-action-primary-border-default</span><button class="copy-btn" data-copy="--semantic-action-primary-border-default" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-300</td>
+                  <td class="token-value">--primitive-neutral-300</td>
+                  <td class="token-description">Default border of primary action elements</td>
+                  <td class="token-usage">Input, Checkbox, Dropdown, Table</td>
+                </tr>
+                <tr data-token-name="semantic-action-primary-border-hover">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-action-primary-border-hover);"></span><span class="token-name">--semantic-action-primary-border-hover</span><button class="copy-btn" data-copy="--semantic-action-primary-border-hover" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">blue-500</td>
+                  <td class="token-value">--primitive-blue-500</td>
+                  <td class="token-description">Hover border of primary action elements</td>
+                  <td class="token-usage">Input, Checkbox, Dropdown</td>
+                </tr>
+                <tr data-token-name="semantic-action-primary-border-click-on">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-action-primary-border-click-on);"></span><span class="token-name">--semantic-action-primary-border-click-on</span><button class="copy-btn" data-copy="--semantic-action-primary-border-click-on" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">blue-400</td>
+                  <td class="token-value">--primitive-blue-400</td>
+                  <td class="token-description">Pressed border of primary action elements</td>
+                  <td class="token-usage">Input, Checkbox, Radio</td>
+                </tr>
+                <tr data-token-name="semantic-action-primary-border-focus">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-action-primary-border-focus);"></span><span class="token-name">--semantic-action-primary-border-focus</span><button class="copy-btn" data-copy="--semantic-action-primary-border-focus" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">blue-300</td>
+                  <td class="token-value">--primitive-blue-300</td>
+                  <td class="token-description">Focus ring of primary action elements</td>
+                  <td class="token-usage">Button, Checkbox, Modal, Tabs</td>
+                </tr>
+                <tr data-token-name="semantic-action-primary-content-on-surface">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-action-primary-content-on-surface);"></span><span class="token-name">--semantic-action-primary-content-on-surface</span><button class="copy-btn" data-copy="--semantic-action-primary-content-on-surface" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-900</td>
+                  <td class="token-value">--primitive-neutral-900</td>
+                  <td class="token-description">Default text/icon on primary action surfaces</td>
+                  <td class="token-usage">Input, Dropdown, Pagination, Tabs</td>
+                </tr>
+                <tr data-token-name="semantic-action-primary-content-on-surface-subtle">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-action-primary-content-on-surface-subtle);"></span><span class="token-name">--semantic-action-primary-content-on-surface-subtle</span><button class="copy-btn" data-copy="--semantic-action-primary-content-on-surface-subtle" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-600</td>
+                  <td class="token-value">--primitive-neutral-600</td>
+                  <td class="token-description">Subdued text/icon on primary action surfaces</td>
+                  <td class="token-usage">Input placeholder, Table headers</td>
+                </tr>
+                <tr data-token-name="semantic-action-primary-content-on-surface-inverse">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-action-primary-content-on-surface-inverse);"></span><span class="token-name">--semantic-action-primary-content-on-surface-inverse</span><button class="copy-btn" data-copy="--semantic-action-primary-content-on-surface-inverse" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-0</td>
+                  <td class="token-value">--primitive-neutral-0</td>
+                  <td class="token-description">Text/icon on inverted primary surfaces</td>
+                  <td class="token-usage">Segmented Control, Toggle</td>
+                </tr>
+                <tr data-token-name="semantic-action-primary-content-on-surface-active">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-action-primary-content-on-surface-active);"></span><span class="token-name">--semantic-action-primary-content-on-surface-active</span><button class="copy-btn" data-copy="--semantic-action-primary-content-on-surface-active" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">blue-500</td>
+                  <td class="token-value">--primitive-blue-500</td>
+                  <td class="token-description">Text/icon in active state on primary surfaces</td>
+                  <td class="token-usage">Active tabs, selected items</td>
+                </tr>
+                <tr data-token-name="semantic-action-primary-content-on-surface-hover">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-action-primary-content-on-surface-hover);"></span><span class="token-name">--semantic-action-primary-content-on-surface-hover</span><button class="copy-btn" data-copy="--semantic-action-primary-content-on-surface-hover" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">blue-400</td>
+                  <td class="token-value">--primitive-blue-400</td>
+                  <td class="token-description">Text/icon in hover state on primary surfaces</td>
+                  <td class="token-usage">Hovered interactive text</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Secondary -->
+        <div class="token-category">
+          <h3>Action / Secondary</h3>
+          <div class="token-table-wrapper">
+            <table class="token-table">
+              <thead>
+                <tr>
+                  <th>Token Name</th>
+                  <th>Value</th>
+                  <th>Primitive</th>
+                  <th>Description</th>
+                  <th>Usage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-token-name="semantic-action-secondary-bg-default">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-action-secondary-bg-default);"></span><span class="token-name">--semantic-action-secondary-bg-default</span><button class="copy-btn" data-copy="--semantic-action-secondary-bg-default" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-0</td>
+                  <td class="token-value">--primitive-neutral-0</td>
+                  <td class="token-description">Default background of secondary action elements</td>
+                  <td class="token-usage">Input, Dropdown, Table, Search</td>
+                </tr>
+                <tr data-token-name="semantic-action-secondary-bg-hover">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-action-secondary-bg-hover);"></span><span class="token-name">--semantic-action-secondary-bg-hover</span><button class="copy-btn" data-copy="--semantic-action-secondary-bg-hover" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-50</td>
+                  <td class="token-value">--primitive-neutral-50</td>
+                  <td class="token-description">Hover background of secondary action elements</td>
+                  <td class="token-usage">Table Row, File Upload</td>
+                </tr>
+                <tr data-token-name="semantic-action-secondary-bg-click-on">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-action-secondary-bg-click-on);"></span><span class="token-name">--semantic-action-secondary-bg-click-on</span><button class="copy-btn" data-copy="--semantic-action-secondary-bg-click-on" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-100</td>
+                  <td class="token-value">--primitive-neutral-100</td>
+                  <td class="token-description">Pressed background of secondary action elements</td>
+                  <td class="token-usage">Checkbox, File Upload, Radio</td>
+                </tr>
+                <tr data-token-name="semantic-action-secondary-on-surface">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-action-secondary-on-surface);"></span><span class="token-name">--semantic-action-secondary-on-surface</span><button class="copy-btn" data-copy="--semantic-action-secondary-on-surface" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-900</td>
+                  <td class="token-value">--primitive-neutral-900</td>
+                  <td class="token-description">Text/icon on secondary action surfaces</td>
+                  <td class="token-usage">Labels, icons</td>
+                </tr>
+                <tr data-token-name="semantic-action-secondary-border">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-action-secondary-border);"></span><span class="token-name">--semantic-action-secondary-border</span><button class="copy-btn" data-copy="--semantic-action-secondary-border" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-300</td>
+                  <td class="token-value">--primitive-neutral-300</td>
+                  <td class="token-description">Border of secondary action elements</td>
+                  <td class="token-usage">Segmented Control, Table Rows</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Disabled -->
+        <div class="token-category">
+          <h3>Action / Disabled</h3>
+          <div class="token-table-wrapper">
+            <table class="token-table">
+              <thead>
+                <tr>
+                  <th>Token Name</th>
+                  <th>Value</th>
+                  <th>Primitive</th>
+                  <th>Description</th>
+                  <th>Usage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-token-name="semantic-action-disabled-bg-primary">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-action-disabled-bg-primary);"></span><span class="token-name">--semantic-action-disabled-bg-primary</span><button class="copy-btn" data-copy="--semantic-action-disabled-bg-primary" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-100</td>
+                  <td class="token-value">--primitive-neutral-100</td>
+                  <td class="token-description">Background of disabled primary actions</td>
+                  <td class="token-usage">Input, Table Cell</td>
+                </tr>
+                <tr data-token-name="semantic-action-disabled-bg-secondary">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-action-disabled-bg-secondary);"></span><span class="token-name">--semantic-action-disabled-bg-secondary</span><button class="copy-btn" data-copy="--semantic-action-disabled-bg-secondary" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-200</td>
+                  <td class="token-value">--primitive-neutral-200</td>
+                  <td class="token-description">Background of disabled secondary actions</td>
+                  <td class="token-usage">Checkbox, Radio, Tag</td>
+                </tr>
+                <tr data-token-name="semantic-action-disabled-bg-tertiary">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-action-disabled-bg-tertiary);"></span><span class="token-name">--semantic-action-disabled-bg-tertiary</span><button class="copy-btn" data-copy="--semantic-action-disabled-bg-tertiary" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-50</td>
+                  <td class="token-value">--primitive-neutral-50</td>
+                  <td class="token-description">Background of disabled tertiary actions</td>
+                  <td class="token-usage">Progress Bar, Toggle</td>
+                </tr>
+                <tr data-token-name="semantic-action-disabled-content-on-surface">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-action-disabled-content-on-surface);"></span><span class="token-name">--semantic-action-disabled-content-on-surface</span><button class="copy-btn" data-copy="--semantic-action-disabled-content-on-surface" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-400</td>
+                  <td class="token-value">--primitive-neutral-400</td>
+                  <td class="token-description">Text/icon on any disabled action</td>
+                  <td class="token-usage">Input, Checkbox, Slider, Table</td>
+                </tr>
+                <tr data-token-name="semantic-action-disabled-border">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-action-disabled-border);"></span><span class="token-name">--semantic-action-disabled-border</span><button class="copy-btn" data-copy="--semantic-action-disabled-border" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-200</td>
+                  <td class="token-value">--primitive-neutral-200</td>
+                  <td class="token-description">Border of any disabled action</td>
+                  <td class="token-usage">Checkbox, Input, Radio, Slider</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Danger -->
+        <div class="token-category">
+          <h3>Action / Danger</h3>
+          <div class="token-table-wrapper">
+            <table class="token-table">
+              <thead>
+                <tr>
+                  <th>Token Name</th>
+                  <th>Value</th>
+                  <th>Primitive</th>
+                  <th>Description</th>
+                  <th>Usage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-token-name="semantic-action-danger-border">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-action-danger-border);"></span><span class="token-name">--semantic-action-danger-border</span><button class="copy-btn" data-copy="--semantic-action-danger-border" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">red-500</td>
+                  <td class="token-value">--primitive-red-500</td>
+                  <td class="token-description">Border for destructive/danger actions</td>
+                  <td class="token-usage">Input error state</td>
+                </tr>
+                <tr data-token-name="semantic-action-danger-content-on-surface">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-action-danger-content-on-surface);"></span><span class="token-name">--semantic-action-danger-content-on-surface</span><button class="copy-btn" data-copy="--semantic-action-danger-content-on-surface" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">red-500</td>
+                  <td class="token-value">--primitive-red-500</td>
+                  <td class="token-description">Text/icon for destructive/danger actions</td>
+                  <td class="token-usage">Error messages, validation text</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Component Semantic Tokens - Button -->
+      <div class="doc-section">
+        <h2>Component Tokens: Button</h2>
+        <p>Button tokens define all visual states for the button component variants.</p>
+
+        <!-- Button / Primary -->
+        <div class="token-category">
+          <h3>Button / Primary</h3>
+          <div class="token-table-wrapper">
+            <table class="token-table">
+              <thead>
+                <tr>
+                  <th>Token Name</th>
+                  <th>Value</th>
+                  <th>Primitive</th>
+                  <th>Description</th>
+                  <th>Usage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-token-name="semantic-button-primary-bg-default">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-primary-bg-default);"></span><span class="token-name">--semantic-button-primary-bg-default</span><button class="copy-btn" data-copy="--semantic-button-primary-bg-default" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">blue-500</td>
+                  <td class="token-value">--primitive-blue-500</td>
+                  <td class="token-description">Use as the default background of primary buttons.</td>
+                  <td class="token-usage">Primary Button</td>
+                </tr>
+                <tr data-token-name="semantic-button-primary-bg-hover-click-on">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-primary-bg-hover-click-on);"></span><span class="token-name">--semantic-button-primary-bg-hover-click-on</span><button class="copy-btn" data-copy="--semantic-button-primary-bg-hover-click-on" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">blue-400</td>
+                  <td class="token-value">--primitive-blue-400</td>
+                  <td class="token-description">Hover and pressed background of primary buttons.</td>
+                  <td class="token-usage">Primary Button</td>
+                </tr>
+                <tr data-token-name="semantic-button-primary-content-on-surface">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-primary-content-on-surface);"></span><span class="token-name">--semantic-button-primary-content-on-surface</span><button class="copy-btn" data-copy="--semantic-button-primary-content-on-surface" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-0</td>
+                  <td class="token-value">--primitive-neutral-0</td>
+                  <td class="token-description">Text/icon color on primary button surfaces.</td>
+                  <td class="token-usage">Primary Button</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Button / Secondary -->
+        <div class="token-category">
+          <h3>Button / Secondary</h3>
+          <div class="token-table-wrapper">
+            <table class="token-table">
+              <thead>
+                <tr>
+                  <th>Token Name</th>
+                  <th>Value</th>
+                  <th>Primitive</th>
+                  <th>Description</th>
+                  <th>Usage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-token-name="semantic-button-secondary-bg-default">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-secondary-bg-default);"></span><span class="token-name">--semantic-button-secondary-bg-default</span><button class="copy-btn" data-copy="--semantic-button-secondary-bg-default" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-0</td>
+                  <td class="token-value">--primitive-neutral-0</td>
+                  <td class="token-description">Default background of secondary buttons.</td>
+                  <td class="token-usage">Secondary Button</td>
+                </tr>
+                <tr data-token-name="semantic-button-secondary-bg-hover">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-secondary-bg-hover);"></span><span class="token-name">--semantic-button-secondary-bg-hover</span><button class="copy-btn" data-copy="--semantic-button-secondary-bg-hover" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-50</td>
+                  <td class="token-value">--primitive-neutral-50</td>
+                  <td class="token-description">Hover background of secondary buttons.</td>
+                  <td class="token-usage">Secondary Button</td>
+                </tr>
+                <tr data-token-name="semantic-button-secondary-bg-click-on">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-secondary-bg-click-on);"></span><span class="token-name">--semantic-button-secondary-bg-click-on</span><button class="copy-btn" data-copy="--semantic-button-secondary-bg-click-on" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-100</td>
+                  <td class="token-value">--primitive-neutral-100</td>
+                  <td class="token-description">Pressed background of secondary buttons.</td>
+                  <td class="token-usage">Secondary Button</td>
+                </tr>
+                <tr data-token-name="semantic-button-secondary-border">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-secondary-border);"></span><span class="token-name">--semantic-button-secondary-border</span><button class="copy-btn" data-copy="--semantic-button-secondary-border" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-300</td>
+                  <td class="token-value">--primitive-neutral-300</td>
+                  <td class="token-description">Default border of secondary buttons.</td>
+                  <td class="token-usage">Secondary Button</td>
+                </tr>
+                <tr data-token-name="semantic-button-secondary-border-hover">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-secondary-border-hover);"></span><span class="token-name">--semantic-button-secondary-border-hover</span><button class="copy-btn" data-copy="--semantic-button-secondary-border-hover" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">blue-500</td>
+                  <td class="token-value">--primitive-blue-500</td>
+                  <td class="token-description">Hover border of secondary buttons.</td>
+                  <td class="token-usage">Secondary Button</td>
+                </tr>
+                <tr data-token-name="semantic-button-secondary-content-on-surface">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-secondary-content-on-surface);"></span><span class="token-name">--semantic-button-secondary-content-on-surface</span><button class="copy-btn" data-copy="--semantic-button-secondary-content-on-surface" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-900</td>
+                  <td class="token-value">--primitive-neutral-900</td>
+                  <td class="token-description">Text/icon color on secondary button surfaces.</td>
+                  <td class="token-usage">Secondary Button</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Button / Tertiary -->
+        <div class="token-category">
+          <h3>Button / Tertiary</h3>
+          <div class="token-table-wrapper">
+            <table class="token-table">
+              <thead>
+                <tr>
+                  <th>Token Name</th>
+                  <th>Value</th>
+                  <th>Primitive</th>
+                  <th>Description</th>
+                  <th>Usage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-token-name="semantic-button-tertiary-bg-default">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-tertiary-bg-default);"></span><span class="token-name">--semantic-button-tertiary-bg-default</span><button class="copy-btn" data-copy="--semantic-button-tertiary-bg-default" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-0</td>
+                  <td class="token-value">--primitive-neutral-0</td>
+                  <td class="token-description">Default background of tertiary buttons.</td>
+                  <td class="token-usage">Tertiary Button</td>
+                </tr>
+                <tr data-token-name="semantic-button-tertiary-bg-click-on">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-tertiary-bg-click-on);"></span><span class="token-name">--semantic-button-tertiary-bg-click-on</span><button class="copy-btn" data-copy="--semantic-button-tertiary-bg-click-on" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-100</td>
+                  <td class="token-value">--primitive-neutral-100</td>
+                  <td class="token-description">Pressed background of tertiary buttons.</td>
+                  <td class="token-usage">Tertiary Button</td>
+                </tr>
+                <tr data-token-name="semantic-button-tertiary-border">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-tertiary-border);"></span><span class="token-name">--semantic-button-tertiary-border</span><button class="copy-btn" data-copy="--semantic-button-tertiary-border" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-200</td>
+                  <td class="token-value">--primitive-neutral-200</td>
+                  <td class="token-description">Border of tertiary buttons.</td>
+                  <td class="token-usage">Tertiary Button</td>
+                </tr>
+                <tr data-token-name="semantic-button-tertiary-content-on-surface">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-tertiary-content-on-surface);"></span><span class="token-name">--semantic-button-tertiary-content-on-surface</span><button class="copy-btn" data-copy="--semantic-button-tertiary-content-on-surface" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-700</td>
+                  <td class="token-value">--primitive-neutral-700</td>
+                  <td class="token-description">Text/icon color on tertiary button surfaces.</td>
+                  <td class="token-usage">Tertiary Button</td>
+                </tr>
+                <tr data-token-name="semantic-button-tertiary-content-on-surface-hover-click-on">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-tertiary-content-on-surface-hover-click-on);"></span><span class="token-name">--semantic-button-tertiary-content-on-surface-hover-click-on</span><button class="copy-btn" data-copy="--semantic-button-tertiary-content-on-surface-hover-click-on" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">blue-500</td>
+                  <td class="token-value">--primitive-blue-500</td>
+                  <td class="token-description">Text/icon color on hover/pressed tertiary buttons.</td>
+                  <td class="token-usage">Tertiary Button</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Button / Tertiary Icon Button -->
+        <div class="token-category">
+          <h3>Button / Tertiary Icon Button</h3>
+          <div class="token-table-wrapper">
+            <table class="token-table">
+              <thead>
+                <tr>
+                  <th>Token Name</th>
+                  <th>Value</th>
+                  <th>Primitive</th>
+                  <th>Description</th>
+                  <th>Usage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-token-name="semantic-button-tertiary-icon-button-bg-default">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-tertiary-icon-button-bg-default);"></span><span class="token-name">--semantic-button-tertiary-icon-button-bg-default</span><button class="copy-btn" data-copy="--semantic-button-tertiary-icon-button-bg-default" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-0</td>
+                  <td class="token-value">--primitive-neutral-0</td>
+                  <td class="token-description">Default background of tertiary icon buttons.</td>
+                  <td class="token-usage">Icon Button</td>
+                </tr>
+                <tr data-token-name="semantic-button-tertiary-icon-button-bg-hover">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-tertiary-icon-button-bg-hover);"></span><span class="token-name">--semantic-button-tertiary-icon-button-bg-hover</span><button class="copy-btn" data-copy="--semantic-button-tertiary-icon-button-bg-hover" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-100</td>
+                  <td class="token-value">--primitive-neutral-100</td>
+                  <td class="token-description">Hover background of tertiary icon buttons.</td>
+                  <td class="token-usage">Icon Button</td>
+                </tr>
+                <tr data-token-name="semantic-button-tertiary-icon-button-bg-click-on">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-tertiary-icon-button-bg-click-on);"></span><span class="token-name">--semantic-button-tertiary-icon-button-bg-click-on</span><button class="copy-btn" data-copy="--semantic-button-tertiary-icon-button-bg-click-on" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-200</td>
+                  <td class="token-value">--primitive-neutral-200</td>
+                  <td class="token-description">Pressed background of tertiary icon buttons.</td>
+                  <td class="token-usage">Icon Button</td>
+                </tr>
+                <tr data-token-name="semantic-button-tertiary-icon-button-content-on-surface">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-tertiary-icon-button-content-on-surface);"></span><span class="token-name">--semantic-button-tertiary-icon-button-content-on-surface</span><button class="copy-btn" data-copy="--semantic-button-tertiary-icon-button-content-on-surface" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-700</td>
+                  <td class="token-value">--primitive-neutral-700</td>
+                  <td class="token-description">Icon color on tertiary icon buttons.</td>
+                  <td class="token-usage">Icon Button</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Button / Ghost -->
+        <div class="token-category">
+          <h3>Button / Ghost</h3>
+          <div class="token-table-wrapper">
+            <table class="token-table">
+              <thead>
+                <tr>
+                  <th>Token Name</th>
+                  <th>Value</th>
+                  <th>Primitive</th>
+                  <th>Description</th>
+                  <th>Usage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-token-name="semantic-button-ghost-bg-hover">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-ghost-bg-hover);"></span><span class="token-name">--semantic-button-ghost-bg-hover</span><button class="copy-btn" data-copy="--semantic-button-ghost-bg-hover" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-50</td>
+                  <td class="token-value">--primitive-neutral-50</td>
+                  <td class="token-description">Hover background of ghost buttons.</td>
+                  <td class="token-usage">Ghost Button</td>
+                </tr>
+                <tr data-token-name="semantic-button-ghost-bg-click-on">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-ghost-bg-click-on);"></span><span class="token-name">--semantic-button-ghost-bg-click-on</span><button class="copy-btn" data-copy="--semantic-button-ghost-bg-click-on" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-100</td>
+                  <td class="token-value">--primitive-neutral-100</td>
+                  <td class="token-description">Pressed background of ghost buttons.</td>
+                  <td class="token-usage">Ghost Button</td>
+                </tr>
+                <tr data-token-name="semantic-button-ghost-content-on-surface-default">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-ghost-content-on-surface-default);"></span><span class="token-name">--semantic-button-ghost-content-on-surface-default</span><button class="copy-btn" data-copy="--semantic-button-ghost-content-on-surface-default" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-900</td>
+                  <td class="token-value">--primitive-neutral-900</td>
+                  <td class="token-description">Default text/icon on ghost buttons.</td>
+                  <td class="token-usage">Ghost Button</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Button / Ghost Danger -->
+        <div class="token-category">
+          <h3>Button / Ghost Danger</h3>
+          <div class="token-table-wrapper">
+            <table class="token-table">
+              <thead>
+                <tr>
+                  <th>Token Name</th>
+                  <th>Value</th>
+                  <th>Primitive</th>
+                  <th>Description</th>
+                  <th>Usage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-token-name="semantic-button-ghost-danger-bg-surface">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-ghost-danger-bg-surface);"></span><span class="token-name">--semantic-button-ghost-danger-bg-surface</span><button class="copy-btn" data-copy="--semantic-button-ghost-danger-bg-surface" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">red-100</td>
+                  <td class="token-value">--primitive-red-100</td>
+                  <td class="token-description">Surface background of ghost danger buttons.</td>
+                  <td class="token-usage">Ghost Danger Button</td>
+                </tr>
+                <tr data-token-name="semantic-button-ghost-danger-bg-hover">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-ghost-danger-bg-hover);"></span><span class="token-name">--semantic-button-ghost-danger-bg-hover</span><button class="copy-btn" data-copy="--semantic-button-ghost-danger-bg-hover" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">red-200</td>
+                  <td class="token-value">--primitive-red-200</td>
+                  <td class="token-description">Hover background of ghost danger buttons.</td>
+                  <td class="token-usage">Ghost Danger Button</td>
+                </tr>
+                <tr data-token-name="semantic-button-ghost-danger-border">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-ghost-danger-border);"></span><span class="token-name">--semantic-button-ghost-danger-border</span><button class="copy-btn" data-copy="--semantic-button-ghost-danger-border" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">red-500</td>
+                  <td class="token-value">--primitive-red-500</td>
+                  <td class="token-description">Border of ghost danger buttons.</td>
+                  <td class="token-usage">Ghost Danger Button</td>
+                </tr>
+                <tr data-token-name="semantic-button-ghost-danger-content-on-surface">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-ghost-danger-content-on-surface);"></span><span class="token-name">--semantic-button-ghost-danger-content-on-surface</span><button class="copy-btn" data-copy="--semantic-button-ghost-danger-content-on-surface" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">red-600</td>
+                  <td class="token-value">--primitive-red-600</td>
+                  <td class="token-description">Text/icon on ghost danger buttons.</td>
+                  <td class="token-usage">Ghost Danger Button</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Button / Link -->
+        <div class="token-category">
+          <h3>Button / Link</h3>
+          <div class="token-table-wrapper">
+            <table class="token-table">
+              <thead>
+                <tr>
+                  <th>Token Name</th>
+                  <th>Value</th>
+                  <th>Primitive</th>
+                  <th>Description</th>
+                  <th>Usage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-token-name="semantic-button-link-content-on-surface-default">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-link-content-on-surface-default);"></span><span class="token-name">--semantic-button-link-content-on-surface-default</span><button class="copy-btn" data-copy="--semantic-button-link-content-on-surface-default" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">blue-500</td>
+                  <td class="token-value">--primitive-blue-500</td>
+                  <td class="token-description">Default text color for link buttons.</td>
+                  <td class="token-usage">Link Button</td>
+                </tr>
+                <tr data-token-name="semantic-button-link-content-on-surface-hover-focused-click-on">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-link-content-on-surface-hover-focused-click-on);"></span><span class="token-name">--semantic-button-link-content-on-surface-hover-focused-click-on</span><button class="copy-btn" data-copy="--semantic-button-link-content-on-surface-hover-focused-click-on" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">blue-400</td>
+                  <td class="token-value">--primitive-blue-400</td>
+                  <td class="token-description">Hover/focused/pressed text color for link buttons.</td>
+                  <td class="token-usage">Link Button</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Button / Text -->
+        <div class="token-category">
+          <h3>Button / Text</h3>
+          <div class="token-table-wrapper">
+            <table class="token-table">
+              <thead>
+                <tr>
+                  <th>Token Name</th>
+                  <th>Value</th>
+                  <th>Primitive</th>
+                  <th>Description</th>
+                  <th>Usage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-token-name="semantic-button-text-bg-hover">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-text-bg-hover);"></span><span class="token-name">--semantic-button-text-bg-hover</span><button class="copy-btn" data-copy="--semantic-button-text-bg-hover" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-50</td>
+                  <td class="token-value">--primitive-neutral-50</td>
+                  <td class="token-description">Hover background of text buttons.</td>
+                  <td class="token-usage">Text Button</td>
+                </tr>
+                <tr data-token-name="semantic-button-text-bg-click-on">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-text-bg-click-on);"></span><span class="token-name">--semantic-button-text-bg-click-on</span><button class="copy-btn" data-copy="--semantic-button-text-bg-click-on" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-100</td>
+                  <td class="token-value">--primitive-neutral-100</td>
+                  <td class="token-description">Pressed background of text buttons.</td>
+                  <td class="token-usage">Text Button</td>
+                </tr>
+                <tr data-token-name="semantic-button-text-content-on-surface-default">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-text-content-on-surface-default);"></span><span class="token-name">--semantic-button-text-content-on-surface-default</span><button class="copy-btn" data-copy="--semantic-button-text-content-on-surface-default" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-700</td>
+                  <td class="token-value">--primitive-neutral-700</td>
+                  <td class="token-description">Default text color of text buttons.</td>
+                  <td class="token-usage">Text Button</td>
+                </tr>
+                <tr data-token-name="semantic-button-text-content-on-surface-hover">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-text-content-on-surface-hover);"></span><span class="token-name">--semantic-button-text-content-on-surface-hover</span><button class="copy-btn" data-copy="--semantic-button-text-content-on-surface-hover" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-800</td>
+                  <td class="token-value">--primitive-neutral-800</td>
+                  <td class="token-description">Hover text color of text buttons.</td>
+                  <td class="token-usage">Text Button</td>
+                </tr>
+                <tr data-token-name="semantic-button-text-content-on-surface-click-on">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-text-content-on-surface-click-on);"></span><span class="token-name">--semantic-button-text-content-on-surface-click-on</span><button class="copy-btn" data-copy="--semantic-button-text-content-on-surface-click-on" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-700</td>
+                  <td class="token-value">--primitive-neutral-700</td>
+                  <td class="token-description">Pressed text color of text buttons.</td>
+                  <td class="token-usage">Text Button</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Button / Disabled -->
+        <div class="token-category">
+          <h3>Button / Disabled</h3>
+          <div class="token-table-wrapper">
+            <table class="token-table">
+              <thead>
+                <tr>
+                  <th>Token Name</th>
+                  <th>Value</th>
+                  <th>Primitive</th>
+                  <th>Description</th>
+                  <th>Usage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-token-name="semantic-button-disabled-bg">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-disabled-bg);"></span><span class="token-name">--semantic-button-disabled-bg</span><button class="copy-btn" data-copy="--semantic-button-disabled-bg" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-100</td>
+                  <td class="token-value">--primitive-neutral-100</td>
+                  <td class="token-description">Background of disabled buttons.</td>
+                  <td class="token-usage">All disabled buttons</td>
+                </tr>
+                <tr data-token-name="semantic-button-disabled-content-on-action">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-disabled-content-on-action);"></span><span class="token-name">--semantic-button-disabled-content-on-action</span><button class="copy-btn" data-copy="--semantic-button-disabled-content-on-action" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-400</td>
+                  <td class="token-value">--primitive-neutral-400</td>
+                  <td class="token-description">Text/icon on disabled buttons.</td>
+                  <td class="token-usage">All disabled buttons</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Button / Primary Danger -->
+        <div class="token-category">
+          <h3>Button / Primary Danger</h3>
+          <div class="token-table-wrapper">
+            <table class="token-table">
+              <thead>
+                <tr>
+                  <th>Token Name</th>
+                  <th>Value</th>
+                  <th>Primitive</th>
+                  <th>Description</th>
+                  <th>Usage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-token-name="semantic-button-primary-danger-bg-default">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-primary-danger-bg-default);"></span><span class="token-name">--semantic-button-primary-danger-bg-default</span><button class="copy-btn" data-copy="--semantic-button-primary-danger-bg-default" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">red-500</td>
+                  <td class="token-value">--primitive-red-500</td>
+                  <td class="token-description">Default background of primary danger buttons.</td>
+                  <td class="token-usage">Primary Danger Button</td>
+                </tr>
+                <tr data-token-name="semantic-button-primary-danger-bg-hover">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-primary-danger-bg-hover);"></span><span class="token-name">--semantic-button-primary-danger-bg-hover</span><button class="copy-btn" data-copy="--semantic-button-primary-danger-bg-hover" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">red-600</td>
+                  <td class="token-value">--primitive-red-600</td>
+                  <td class="token-description">Hover background of primary danger buttons.</td>
+                  <td class="token-usage">Primary Danger Button</td>
+                </tr>
+                <tr data-token-name="semantic-button-primary-danger-bg-click-on">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-primary-danger-bg-click-on);"></span><span class="token-name">--semantic-button-primary-danger-bg-click-on</span><button class="copy-btn" data-copy="--semantic-button-primary-danger-bg-click-on" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">red-700</td>
+                  <td class="token-value">--primitive-red-700</td>
+                  <td class="token-description">Pressed background of primary danger buttons.</td>
+                  <td class="token-usage">Primary Danger Button</td>
+                </tr>
+                <tr data-token-name="semantic-button-primary-danger-content-on-surface">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-primary-danger-content-on-surface);"></span><span class="token-name">--semantic-button-primary-danger-content-on-surface</span><button class="copy-btn" data-copy="--semantic-button-primary-danger-content-on-surface" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-0</td>
+                  <td class="token-value">--primitive-neutral-0</td>
+                  <td class="token-description">Text/icon on primary danger buttons.</td>
+                  <td class="token-usage">Primary Danger Button</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Button / Secondary Danger -->
+        <div class="token-category">
+          <h3>Button / Secondary Danger</h3>
+          <div class="token-table-wrapper">
+            <table class="token-table">
+              <thead>
+                <tr>
+                  <th>Token Name</th>
+                  <th>Value</th>
+                  <th>Primitive</th>
+                  <th>Description</th>
+                  <th>Usage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-token-name="semantic-button-secondary-danger-bg-default">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-secondary-danger-bg-default);"></span><span class="token-name">--semantic-button-secondary-danger-bg-default</span><button class="copy-btn" data-copy="--semantic-button-secondary-danger-bg-default" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-0</td>
+                  <td class="token-value">--primitive-neutral-0</td>
+                  <td class="token-description">Default background of secondary danger buttons.</td>
+                  <td class="token-usage">Secondary Danger Button</td>
+                </tr>
+                <tr data-token-name="semantic-button-secondary-danger-bg-hover">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-secondary-danger-bg-hover);"></span><span class="token-name">--semantic-button-secondary-danger-bg-hover</span><button class="copy-btn" data-copy="--semantic-button-secondary-danger-bg-hover" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">red-100</td>
+                  <td class="token-value">--primitive-red-100</td>
+                  <td class="token-description">Hover background of secondary danger buttons.</td>
+                  <td class="token-usage">Secondary Danger Button</td>
+                </tr>
+                <tr data-token-name="semantic-button-secondary-danger-bg-click-on">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-secondary-danger-bg-click-on);"></span><span class="token-name">--semantic-button-secondary-danger-bg-click-on</span><button class="copy-btn" data-copy="--semantic-button-secondary-danger-bg-click-on" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">red-200</td>
+                  <td class="token-value">--primitive-red-200</td>
+                  <td class="token-description">Pressed background of secondary danger buttons.</td>
+                  <td class="token-usage">Secondary Danger Button</td>
+                </tr>
+                <tr data-token-name="semantic-button-secondary-danger-border">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-secondary-danger-border);"></span><span class="token-name">--semantic-button-secondary-danger-border</span><button class="copy-btn" data-copy="--semantic-button-secondary-danger-border" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">red-500</td>
+                  <td class="token-value">--primitive-red-500</td>
+                  <td class="token-description">Border of secondary danger buttons.</td>
+                  <td class="token-usage">Secondary Danger Button</td>
+                </tr>
+                <tr data-token-name="semantic-button-secondary-danger-content-on-surface">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-secondary-danger-content-on-surface);"></span><span class="token-name">--semantic-button-secondary-danger-content-on-surface</span><button class="copy-btn" data-copy="--semantic-button-secondary-danger-content-on-surface" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">red-600</td>
+                  <td class="token-value">--primitive-red-600</td>
+                  <td class="token-description">Text/icon on secondary danger buttons.</td>
+                  <td class="token-usage">Secondary Danger Button</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Button / Notification -->
+        <div class="token-category">
+          <h3>Button / Notification</h3>
+          <div class="token-table-wrapper">
+            <table class="token-table">
+              <thead>
+                <tr>
+                  <th>Token Name</th>
+                  <th>Value</th>
+                  <th>Primitive</th>
+                  <th>Description</th>
+                  <th>Usage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-token-name="semantic-button-notification-bg-hover">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-notification-bg-hover);"></span><span class="token-name">--semantic-button-notification-bg-hover</span><button class="copy-btn" data-copy="--semantic-button-notification-bg-hover" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-200</td>
+                  <td class="token-value">--primitive-neutral-200</td>
+                  <td class="token-description">Hover background of notification buttons.</td>
+                  <td class="token-usage">Notification Button</td>
+                </tr>
+                <tr data-token-name="semantic-button-notification-border">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-notification-border);"></span><span class="token-name">--semantic-button-notification-border</span><button class="copy-btn" data-copy="--semantic-button-notification-border" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-0</td>
+                  <td class="token-value">--primitive-neutral-0</td>
+                  <td class="token-description">Border of notification buttons.</td>
+                  <td class="token-usage">Notification Button</td>
+                </tr>
+                <tr data-token-name="semantic-button-notification-content-on-surface">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-notification-content-on-surface);"></span><span class="token-name">--semantic-button-notification-content-on-surface</span><button class="copy-btn" data-copy="--semantic-button-notification-content-on-surface" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-0</td>
+                  <td class="token-value">--primitive-neutral-0</td>
+                  <td class="token-description">Text/icon on notification buttons.</td>
+                  <td class="token-usage">Notification Button</td>
+                </tr>
+                <tr data-token-name="semantic-button-notification-content-on-surface-disabled">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-notification-content-on-surface-disabled);"></span><span class="token-name">--semantic-button-notification-content-on-surface-disabled</span><button class="copy-btn" data-copy="--semantic-button-notification-content-on-surface-disabled" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-400</td>
+                  <td class="token-value">--primitive-neutral-400</td>
+                  <td class="token-description">Disabled text/icon on notification buttons.</td>
+                  <td class="token-usage">Notification Button</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Button / Focus -->
+        <div class="token-category">
+          <h3>Button / Focus</h3>
+          <div class="token-table-wrapper">
+            <table class="token-table">
+              <thead>
+                <tr>
+                  <th>Token Name</th>
+                  <th>Value</th>
+                  <th>Primitive</th>
+                  <th>Description</th>
+                  <th>Usage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-token-name="semantic-button-border-focus">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-button-border-focus);"></span><span class="token-name">--semantic-button-border-focus</span><button class="copy-btn" data-copy="--semantic-button-border-focus" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">blue-300</td>
+                  <td class="token-value">--primitive-blue-300</td>
+                  <td class="token-description">Focus ring border for all button variants.</td>
+                  <td class="token-usage">All Buttons</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Component Semantic Tokens - Feedback -->
+      <div class="doc-section">
+        <h2>Component Tokens: Feedback</h2>
+        <p>Feedback tokens communicate system status through color (critical, success, warning, info, default).</p>
+
+        <!-- Critical -->
+        <div class="token-category">
+          <h3>Feedback / Critical</h3>
+          <div class="token-table-wrapper">
+            <table class="token-table">
+              <thead>
+                <tr>
+                  <th>Token Name</th>
+                  <th>Value</th>
+                  <th>Primitive</th>
+                  <th>Description</th>
+                  <th>Usage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-token-name="semantic-feedback-critical-on-surface">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-feedback-critical-on-surface);"></span><span class="token-name">--semantic-feedback-critical-on-surface</span><button class="copy-btn" data-copy="--semantic-feedback-critical-on-surface" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">red-600</td>
+                  <td class="token-value">--primitive-red-600</td>
+                  <td class="token-description">Text/icon for critical feedback.</td>
+                  <td class="token-usage">Badge, File Upload, Modal-Feedback, Tag, Toast</td>
+                </tr>
+                <tr data-token-name="semantic-feedback-critical-border">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-feedback-critical-border);"></span><span class="token-name">--semantic-feedback-critical-border</span><button class="copy-btn" data-copy="--semantic-feedback-critical-border" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">red-500</td>
+                  <td class="token-value">--primitive-red-500</td>
+                  <td class="token-description">Border for critical feedback elements.</td>
+                  <td class="token-usage">Badge, Toast, Modal-Feedback</td>
+                </tr>
+                <tr data-token-name="semantic-feedback-critical-surface-subtle">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-feedback-critical-surface-subtle);"></span><span class="token-name">--semantic-feedback-critical-surface-subtle</span><button class="copy-btn" data-copy="--semantic-feedback-critical-surface-subtle" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">red-100</td>
+                  <td class="token-value">--primitive-red-100</td>
+                  <td class="token-description">Subtle background for critical feedback.</td>
+                  <td class="token-usage">Toast, Badge, Tag</td>
+                </tr>
+                <tr data-token-name="semantic-feedback-critical-surface-muted">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-feedback-critical-surface-muted);"></span><span class="token-name">--semantic-feedback-critical-surface-muted</span><button class="copy-btn" data-copy="--semantic-feedback-critical-surface-muted" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">red-200</td>
+                  <td class="token-value">--primitive-red-200</td>
+                  <td class="token-description">Muted background for critical feedback.</td>
+                  <td class="token-usage">File Upload, Modal-Feedback</td>
+                </tr>
+                <tr data-token-name="semantic-feedback-critical-surface-elevated">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-feedback-critical-surface-elevated);"></span><span class="token-name">--semantic-feedback-critical-surface-elevated</span><button class="copy-btn" data-copy="--semantic-feedback-critical-surface-elevated" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">red-500</td>
+                  <td class="token-value">--primitive-red-500</td>
+                  <td class="token-description">Elevated/solid background for critical feedback.</td>
+                  <td class="token-usage">Badge (filled), Toast (elevated)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Success -->
+        <div class="token-category">
+          <h3>Feedback / Success</h3>
+          <div class="token-table-wrapper">
+            <table class="token-table">
+              <thead>
+                <tr>
+                  <th>Token Name</th>
+                  <th>Value</th>
+                  <th>Primitive</th>
+                  <th>Description</th>
+                  <th>Usage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-token-name="semantic-feedback-success-on-surface">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-feedback-success-on-surface);"></span><span class="token-name">--semantic-feedback-success-on-surface</span><button class="copy-btn" data-copy="--semantic-feedback-success-on-surface" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">green-700</td>
+                  <td class="token-value">--primitive-green-700</td>
+                  <td class="token-description">Text/icon for success feedback.</td>
+                  <td class="token-usage">Badge, File Upload, Modal-Feedback, Tag, Toast</td>
+                </tr>
+                <tr data-token-name="semantic-feedback-success-border">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-feedback-success-border);"></span><span class="token-name">--semantic-feedback-success-border</span><button class="copy-btn" data-copy="--semantic-feedback-success-border" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">green-500</td>
+                  <td class="token-value">--primitive-green-500</td>
+                  <td class="token-description">Border for success feedback elements.</td>
+                  <td class="token-usage">Badge, Toast, Modal-Feedback</td>
+                </tr>
+                <tr data-token-name="semantic-feedback-success-surface-subtle">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-feedback-success-surface-subtle);"></span><span class="token-name">--semantic-feedback-success-surface-subtle</span><button class="copy-btn" data-copy="--semantic-feedback-success-surface-subtle" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">green-100</td>
+                  <td class="token-value">--primitive-green-100</td>
+                  <td class="token-description">Subtle background for success feedback.</td>
+                  <td class="token-usage">Toast, Badge, Tag</td>
+                </tr>
+                <tr data-token-name="semantic-feedback-success-surface-muted">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-feedback-success-surface-muted);"></span><span class="token-name">--semantic-feedback-success-surface-muted</span><button class="copy-btn" data-copy="--semantic-feedback-success-surface-muted" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">green-200</td>
+                  <td class="token-value">--primitive-green-200</td>
+                  <td class="token-description">Muted background for success feedback.</td>
+                  <td class="token-usage">File Upload, Modal-Feedback</td>
+                </tr>
+                <tr data-token-name="semantic-feedback-success-surface-elevated">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-feedback-success-surface-elevated);"></span><span class="token-name">--semantic-feedback-success-surface-elevated</span><button class="copy-btn" data-copy="--semantic-feedback-success-surface-elevated" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">green-600</td>
+                  <td class="token-value">--primitive-green-600</td>
+                  <td class="token-description">Elevated/solid background for success feedback.</td>
+                  <td class="token-usage">Badge (filled), Toast (elevated)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Warning -->
+        <div class="token-category">
+          <h3>Feedback / Warning</h3>
+          <div class="token-table-wrapper">
+            <table class="token-table">
+              <thead>
+                <tr>
+                  <th>Token Name</th>
+                  <th>Value</th>
+                  <th>Primitive</th>
+                  <th>Description</th>
+                  <th>Usage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-token-name="semantic-feedback-warning-on-surface">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-feedback-warning-on-surface);"></span><span class="token-name">--semantic-feedback-warning-on-surface</span><button class="copy-btn" data-copy="--semantic-feedback-warning-on-surface" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">yellow-600</td>
+                  <td class="token-value">--primitive-yellow-600</td>
+                  <td class="token-description">Text/icon for warning feedback.</td>
+                  <td class="token-usage">Badge, File Upload, Modal-Feedback, Tag, Toast</td>
+                </tr>
+                <tr data-token-name="semantic-feedback-warning-on-surface-elevated">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-feedback-warning-on-surface-elevated);"></span><span class="token-name">--semantic-feedback-warning-on-surface-elevated</span><button class="copy-btn" data-copy="--semantic-feedback-warning-on-surface-elevated" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">yellow-500</td>
+                  <td class="token-value">--primitive-yellow-500</td>
+                  <td class="token-description">Text/icon on elevated warning surfaces.</td>
+                  <td class="token-usage">Badge (filled), Toast (elevated)</td>
+                </tr>
+                <tr data-token-name="semantic-feedback-warning-border">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-feedback-warning-border);"></span><span class="token-name">--semantic-feedback-warning-border</span><button class="copy-btn" data-copy="--semantic-feedback-warning-border" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">yellow-500</td>
+                  <td class="token-value">--primitive-yellow-500</td>
+                  <td class="token-description">Border for warning feedback elements.</td>
+                  <td class="token-usage">Badge, Toast, Modal-Feedback</td>
+                </tr>
+                <tr data-token-name="semantic-feedback-warning-surface-subtle">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-feedback-warning-surface-subtle);"></span><span class="token-name">--semantic-feedback-warning-surface-subtle</span><button class="copy-btn" data-copy="--semantic-feedback-warning-surface-subtle" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">yellow-100</td>
+                  <td class="token-value">--primitive-yellow-100</td>
+                  <td class="token-description">Subtle background for warning feedback.</td>
+                  <td class="token-usage">Toast, Badge, Tag</td>
+                </tr>
+                <tr data-token-name="semantic-feedback-warning-surface-muted">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-feedback-warning-surface-muted);"></span><span class="token-name">--semantic-feedback-warning-surface-muted</span><button class="copy-btn" data-copy="--semantic-feedback-warning-surface-muted" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">yellow-200</td>
+                  <td class="token-value">--primitive-yellow-200</td>
+                  <td class="token-description">Muted background for warning feedback.</td>
+                  <td class="token-usage">File Upload, Modal-Feedback</td>
+                </tr>
+                <tr data-token-name="semantic-feedback-warning-surface-elevated">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-feedback-warning-surface-elevated);"></span><span class="token-name">--semantic-feedback-warning-surface-elevated</span><button class="copy-btn" data-copy="--semantic-feedback-warning-surface-elevated" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">yellow-500</td>
+                  <td class="token-value">--primitive-yellow-500</td>
+                  <td class="token-description">Elevated/solid background for warning feedback.</td>
+                  <td class="token-usage">Badge (filled), Toast (elevated)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Info -->
+        <div class="token-category">
+          <h3>Feedback / Info</h3>
+          <div class="token-table-wrapper">
+            <table class="token-table">
+              <thead>
+                <tr>
+                  <th>Token Name</th>
+                  <th>Value</th>
+                  <th>Primitive</th>
+                  <th>Description</th>
+                  <th>Usage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-token-name="semantic-feedback-info-on-surface">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-feedback-info-on-surface);"></span><span class="token-name">--semantic-feedback-info-on-surface</span><button class="copy-btn" data-copy="--semantic-feedback-info-on-surface" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">blue-500</td>
+                  <td class="token-value">--primitive-blue-500</td>
+                  <td class="token-description">Text/icon for info feedback.</td>
+                  <td class="token-usage">Badge, Modal-Feedback, Tag, Toast</td>
+                </tr>
+                <tr data-token-name="semantic-feedback-info-border">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-feedback-info-border);"></span><span class="token-name">--semantic-feedback-info-border</span><button class="copy-btn" data-copy="--semantic-feedback-info-border" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">blue-400</td>
+                  <td class="token-value">--primitive-blue-400</td>
+                  <td class="token-description">Border for info feedback elements.</td>
+                  <td class="token-usage">Badge, Toast, Modal-Feedback</td>
+                </tr>
+                <tr data-token-name="semantic-feedback-info-surface-subtle">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-feedback-info-surface-subtle);"></span><span class="token-name">--semantic-feedback-info-surface-subtle</span><button class="copy-btn" data-copy="--semantic-feedback-info-surface-subtle" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">blue-100</td>
+                  <td class="token-value">--primitive-blue-100</td>
+                  <td class="token-description">Subtle background for info feedback.</td>
+                  <td class="token-usage">Toast, Badge, Tag</td>
+                </tr>
+                <tr data-token-name="semantic-feedback-info-surface-muted">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-feedback-info-surface-muted);"></span><span class="token-name">--semantic-feedback-info-surface-muted</span><button class="copy-btn" data-copy="--semantic-feedback-info-surface-muted" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">blue-200</td>
+                  <td class="token-value">--primitive-blue-200</td>
+                  <td class="token-description">Muted background for info feedback.</td>
+                  <td class="token-usage">Modal-Feedback</td>
+                </tr>
+                <tr data-token-name="semantic-feedback-info-surface-elevated">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-feedback-info-surface-elevated);"></span><span class="token-name">--semantic-feedback-info-surface-elevated</span><button class="copy-btn" data-copy="--semantic-feedback-info-surface-elevated" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">blue-500</td>
+                  <td class="token-value">--primitive-blue-500</td>
+                  <td class="token-description">Elevated/solid background for info feedback.</td>
+                  <td class="token-usage">Badge (filled), Toast (elevated)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Default -->
+        <div class="token-category">
+          <h3>Feedback / Default</h3>
+          <div class="token-table-wrapper">
+            <table class="token-table">
+              <thead>
+                <tr>
+                  <th>Token Name</th>
+                  <th>Value</th>
+                  <th>Primitive</th>
+                  <th>Description</th>
+                  <th>Usage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-token-name="semantic-feedback-default-surface">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-feedback-default-surface);"></span><span class="token-name">--semantic-feedback-default-surface</span><button class="copy-btn" data-copy="--semantic-feedback-default-surface" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-200</td>
+                  <td class="token-value">--primitive-neutral-200</td>
+                  <td class="token-description">Default feedback surface background.</td>
+                  <td class="token-usage">Badge, Tag</td>
+                </tr>
+                <tr data-token-name="semantic-feedback-default-on-surface">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-feedback-default-on-surface);"></span><span class="token-name">--semantic-feedback-default-on-surface</span><button class="copy-btn" data-copy="--semantic-feedback-default-on-surface" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-700</td>
+                  <td class="token-value">--primitive-neutral-700</td>
+                  <td class="token-description">Text/icon for default feedback.</td>
+                  <td class="token-usage">Badge, Tag, Toast</td>
+                </tr>
+                <tr data-token-name="semantic-feedback-default-border">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-feedback-default-border);"></span><span class="token-name">--semantic-feedback-default-border</span><button class="copy-btn" data-copy="--semantic-feedback-default-border" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">neutral-300</td>
+                  <td class="token-value">--primitive-neutral-300</td>
+                  <td class="token-description">Border for default feedback elements.</td>
+                  <td class="token-usage">Badge, Tag, Toast</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Component Semantic Tokens - Tag -->
+      <div class="doc-section">
+        <h2>Component Tokens: Tag</h2>
+        <p>Tag accent tokens provide 9 distinct color pairs (background + text) for categorization and labeling.</p>
+
+        <div class="token-category">
+          <h3>Tag / Background Accents</h3>
+          <div class="token-table-wrapper">
+            <table class="token-table">
+              <thead>
+                <tr>
+                  <th>Token Name</th>
+                  <th>Value</th>
+                  <th>Description</th>
+                  <th>Usage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-token-name="semantic-tag-bg-accent-01">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-tag-bg-accent-01);"></span><span class="token-name">--semantic-tag-bg-accent-01</span><button class="copy-btn" data-copy="--semantic-tag-bg-accent-01" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">#EDF2FF</td>
+                  <td class="token-description">Background for accent 01 tags.</td>
+                  <td class="token-usage">Tag</td>
+                </tr>
+                <tr data-token-name="semantic-tag-bg-accent-02">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-tag-bg-accent-02);"></span><span class="token-name">--semantic-tag-bg-accent-02</span><button class="copy-btn" data-copy="--semantic-tag-bg-accent-02" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">#FFF4E6</td>
+                  <td class="token-description">Background for accent 02 tags.</td>
+                  <td class="token-usage">Tag</td>
+                </tr>
+                <tr data-token-name="semantic-tag-bg-accent-03">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-tag-bg-accent-03);"></span><span class="token-name">--semantic-tag-bg-accent-03</span><button class="copy-btn" data-copy="--semantic-tag-bg-accent-03" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">#E6FCF5</td>
+                  <td class="token-description">Background for accent 03 tags.</td>
+                  <td class="token-usage">Tag</td>
+                </tr>
+                <tr data-token-name="semantic-tag-bg-accent-04">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-tag-bg-accent-04);"></span><span class="token-name">--semantic-tag-bg-accent-04</span><button class="copy-btn" data-copy="--semantic-tag-bg-accent-04" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">#FFF0F6</td>
+                  <td class="token-description">Background for accent 04 tags.</td>
+                  <td class="token-usage">Tag</td>
+                </tr>
+                <tr data-token-name="semantic-tag-bg-accent-05">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-tag-bg-accent-05);"></span><span class="token-name">--semantic-tag-bg-accent-05</span><button class="copy-btn" data-copy="--semantic-tag-bg-accent-05" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">#F3F0FF</td>
+                  <td class="token-description">Background for accent 05 tags.</td>
+                  <td class="token-usage">Tag</td>
+                </tr>
+                <tr data-token-name="semantic-tag-bg-accent-06">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-tag-bg-accent-06);"></span><span class="token-name">--semantic-tag-bg-accent-06</span><button class="copy-btn" data-copy="--semantic-tag-bg-accent-06" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">#FFF9DB</td>
+                  <td class="token-description">Background for accent 06 tags.</td>
+                  <td class="token-usage">Tag</td>
+                </tr>
+                <tr data-token-name="semantic-tag-bg-accent-07">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-tag-bg-accent-07);"></span><span class="token-name">--semantic-tag-bg-accent-07</span><button class="copy-btn" data-copy="--semantic-tag-bg-accent-07" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">#E3FAFC</td>
+                  <td class="token-description">Background for accent 07 tags.</td>
+                  <td class="token-usage">Tag</td>
+                </tr>
+                <tr data-token-name="semantic-tag-bg-accent-08">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-tag-bg-accent-08);"></span><span class="token-name">--semantic-tag-bg-accent-08</span><button class="copy-btn" data-copy="--semantic-tag-bg-accent-08" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">#F8F0FC</td>
+                  <td class="token-description">Background for accent 08 tags.</td>
+                  <td class="token-usage">Tag</td>
+                </tr>
+                <tr data-token-name="semantic-tag-bg-accent-09">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-tag-bg-accent-09);"></span><span class="token-name">--semantic-tag-bg-accent-09</span><button class="copy-btn" data-copy="--semantic-tag-bg-accent-09" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">#EBFBEE</td>
+                  <td class="token-description">Background for accent 09 tags.</td>
+                  <td class="token-usage">Tag</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="token-category">
+          <h3>Tag / Text Accents</h3>
+          <div class="token-table-wrapper">
+            <table class="token-table">
+              <thead>
+                <tr>
+                  <th>Token Name</th>
+                  <th>Value</th>
+                  <th>Description</th>
+                  <th>Usage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-token-name="semantic-tag-text-accent-01">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-tag-text-accent-01);"></span><span class="token-name">--semantic-tag-text-accent-01</span><button class="copy-btn" data-copy="--semantic-tag-text-accent-01" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">#364FC7</td>
+                  <td class="token-description">Text color for accent 01 tags.</td>
+                  <td class="token-usage">Tag</td>
+                </tr>
+                <tr data-token-name="semantic-tag-text-accent-02">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-tag-text-accent-02);"></span><span class="token-name">--semantic-tag-text-accent-02</span><button class="copy-btn" data-copy="--semantic-tag-text-accent-02" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">#E8590C</td>
+                  <td class="token-description">Text color for accent 02 tags.</td>
+                  <td class="token-usage">Tag</td>
+                </tr>
+                <tr data-token-name="semantic-tag-text-accent-03">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-tag-text-accent-03);"></span><span class="token-name">--semantic-tag-text-accent-03</span><button class="copy-btn" data-copy="--semantic-tag-text-accent-03" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">#0B7285</td>
+                  <td class="token-description">Text color for accent 03 tags.</td>
+                  <td class="token-usage">Tag</td>
+                </tr>
+                <tr data-token-name="semantic-tag-text-accent-04">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-tag-text-accent-04);"></span><span class="token-name">--semantic-tag-text-accent-04</span><button class="copy-btn" data-copy="--semantic-tag-text-accent-04" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">#C2255C</td>
+                  <td class="token-description">Text color for accent 04 tags.</td>
+                  <td class="token-usage">Tag</td>
+                </tr>
+                <tr data-token-name="semantic-tag-text-accent-05">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-tag-text-accent-05);"></span><span class="token-name">--semantic-tag-text-accent-05</span><button class="copy-btn" data-copy="--semantic-tag-text-accent-05" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">#6741D9</td>
+                  <td class="token-description">Text color for accent 05 tags.</td>
+                  <td class="token-usage">Tag</td>
+                </tr>
+                <tr data-token-name="semantic-tag-text-accent-06">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-tag-text-accent-06);"></span><span class="token-name">--semantic-tag-text-accent-06</span><button class="copy-btn" data-copy="--semantic-tag-text-accent-06" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">#E67700</td>
+                  <td class="token-description">Text color for accent 06 tags.</td>
+                  <td class="token-usage">Tag</td>
+                </tr>
+                <tr data-token-name="semantic-tag-text-accent-07">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-tag-text-accent-07);"></span><span class="token-name">--semantic-tag-text-accent-07</span><button class="copy-btn" data-copy="--semantic-tag-text-accent-07" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">#1098AD</td>
+                  <td class="token-description">Text color for accent 07 tags.</td>
+                  <td class="token-usage">Tag</td>
+                </tr>
+                <tr data-token-name="semantic-tag-text-accent-08">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-tag-text-accent-08);"></span><span class="token-name">--semantic-tag-text-accent-08</span><button class="copy-btn" data-copy="--semantic-tag-text-accent-08" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">#9C36B5</td>
+                  <td class="token-description">Text color for accent 08 tags.</td>
+                  <td class="token-usage">Tag</td>
+                </tr>
+                <tr data-token-name="semantic-tag-text-accent-09">
+                  <td><div class="token-name-cell"><span class="token-swatch" style="background-color: var(--semantic-tag-text-accent-09);"></span><span class="token-name">--semantic-tag-text-accent-09</span><button class="copy-btn" data-copy="--semantic-tag-text-accent-09" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td>
+                  <td class="token-value">#2F9E44</td>
+                  <td class="token-description">Text color for accent 09 tags.</td>
+                  <td class="token-usage">Tag</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

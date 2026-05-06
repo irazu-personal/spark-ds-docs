@@ -1,0 +1,329 @@
+:root {
+  /* ============================================
+     PRIMITIVE / SYSTEM COLORS
+     Base palette values - do not use directly in components
+     ============================================ */
+
+  /* Neutral */
+  --primitive-neutral-0: #FFFFFF;
+  --primitive-neutral-50: #F8F9FA;
+  --primitive-neutral-100: #F1F3F5;
+  --primitive-neutral-200: #E9ECEF;
+  --primitive-neutral-300: #DEE2E6;
+  --primitive-neutral-400: #CED4DA;
+  --primitive-neutral-500: #ADB5BD;
+  --primitive-neutral-600: #868E96;
+  --primitive-neutral-700: #495057;
+  --primitive-neutral-800: #343A40;
+  --primitive-neutral-900: #212529;
+  --primitive-neutral-1000: #000000;
+
+  /* Blue */
+  --primitive-blue-100: #D0EBFF;
+  --primitive-blue-200: #A5D8FF;
+  --primitive-blue-300: #74C0FC;
+  --primitive-blue-400: #339AF0;
+  --primitive-blue-500: #1C7ED6;
+
+  /* Deep Blue */
+  --primitive-deep-blue-100: #D0D5DD;
+  --primitive-deep-blue-200: #98A2B3;
+  --primitive-deep-blue-300: #475467;
+  --primitive-deep-blue-400: #344054;
+  --primitive-deep-blue-500: #1D2939;
+
+  /* Orange */
+  --primitive-orange-100: #FFE8CC;
+  --primitive-orange-200: #FFD19A;
+  --primitive-orange-300: #FFA94D;
+  --primitive-orange-400: #FF922B;
+  --primitive-orange-500: #F76707;
+
+  /* Pink */
+  --primitive-pink-100: #FFDEEB;
+  --primitive-pink-200: #FCC2D7;
+  --primitive-pink-300: #FAA2C1;
+  --primitive-pink-400: #F06595;
+  --primitive-pink-500: #E64980;
+
+  /* Violet */
+  --primitive-violet-100: #E5DBFF;
+  --primitive-violet-200: #D0BFFF;
+  --primitive-violet-300: #B197FC;
+  --primitive-violet-400: #9775FA;
+  --primitive-violet-500: #7950F2;
+
+  /* Red */
+  --primitive-red-100: #FFE3E3;
+  --primitive-red-200: #FFC9C9;
+  --primitive-red-300: #FFA8A8;
+  --primitive-red-400: #FF6B6B;
+  --primitive-red-500: #FA5252;
+  --primitive-red-600: #F03E3E;
+  --primitive-red-700: #E03131;
+
+  /* Green */
+  --primitive-green-100: #D3F9D8;
+  --primitive-green-200: #B2F2BB;
+  --primitive-green-300: #8CE99A;
+  --primitive-green-400: #51CF66;
+  --primitive-green-500: #40C057;
+  --primitive-green-600: #37B24D;
+  --primitive-green-700: #2F9E44;
+
+  /* Yellow */
+  --primitive-yellow-100: #FFF3BF;
+  --primitive-yellow-200: #FFEC99;
+  --primitive-yellow-300: #FFE066;
+  --primitive-yellow-400: #FFD43B;
+  --primitive-yellow-500: #FCC419;
+  --primitive-yellow-600: #FAB005;
+
+  /* ============================================
+     BRAND COLORS
+     Brand palette - 5 shades per hue
+     ============================================ */
+
+  --brand-neutral-100: #F1F3F5;
+  --brand-neutral-200: #E9ECEF;
+  --brand-neutral-300: #DEE2E6;
+  --brand-neutral-400: #CED4DA;
+  --brand-neutral-500: #ADB5BD;
+
+  --brand-blue-100: #D0EBFF;
+  --brand-blue-200: #A5D8FF;
+  --brand-blue-300: #74C0FC;
+  --brand-blue-400: #339AF0;
+  --brand-blue-500: #1C7ED6;
+
+  --brand-deep-blue-100: #D0D5DD;
+  --brand-deep-blue-200: #98A2B3;
+  --brand-deep-blue-300: #475467;
+  --brand-deep-blue-400: #344054;
+  --brand-deep-blue-500: #1D2939;
+
+  --brand-orange-100: #FFE8CC;
+  --brand-orange-200: #FFD19A;
+  --brand-orange-300: #FFA94D;
+  --brand-orange-400: #FF922B;
+  --brand-orange-500: #F76707;
+
+  --brand-pink-100: #FFDEEB;
+  --brand-pink-200: #FCC2D7;
+  --brand-pink-300: #FAA2C1;
+  --brand-pink-400: #F06595;
+  --brand-pink-500: #E64980;
+
+  --brand-violet-100: #E5DBFF;
+  --brand-violet-200: #D0BFFF;
+  --brand-violet-300: #B197FC;
+  --brand-violet-400: #9775FA;
+  --brand-violet-500: #7950F2;
+
+  /* ============================================
+     SEMANTIC TOKENS - BORDER
+     ============================================ */
+  --semantic-border-default: var(--primitive-neutral-300);
+  --semantic-border-strong: var(--primitive-neutral-500);
+  --semantic-border-active: var(--primitive-blue-500);
+  --semantic-border-inverse: var(--primitive-neutral-0);
+  --semantic-border-dark: var(--primitive-neutral-700);
+
+  /* ============================================
+     SEMANTIC TOKENS - CONTENT
+     ============================================ */
+  --semantic-content-brand: var(--primitive-blue-500);
+  --semantic-content-inverse: var(--primitive-neutral-0);
+  --semantic-content-primary: var(--primitive-neutral-900);
+  --semantic-content-secondary: var(--primitive-neutral-600);
+  --semantic-content-tertiary: var(--primitive-neutral-500);
+
+  /* ============================================
+     SEMANTIC TOKENS - SURFACE
+     ============================================ */
+  --semantic-surface-brand: var(--primitive-blue-500);
+  --semantic-surface-canvas: var(--primitive-neutral-50);
+  --semantic-surface-inverse: var(--primitive-neutral-900);
+  --semantic-surface-muted: var(--primitive-neutral-100);
+  --semantic-surface-subtle: var(--primitive-neutral-200);
+  --semantic-surface-sunken: var(--primitive-neutral-100);
+  --semantic-surface-tooltip: var(--primitive-neutral-800);
+  --semantic-surface-white: var(--primitive-neutral-0);
+
+  /* ============================================
+     SEMANTIC TOKENS - ACTION
+     ============================================ */
+
+  /* Action / Primary */
+  --semantic-action-primary-bg-default: var(--primitive-blue-500);
+  --semantic-action-primary-bg-hover: var(--primitive-blue-400);
+  --semantic-action-primary-bg-click-on: var(--primitive-blue-500);
+  --semantic-action-primary-bg-inverse: var(--primitive-neutral-0);
+  --semantic-action-primary-border-default: var(--primitive-neutral-300);
+  --semantic-action-primary-border-hover: var(--primitive-blue-500);
+  --semantic-action-primary-border-click-on: var(--primitive-blue-400);
+  --semantic-action-primary-border-focus: var(--primitive-blue-300);
+  --semantic-action-primary-content-on-surface: var(--primitive-neutral-900);
+  --semantic-action-primary-content-on-surface-subtle: var(--primitive-neutral-600);
+  --semantic-action-primary-content-on-surface-inverse: var(--primitive-neutral-0);
+  --semantic-action-primary-content-on-surface-active: var(--primitive-blue-500);
+  --semantic-action-primary-content-on-surface-hover: var(--primitive-blue-400);
+
+  /* Action / Secondary */
+  --semantic-action-secondary-bg-default: var(--primitive-neutral-0);
+  --semantic-action-secondary-bg-hover: var(--primitive-neutral-50);
+  --semantic-action-secondary-bg-click-on: var(--primitive-neutral-100);
+  --semantic-action-secondary-on-surface: var(--primitive-neutral-900);
+  --semantic-action-secondary-border: var(--primitive-neutral-300);
+
+  /* Action / Disabled */
+  --semantic-action-disabled-bg-primary: var(--primitive-neutral-100);
+  --semantic-action-disabled-bg-secondary: var(--primitive-neutral-200);
+  --semantic-action-disabled-bg-tertiary: var(--primitive-neutral-50);
+  --semantic-action-disabled-content-on-surface: var(--primitive-neutral-400);
+  --semantic-action-disabled-border: var(--primitive-neutral-200);
+
+  /* Action / Danger */
+  --semantic-action-danger-border: var(--primitive-red-500);
+  --semantic-action-danger-content-on-surface: var(--primitive-red-500);
+
+  /* ============================================
+     SEMANTIC TOKENS - BUTTON
+     ============================================ */
+
+  /* Button / Primary */
+  --semantic-button-primary-bg-default: var(--primitive-blue-500);
+  --semantic-button-primary-bg-hover-click-on: var(--primitive-blue-400);
+  --semantic-button-primary-content-on-surface: var(--primitive-neutral-0);
+
+  /* Button / Secondary */
+  --semantic-button-secondary-bg-default: var(--primitive-neutral-0);
+  --semantic-button-secondary-bg-hover: var(--primitive-neutral-50);
+  --semantic-button-secondary-bg-click-on: var(--primitive-neutral-100);
+  --semantic-button-secondary-border: var(--primitive-neutral-300);
+  --semantic-button-secondary-border-hover: var(--primitive-blue-500);
+  --semantic-button-secondary-content-on-surface: var(--primitive-neutral-900);
+
+  /* Button / Tertiary */
+  --semantic-button-tertiary-bg-default: var(--primitive-neutral-0);
+  --semantic-button-tertiary-bg-click-on: var(--primitive-neutral-100);
+  --semantic-button-tertiary-border: var(--primitive-neutral-200);
+  --semantic-button-tertiary-content-on-surface: var(--primitive-neutral-700);
+  --semantic-button-tertiary-content-on-surface-hover-click-on: var(--primitive-blue-500);
+
+  /* Button / Tertiary Icon Button */
+  --semantic-button-tertiary-icon-button-bg-default: var(--primitive-neutral-0);
+  --semantic-button-tertiary-icon-button-bg-hover: var(--primitive-neutral-100);
+  --semantic-button-tertiary-icon-button-bg-click-on: var(--primitive-neutral-200);
+  --semantic-button-tertiary-icon-button-content-on-surface: var(--primitive-neutral-700);
+
+  /* Button / Ghost */
+  --semantic-button-ghost-bg-hover: var(--primitive-neutral-50);
+  --semantic-button-ghost-bg-click-on: var(--primitive-neutral-100);
+  --semantic-button-ghost-content-on-surface-default: var(--primitive-neutral-900);
+
+  /* Button / Ghost Danger */
+  --semantic-button-ghost-danger-bg-surface: var(--primitive-red-100);
+  --semantic-button-ghost-danger-bg-hover: var(--primitive-red-200);
+  --semantic-button-ghost-danger-border: var(--primitive-red-500);
+  --semantic-button-ghost-danger-content-on-surface: var(--primitive-red-600);
+
+  /* Button / Link */
+  --semantic-button-link-content-on-surface-default: var(--primitive-blue-500);
+  --semantic-button-link-content-on-surface-hover-focused-click-on: var(--primitive-blue-400);
+
+  /* Button / Text */
+  --semantic-button-text-bg-hover: var(--primitive-neutral-50);
+  --semantic-button-text-bg-click-on: var(--primitive-neutral-100);
+  --semantic-button-text-content-on-surface-default: var(--primitive-neutral-700);
+  --semantic-button-text-content-on-surface-hover: var(--primitive-neutral-800);
+  --semantic-button-text-content-on-surface-click-on: var(--primitive-neutral-700);
+
+  /* Button / Disabled */
+  --semantic-button-disabled-bg: var(--primitive-neutral-100);
+  --semantic-button-disabled-content-on-action: var(--primitive-neutral-400);
+
+  /* Button / Primary Danger */
+  --semantic-button-primary-danger-bg-default: var(--primitive-red-500);
+  --semantic-button-primary-danger-bg-hover: var(--primitive-red-600);
+  --semantic-button-primary-danger-bg-click-on: var(--primitive-red-700);
+  --semantic-button-primary-danger-content-on-surface: var(--primitive-neutral-0);
+
+  /* Button / Secondary Danger */
+  --semantic-button-secondary-danger-bg-default: var(--primitive-neutral-0);
+  --semantic-button-secondary-danger-bg-hover: var(--primitive-red-100);
+  --semantic-button-secondary-danger-bg-click-on: var(--primitive-red-200);
+  --semantic-button-secondary-danger-border: var(--primitive-red-500);
+  --semantic-button-secondary-danger-content-on-surface: var(--primitive-red-600);
+
+  /* Button / Notification */
+  --semantic-button-notification-bg-hover: var(--primitive-neutral-200);
+  --semantic-button-notification-border: var(--primitive-neutral-0);
+  --semantic-button-notification-content-on-surface: var(--primitive-neutral-0);
+  --semantic-button-notification-content-on-surface-disabled: var(--primitive-neutral-400);
+
+  /* Button / Focus */
+  --semantic-button-border-focus: var(--primitive-blue-300);
+
+  /* ============================================
+     SEMANTIC TOKENS - FEEDBACK
+     ============================================ */
+
+  /* Feedback / Critical */
+  --semantic-feedback-critical-on-surface: var(--primitive-red-600);
+  --semantic-feedback-critical-border: var(--primitive-red-500);
+  --semantic-feedback-critical-surface-subtle: var(--primitive-red-100);
+  --semantic-feedback-critical-surface-muted: var(--primitive-red-200);
+  --semantic-feedback-critical-surface-elevated: var(--primitive-red-500);
+
+  /* Feedback / Success */
+  --semantic-feedback-success-on-surface: var(--primitive-green-700);
+  --semantic-feedback-success-border: var(--primitive-green-500);
+  --semantic-feedback-success-surface-subtle: var(--primitive-green-100);
+  --semantic-feedback-success-surface-muted: var(--primitive-green-200);
+  --semantic-feedback-success-surface-elevated: var(--primitive-green-600);
+
+  /* Feedback / Warning */
+  --semantic-feedback-warning-on-surface: var(--primitive-yellow-600);
+  --semantic-feedback-warning-on-surface-elevated: var(--primitive-yellow-500);
+  --semantic-feedback-warning-border: var(--primitive-yellow-500);
+  --semantic-feedback-warning-surface-subtle: var(--primitive-yellow-100);
+  --semantic-feedback-warning-surface-muted: var(--primitive-yellow-200);
+  --semantic-feedback-warning-surface-elevated: var(--primitive-yellow-500);
+
+  /* Feedback / Info */
+  --semantic-feedback-info-on-surface: var(--primitive-blue-500);
+  --semantic-feedback-info-border: var(--primitive-blue-400);
+  --semantic-feedback-info-surface-subtle: var(--primitive-blue-100);
+  --semantic-feedback-info-surface-muted: var(--primitive-blue-200);
+  --semantic-feedback-info-surface-elevated: var(--primitive-blue-500);
+
+  /* Feedback / Default */
+  --semantic-feedback-default-surface: var(--primitive-neutral-200);
+  --semantic-feedback-default-on-surface: var(--primitive-neutral-700);
+  --semantic-feedback-default-border: var(--primitive-neutral-300);
+
+  /* ============================================
+     SEMANTIC TOKENS - TAG
+     ============================================ */
+
+  --semantic-tag-bg-accent-01: #EDF2FF;
+  --semantic-tag-bg-accent-02: #FFF4E6;
+  --semantic-tag-bg-accent-03: #E6FCF5;
+  --semantic-tag-bg-accent-04: #FFF0F6;
+  --semantic-tag-bg-accent-05: #F3F0FF;
+  --semantic-tag-bg-accent-06: #FFF9DB;
+  --semantic-tag-bg-accent-07: #E3FAFC;
+  --semantic-tag-bg-accent-08: #F8F0FC;
+  --semantic-tag-bg-accent-09: #EBFBEE;
+
+  --semantic-tag-text-accent-01: #364FC7;
+  --semantic-tag-text-accent-02: #E8590C;
+  --semantic-tag-text-accent-03: #0B7285;
+  --semantic-tag-text-accent-04: #C2255C;
+  --semantic-tag-text-accent-05: #6741D9;
+  --semantic-tag-text-accent-06: #E67700;
+  --semantic-tag-text-accent-07: #1098AD;
+  --semantic-tag-text-accent-08: #9C36B5;
+  --semantic-tag-text-accent-09: #2F9E44;
+}

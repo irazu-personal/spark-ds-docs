@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessibility - Spark Design System</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <button class="sidebar-toggle" aria-label="Toggle navigation" aria-expanded="false">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+    </svg>
+  </button>
+
+  <div class="site-wrapper">
+    <aside class="sidebar" role="navigation" aria-label="Main navigation">
+      <div class="sidebar-header">
+        <h1>Spark DS</h1>
+        <div class="subtitle">Design System Docs</div>
+      </div>
+      <nav>
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Overview</div>
+          <a href="index.html" class="sidebar-link">Home</a>
+          <a href="accessibility.html" class="sidebar-link active">Accessibility</a>
+        </div>
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Foundations</div>
+          <a href="colors.html" class="sidebar-link">Colors &amp; Tokens</a>
+        </div>
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Components</div>
+          <span class="sidebar-link" style="color:#ADB5BD; font-style:italic;">Coming soon</span>
+        </div>
+      </nav>
+    </aside>
+
+    <main class="main-content" id="main">
+      <div class="page-header">
+        <h1>Accessibility</h1>
+        <p>Spark is built to meet WCAG 2.1 AA standards. This page covers the system-wide approach to focus management, color contrast, keyboard navigation, and motion.</p>
+      </div>
+
+      <div class="doc-section">
+        <h2>Standards</h2>
+        <p>All components in Spark target WCAG 2.1 Level AA conformance. This means:</p>
+        <div class="a11y-principle">
+          <h3>Perceivable</h3>
+          <ul>
+            <li>Text contrast ratio of at least 4.5:1 for normal text and 3:1 for large text</li>
+            <li>Non-text elements (icons, borders, focus rings) maintain at least 3:1 contrast against adjacent colors</li>
+            <li>Color is never the sole means of conveying information</li>
+            <li>All images and icons include appropriate alt text or aria-labels</li>
+          </ul>
+        </div>
+
+        <div class="a11y-principle">
+          <h3>Operable</h3>
+          <ul>
+            <li>All interactive elements are reachable and operable via keyboard</li>
+            <li>Focus order follows a logical reading sequence</li>
+            <li>No keyboard traps exist within components</li>
+            <li>Skip navigation links are provided on every page</li>
+          </ul>
+        </div>
+
+        <div class="a11y-principle">
+          <h3>Understandable</h3>
+          <ul>
+            <li>Language attribute is set on the HTML element</li>
+            <li>Form inputs have visible labels and clear error messages</li>
+            <li>Navigation is consistent across pages</li>
+            <li>Error identification provides specific descriptions, not just color changes</li>
+          </ul>
+        </div>
+
+        <div class="a11y-principle">
+          <h3>Robust</h3>
+          <ul>
+            <li>Valid, semantic HTML is used throughout</li>
+            <li>ARIA attributes are applied where native semantics are insufficient</li>
+            <li>Components are tested with screen readers (VoiceOver, NVDA)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="doc-section">
+        <h2>Focus States</h2>
+        <p>Every interactive element in Spark has a visible focus indicator. The system uses a consistent focus ring approach:</p>
+
+        <div class="a11y-principle">
+          <h3>Focus Ring Tokens</h3>
+          <ul>
+            <li><code>--semantic-action-primary-border-focus</code> provides the default focus ring color for form controls and action elements</li>
+            <li><code>--semantic-button-border-focus</code> provides the focus ring color for all button variants</li>
+            <li>Focus rings use a 2px solid outline with a 2px offset to ensure visibility against all backgrounds</li>
+            <li>Focus rings appear only on keyboard navigation (<code>:focus-visible</code>), not on mouse click</li>
+          </ul>
+        </div>
+
+        <div class="a11y-principle">
+          <h3>Focus Management Rules</h3>
+          <ul>
+            <li>Modals and drawers trap focus within the dialog while open</li>
+            <li>When a modal closes, focus returns to the element that triggered it</li>
+            <li>Dropdown menus move focus to the first item on open, and return focus on close</li>
+            <li>Tab order follows the visual layout, top-to-bottom and left-to-right</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="doc-section">
+        <h2>Color Contrast</h2>
+        <p>The Spark token system is designed so that standard token pairings automatically meet contrast requirements.</p>
+
+        <div class="a11y-principle">
+          <h3>Built-in Contrast Pairings</h3>
+          <ul>
+            <li><code>--semantic-content-primary</code> on <code>--semantic-surface-white</code> provides 15.4:1 contrast</li>
+            <li><code>--semantic-content-secondary</code> on <code>--semantic-surface-white</code> meets the 4.5:1 minimum</li>
+            <li><code>--semantic-content-inverse</code> on <code>--semantic-surface-inverse</code> provides high contrast for dark surfaces</li>
+            <li>Feedback colors (critical, success, warning, info) are tested against their corresponding surface tokens</li>
+          </ul>
+        </div>
+
+        <div class="a11y-principle">
+          <h3>Guidelines for Custom Usage</h3>
+          <ul>
+            <li>Always pair content tokens with their intended surface tokens</li>
+            <li>Do not use <code>--semantic-content-tertiary</code> for essential information as it has reduced contrast</li>
+            <li>Test custom color combinations with a contrast checker before shipping</li>
+            <li>Disabled states are exempt from contrast requirements per WCAG but should still be distinguishable</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="doc-section">
+        <h2>Keyboard Navigation</h2>
+        <p>Spark components support standard keyboard interaction patterns.</p>
+
+        <div class="token-table-wrapper">
+          <table class="token-table">
+            <thead>
+              <tr>
+                <th scope="col">Key</th>
+                <th scope="col">Behavior</th>
+                <th scope="col">Components</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>Tab</code></td>
+                <td>Move focus to the next focusable element</td>
+                <td>All interactive elements</td>
+              </tr>
+              <tr>
+                <td><code>Shift + Tab</code></td>
+                <td>Move focus to the previous focusable element</td>
+                <td>All interactive elements</td>
+              </tr>
+              <tr>
+                <td><code>Enter</code></td>
+                <td>Activate buttons, follow links, submit forms</td>
+                <td>Button, Link, Input</td>
+              </tr>
+              <tr>
+                <td><code>Space</code></td>
+                <td>Toggle checkboxes, activate buttons, select options</td>
+                <td>Checkbox, Button, Radio, Toggle</td>
+              </tr>
+              <tr>
+                <td><code>Arrow Keys</code></td>
+                <td>Navigate within composite widgets</td>
+                <td>Tabs, Radio Group, Dropdown Menu, Slider</td>
+              </tr>
+              <tr>
+                <td><code>Escape</code></td>
+                <td>Close overlays and cancel actions</td>
+                <td>Modal, Dropdown, Drawer, Popover, Toast</td>
+              </tr>
+              <tr>
+                <td><code>Home / End</code></td>
+                <td>Jump to first or last item in a list</td>
+                <td>Tabs, Dropdown Menu, Table</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="doc-section">
+        <h2>Motion and Animation</h2>
+        <p>Spark respects user motion preferences and keeps animations minimal.</p>
+
+        <div class="a11y-principle">
+          <h3>Principles</h3>
+          <ul>
+            <li>All animations respect the <code>prefers-reduced-motion</code> media query</li>
+            <li>When reduced motion is preferred, transitions are replaced with instant state changes</li>
+            <li>No animation exceeds 400ms duration</li>
+            <li>Animations serve a functional purpose (indicating state change, guiding attention) rather than decoration</li>
+            <li>No content relies solely on animation to be understood</li>
+          </ul>
+        </div>
+
+        <div class="a11y-principle">
+          <h3>Implementation</h3>
+          <ul>
+            <li>Use CSS <code>transition</code> for state changes (hover, focus, active)</li>
+            <li>Wrap all motion in <code>@media (prefers-reduced-motion: no-preference)</code></li>
+            <li>Provide an immediate fallback for users who prefer reduced motion</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="doc-section">
+        <h2>Screen Reader Support</h2>
+        <div class="a11y-principle">
+          <h3>ARIA Usage Guidelines</h3>
+          <ul>
+            <li>Prefer native HTML elements over ARIA (a <code>&lt;button&gt;</code> over <code>role="button"</code>)</li>
+            <li>Use <code>aria-label</code> or <code>aria-labelledby</code> when visible text is insufficient</li>
+            <li>Apply <code>aria-expanded</code> to toggles that reveal/hide content</li>
+            <li>Use <code>aria-live</code> regions for dynamic content updates (toast notifications, form validation)</li>
+            <li>Mark decorative icons with <code>aria-hidden="true"</code></li>
+            <li>Group related form fields with <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code></li>
+          </ul>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
