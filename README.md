@@ -12,17 +12,25 @@ open index.html
 
 ## Publish with GitHub Pages
 
-This repo includes a workflow that deploys the site to **GitHub Pages** when you push to the default branch (`cursor/add-colors-tokens-docs`).
+### Option A: GitHub Actions (workflow in this repo)
 
-1. On GitHub: **Settings → Pages → Build and deployment**
-2. Set **Source** to **GitHub Actions** (not “Deploy from a branch”).
-3. Push these files to the default branch. The **Deploy GitHub Pages** workflow uploads the site root (`index.html`, `css/`, `js/`, and HTML pages).
+1. On GitHub open **Settings → Pages**.
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**.  
+   If it is set to **Deploy from a branch**, the **Deploy GitHub Pages** workflow fails with **Get Pages site failed / Not Found** until you switch the source to GitHub Actions.
+3. Push to `cursor/add-colors-tokens-docs` (or run the workflow manually: **Actions → Deploy GitHub Pages → Run workflow**).
 
-After the first successful run, the site is available at:
+After a successful run:
 
 **`https://irazu-personal.github.io/spark-ds-docs/`**
 
-Share that URL with your team. If the repo name or owner changes, replace them in the URL.
+### Option B: Deploy from a branch (no Actions)
+
+1. **Settings → Pages → Source: Deploy from a branch**
+2. Branch: `cursor/add-colors-tokens-docs`, folder: `/ (root)`, Save.
+
+You can ignore or disable the Actions workflow if you use this option.
+
+If the repo name or owner changes, replace them in the URL.
 
 ### Private repositories
 

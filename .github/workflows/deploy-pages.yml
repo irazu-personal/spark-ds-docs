@@ -1,9 +1,14 @@
+# Publishes the static HTML site to GitHub Pages.
+# Prerequisite (one time): Repo Settings → Pages → Build and deployment → Source: GitHub Actions.
+# If Source is "Deploy from a branch", this workflow fails with "Get Pages site failed".
+
 name: Deploy GitHub Pages
 
 on:
   push:
     branches:
       - cursor/add-colors-tokens-docs
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -24,7 +29,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Configure Pages
+      - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
@@ -34,4 +39,4 @@ jobs:
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

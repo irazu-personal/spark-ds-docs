@@ -63,7 +63,21 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Copy to clipboard
+  function copyTextFallback(text) {
+    var textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.setAttribute('readonly', '');
+    textarea.style.position = 'fixed';
+    textarea.style.left = '-9999px';
+    document.body.appendChild(textarea);
+    textarea.select();
+    try {
+      document.execCommand('copy');
+    } catch (err) { /* noop */ }
+    document.body.removeChild(textarea);
+  }
+
+  // Copy to clipboard (Clipboard API may reject on file:// or without permission)
   document.addEventListener('click', function (e) {
     var btn = e.target.closest('.copy-btn');
     if (!btn) return;
@@ -71,19 +85,15 @@ document.addEventListener('DOMContentLoaded', function () {
     var text = btn.getAttribute('data-copy');
     if (!text) return;
 
-    if (navigator.clipboard && navigator.clipboard.writeText) {
+    if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
       navigator.clipboard.writeText(text).then(function () {
+        showCopied(btn);
+      }).catch(function () {
+        copyTextFallback(text);
         showCopied(btn);
       });
     } else {
-      var textarea = document.createElement('textarea');
-      textarea.value = text;
-      textarea.style.position = 'fixed';
-      textarea.style.opacity = '0';
-      document.body.appendChild(textarea);
-      textarea.select();
-      try { document.execCommand('copy'); } catch (err) { /* noop */ }
-      document.body.removeChild(textarea);
+      copyTextFallback(text);
       showCopied(btn);
     }
   });
