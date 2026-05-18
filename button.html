@@ -7,39 +7,89 @@
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/styles.css">
   <style>
-    /* ---- Live Button Styles ---- */
+    /* ---- Live Button Styles (token-backed) ---- */
     .spark-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
-      font-family: inherit;
-      font-weight: 600;
+      box-sizing: border-box;
+      font-family: var(--semantic-typography-button-font-family);
+      font-weight: var(--semantic-typography-button-font-weight);
+      line-height: var(--semantic-typography-button-line-height);
       border: none;
       cursor: pointer;
-      transition: background 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+      transition: var(--semantic-motion-button-transition);
       white-space: nowrap;
       text-decoration: none;
-      line-height: 1;
     }
     .spark-btn:focus-visible {
       outline: none;
-      box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--semantic-button-border-focus);
+      box-shadow: var(--semantic-shadow-focus-ring-neutral);
     }
-    .spark-btn svg { width: 1em; height: 1em; fill: currentColor; flex-shrink: 0; }
+    .spark-btn svg {
+      flex-shrink: 0;
+    }
 
     /* Sizes */
-    .spark-btn-tiny   { height: 24px; padding: 0 8px;  font-size: 11px; border-radius: 6px; }
-    .spark-btn-small  { height: 28px; padding: 0 12px; font-size: 12px; border-radius: 6px; }
-    .spark-btn-medium { height: 36px; padding: 0 16px; font-size: 13px; border-radius: 8px; }
-    .spark-btn-large  { height: 40px; padding: 0 20px; font-size: 14px; border-radius: 8px; }
+    .spark-btn-tiny {
+      height: var(--semantic-button-height-tiny);
+      min-height: var(--semantic-button-height-tiny);
+      padding: 0 var(--semantic-button-padding-x-tiny);
+      font-size: var(--semantic-typography-button-tiny-font-size);
+      border-radius: var(--semantic-button-border-radius-small);
+      gap: var(--semantic-button-gap-icon-label-tiny);
+    }
+    .spark-btn-small {
+      height: var(--semantic-button-height-small);
+      min-height: var(--semantic-button-height-small);
+      padding: 0 var(--semantic-button-padding-x-small);
+      font-size: var(--semantic-typography-button-small-font-size);
+      border-radius: var(--semantic-button-border-radius-small);
+      gap: var(--semantic-button-gap-icon-label-small);
+    }
+    .spark-btn-medium {
+      height: var(--semantic-button-height-medium);
+      min-height: var(--semantic-button-height-medium);
+      padding: 0 var(--semantic-button-padding-x-medium);
+      font-size: var(--semantic-typography-button-medium-font-size);
+      border-radius: var(--semantic-button-border-radius-medium);
+      gap: var(--semantic-button-gap-icon-label-medium);
+    }
+    .spark-btn-large {
+      height: var(--semantic-button-height-large);
+      min-height: var(--semantic-button-height-large);
+      padding: 0 var(--semantic-button-padding-x-large);
+      font-size: var(--semantic-typography-button-large-font-size);
+      border-radius: var(--semantic-button-border-radius-medium);
+      gap: var(--semantic-button-gap-icon-label-large);
+    }
+
+    .spark-btn-tiny svg { width: var(--semantic-button-icon-size-tiny); height: var(--semantic-button-icon-size-tiny); }
+    .spark-btn-small svg { width: var(--semantic-button-icon-size-small); height: var(--semantic-button-icon-size-small); }
+    .spark-btn-medium svg { width: var(--semantic-button-icon-size-medium); height: var(--semantic-button-icon-size-medium); }
+    .spark-btn-large svg { width: var(--semantic-button-icon-size-large); height: var(--semantic-button-icon-size-large); }
 
     /* Icon-only */
-    .spark-btn-icon-only.spark-btn-tiny   { width: 24px; padding: 0; }
-    .spark-btn-icon-only.spark-btn-small  { width: 28px; padding: 0; }
-    .spark-btn-icon-only.spark-btn-medium { width: 36px; padding: 0; }
-    .spark-btn-icon-only.spark-btn-large  { width: 40px; padding: 0; }
-    .spark-btn-icon-only svg { width: 16px; height: 16px; }
+    .spark-btn-icon-only.spark-btn-tiny {
+      width: var(--semantic-button-height-tiny);
+      padding: 0;
+      gap: 0;
+    }
+    .spark-btn-icon-only.spark-btn-small {
+      width: var(--semantic-button-height-small);
+      padding: 0;
+      gap: 0;
+    }
+    .spark-btn-icon-only.spark-btn-medium {
+      width: var(--semantic-button-height-medium);
+      padding: 0;
+      gap: 0;
+    }
+    .spark-btn-icon-only.spark-btn-large {
+      width: var(--semantic-button-height-large);
+      padding: 0;
+      gap: 0;
+    }
 
     /* Primary */
     .spark-btn-primary {
@@ -47,33 +97,58 @@
       color: var(--semantic-button-primary-content-on-surface);
     }
     .spark-btn-primary:hover { background: var(--semantic-button-primary-bg-hover-click-on); }
-    .spark-btn-primary:active { background: var(--semantic-button-primary-bg-hover-click-on); filter: brightness(0.95); }
+    .spark-btn-primary:active {
+      background: var(--semantic-button-primary-bg-hover-click-on);
+      filter: brightness(0.96);
+    }
 
     /* Secondary */
     .spark-btn-secondary {
       background: var(--semantic-button-secondary-bg-default);
       color: var(--semantic-button-secondary-content-on-surface);
-      border: 1px solid var(--semantic-button-secondary-border);
+      border: var(--primitive-border-width-1) solid var(--semantic-button-secondary-border);
     }
-    .spark-btn-secondary:hover { background: var(--semantic-button-secondary-bg-hover); border-color: var(--semantic-button-secondary-border-hover); }
+    .spark-btn-secondary:hover {
+      background: var(--semantic-button-secondary-bg-hover);
+      border-color: var(--semantic-button-secondary-border-hover);
+    }
     .spark-btn-secondary:active { background: var(--semantic-button-secondary-bg-click-on); }
 
-    /* Tertiary */
-    .spark-btn-tertiary {
+    /* Tertiary (label buttons with border) */
+    .spark-btn-tertiary:not(.spark-btn-icon-only) {
       background: var(--semantic-button-tertiary-bg-default);
       color: var(--semantic-button-tertiary-content-on-surface);
-      border: 1px solid var(--semantic-button-tertiary-border);
+      border: var(--primitive-border-width-1) solid var(--semantic-button-tertiary-border);
     }
-    .spark-btn-tertiary:hover { color: var(--semantic-button-tertiary-content-on-surface-hover-click-on); }
-    .spark-btn-tertiary:active { background: var(--semantic-button-tertiary-bg-click-on); color: var(--semantic-button-tertiary-content-on-surface-hover-click-on); }
+    .spark-btn-tertiary:not(.spark-btn-icon-only):hover {
+      color: var(--semantic-button-tertiary-content-on-surface-hover-click-on);
+    }
+    .spark-btn-tertiary:not(.spark-btn-icon-only):active {
+      background: var(--semantic-button-tertiary-bg-click-on);
+      color: var(--semantic-button-tertiary-content-on-surface-hover-click-on);
+    }
+
+    /* Tertiary icon-only uses dedicated icon-button tokens */
+    .spark-btn-tertiary.spark-btn-icon-only {
+      background: var(--semantic-button-tertiary-icon-button-bg-default);
+      color: var(--semantic-button-tertiary-icon-button-content-on-surface);
+      border: none;
+      gap: 0;
+    }
+    .spark-btn-tertiary.spark-btn-icon-only:hover {
+      background: var(--semantic-button-tertiary-icon-button-bg-hover);
+    }
+    .spark-btn-tertiary.spark-btn-icon-only:active {
+      background: var(--semantic-button-tertiary-icon-button-bg-click-on);
+    }
 
     /* Ghost */
-    .spark-btn-ghost {
+    .spark-btn-ghost:not(.spark-btn-danger) {
       background: transparent;
       color: var(--semantic-button-ghost-content-on-surface-default);
     }
-    .spark-btn-ghost:hover { background: var(--semantic-button-ghost-bg-hover); }
-    .spark-btn-ghost:active { background: var(--semantic-button-ghost-bg-click-on); }
+    .spark-btn-ghost:not(.spark-btn-danger):hover { background: var(--semantic-button-ghost-bg-hover); }
+    .spark-btn-ghost:not(.spark-btn-danger):active { background: var(--semantic-button-ghost-bg-click-on); }
 
     /* Link */
     .spark-btn-link {
@@ -82,6 +157,8 @@
       text-decoration: underline;
       padding: 0;
       height: auto;
+      min-height: 0;
+      border-radius: var(--primitive-radius-sm);
     }
     .spark-btn-link:hover { color: var(--semantic-button-link-content-on-surface-hover-focused-click-on); }
 
@@ -90,8 +167,14 @@
       background: transparent;
       color: var(--semantic-button-text-content-on-surface-default);
     }
-    .spark-btn-text:hover { background: var(--semantic-button-text-bg-hover); color: var(--semantic-button-text-content-on-surface-hover); }
-    .spark-btn-text:active { background: var(--semantic-button-text-bg-click-on); color: var(--semantic-button-text-content-on-surface-click-on); }
+    .spark-btn-text:hover {
+      background: var(--semantic-button-text-bg-hover);
+      color: var(--semantic-button-text-content-on-surface-hover);
+    }
+    .spark-btn-text:active {
+      background: var(--semantic-button-text-bg-click-on);
+      color: var(--semantic-button-text-content-on-surface-click-on);
+    }
 
     /* Danger */
     .spark-btn-primary.spark-btn-danger {
@@ -99,21 +182,23 @@
       color: var(--semantic-button-primary-danger-content-on-surface);
     }
     .spark-btn-primary.spark-btn-danger:hover { background: var(--semantic-button-primary-danger-bg-hover); }
-    .spark-btn-primary.spark-btn-danger:active { background: var(--semantic-button-primary-danger-bg-click-on); }
+    .spark-btn-primary.spark-btn-danger:active { background: var(--semantic-button-primary-danger-bg-click-on); filter: none; }
 
     .spark-btn-secondary.spark-btn-danger {
       background: var(--semantic-button-secondary-danger-bg-default);
       color: var(--semantic-button-secondary-danger-content-on-surface);
-      border: 1px solid var(--semantic-button-secondary-danger-border);
+      border: var(--primitive-border-width-1) solid var(--semantic-button-secondary-danger-border);
     }
     .spark-btn-secondary.spark-btn-danger:hover { background: var(--semantic-button-secondary-danger-bg-hover); }
     .spark-btn-secondary.spark-btn-danger:active { background: var(--semantic-button-secondary-danger-bg-click-on); }
 
     .spark-btn-ghost.spark-btn-danger {
-      background: transparent;
+      background: var(--semantic-button-ghost-danger-bg-surface);
       color: var(--semantic-button-ghost-danger-content-on-surface);
+      border: var(--primitive-border-width-1) solid var(--semantic-button-ghost-danger-border);
     }
     .spark-btn-ghost.spark-btn-danger:hover { background: var(--semantic-button-ghost-danger-bg-hover); }
+    .spark-btn-ghost.spark-btn-danger:active { background: var(--semantic-button-ghost-danger-bg-hover); filter: brightness(0.98); }
 
     /* Disabled */
     .spark-btn[disabled], .spark-btn-disabled {
@@ -122,6 +207,7 @@
       border-color: transparent !important;
       cursor: not-allowed;
       pointer-events: none;
+      filter: none !important;
     }
 
     /* ---- Demo Layout ---- */
@@ -203,18 +289,24 @@
     .anatomy-btn {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      height: 40px;
-      padding: 0 20px;
+      gap: var(--semantic-button-gap-icon-label-large);
+      height: var(--semantic-button-height-large);
+      padding: 0 var(--semantic-button-padding-x-large);
       background: var(--semantic-button-primary-bg-default);
       color: var(--semantic-button-primary-content-on-surface);
       border: none;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 600;
-      font-family: inherit;
+      border-radius: var(--semantic-button-border-radius-medium);
+      font-family: var(--semantic-typography-button-font-family);
+      font-size: var(--semantic-typography-button-large-font-size);
+      font-weight: var(--semantic-typography-button-font-weight);
+      line-height: var(--semantic-typography-button-line-height);
     }
-    .anatomy-btn svg { width: 16px; height: 16px; fill: currentColor; }
+    .anatomy-btn svg {
+      width: var(--semantic-button-icon-size-medium);
+      height: var(--semantic-button-icon-size-medium);
+      stroke: currentColor;
+      fill: none;
+    }
     .anatomy-labels {
       display: flex;
       flex-direction: column;
@@ -294,6 +386,9 @@
         <div class="sidebar-section">
           <div class="sidebar-section-title">Foundations</div>
           <a href="colors.html" class="sidebar-link">Colors &amp; Tokens</a>
+          <a href="dimensions.html" class="sidebar-link">Dimensions</a>
+          <a href="shadows-effects.html" class="sidebar-link">Shadows &amp; Effects</a>
+          <a href="typography.html" class="sidebar-link">Typography</a>
         </div>
         <div class="sidebar-section">
           <div class="sidebar-section-title">Components</div>
@@ -581,7 +676,7 @@
            ============================== -->
       <div class="doc-section">
         <h2>Token Mapping</h2>
-        <p>Each variant uses dedicated semantic tokens. The swatch shows the resolved color.</p>
+        <p>Each variant uses dedicated semantic color tokens. Label typography, heights, padding, radii, and motion come from shared foundations. See <a href="typography.html">Typography</a>, <a href="dimensions.html">Dimensions</a>, and <a href="shadows-effects.html">Shadows &amp; Effects</a> for those tokens.</p>
 
         <h3>Primary</h3>
         <div class="token-table-wrapper">
@@ -620,6 +715,20 @@
               <tr><td>Border</td><td class="token-name-cell"><span class="token-swatch" style="background:var(--semantic-button-tertiary-border)"></span><code>--semantic-button-tertiary-border</code></td><td>#E9ECEF</td></tr>
               <tr><td>Text (default)</td><td class="token-name-cell"><span class="token-swatch" style="background:var(--semantic-button-tertiary-content-on-surface)"></span><code>--semantic-button-tertiary-content-on-surface</code></td><td>#495057</td></tr>
               <tr><td>Text (hover/pressed)</td><td class="token-name-cell"><span class="token-swatch" style="background:var(--semantic-button-tertiary-content-on-surface-hover-click-on)"></span><code>--semantic-button-tertiary-content-on-surface-hover-click-on</code></td><td>#1C7ED6</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Tertiary icon-only</h3>
+        <p>Square Tertiary buttons use icon-button tokens (no border).</p>
+        <div class="token-table-wrapper">
+          <table class="token-table">
+            <thead><tr><th>Part</th><th>Token</th><th>Resolved Value</th></tr></thead>
+            <tbody>
+              <tr><td>Background (default)</td><td class="token-name-cell"><span class="token-swatch" style="background:var(--semantic-button-tertiary-icon-button-bg-default);border:1px solid #DEE2E6"></span><code>--semantic-button-tertiary-icon-button-bg-default</code></td><td>#FFFFFF</td></tr>
+              <tr><td>Background (hover)</td><td class="token-name-cell"><span class="token-swatch" style="background:var(--semantic-button-tertiary-icon-button-bg-hover)"></span><code>--semantic-button-tertiary-icon-button-bg-hover</code></td><td>#F1F3F5</td></tr>
+              <tr><td>Background (pressed)</td><td class="token-name-cell"><span class="token-swatch" style="background:var(--semantic-button-tertiary-icon-button-bg-click-on)"></span><code>--semantic-button-tertiary-icon-button-bg-click-on</code></td><td>#E9ECEF</td></tr>
+              <tr><td>Icon</td><td class="token-name-cell"><span class="token-swatch" style="background:var(--semantic-button-tertiary-icon-button-content-on-surface)"></span><code>--semantic-button-tertiary-icon-button-content-on-surface</code></td><td>#495057</td></tr>
             </tbody>
           </table>
         </div>
@@ -671,6 +780,9 @@
               <tr><td>Primary Danger Text</td><td class="token-name-cell"><span class="token-swatch" style="background:var(--semantic-button-primary-danger-content-on-surface);border:1px solid #DEE2E6"></span><code>--semantic-button-primary-danger-content-on-surface</code></td><td>#FFFFFF</td></tr>
               <tr><td>Secondary Danger Border</td><td class="token-name-cell"><span class="token-swatch" style="background:var(--semantic-button-secondary-danger-border)"></span><code>--semantic-button-secondary-danger-border</code></td><td>#FA5252</td></tr>
               <tr><td>Secondary Danger Text</td><td class="token-name-cell"><span class="token-swatch" style="background:var(--semantic-button-secondary-danger-content-on-surface)"></span><code>--semantic-button-secondary-danger-content-on-surface</code></td><td>#F03E3E</td></tr>
+              <tr><td>Ghost Danger BG (default)</td><td class="token-name-cell"><span class="token-swatch" style="background:var(--semantic-button-ghost-danger-bg-surface)"></span><code>--semantic-button-ghost-danger-bg-surface</code></td><td>#FFE3E3</td></tr>
+              <tr><td>Ghost Danger BG (hover)</td><td class="token-name-cell"><span class="token-swatch" style="background:var(--semantic-button-ghost-danger-bg-hover)"></span><code>--semantic-button-ghost-danger-bg-hover</code></td><td>#FFC9C9</td></tr>
+              <tr><td>Ghost Danger Border</td><td class="token-name-cell"><span class="token-swatch" style="background:var(--semantic-button-ghost-danger-border)"></span><code>--semantic-button-ghost-danger-border</code></td><td>#FA5252</td></tr>
               <tr><td>Ghost Danger Text</td><td class="token-name-cell"><span class="token-swatch" style="background:var(--semantic-button-ghost-danger-content-on-surface)"></span><code>--semantic-button-ghost-danger-content-on-surface</code></td><td>#F03E3E</td></tr>
             </tbody>
           </table>
@@ -764,7 +876,7 @@
             <h3>Focus Ring</h3>
             <p>A visible ring using <code style="font-size:0.75rem">--semantic-button-border-focus</code> appears on keyboard focus (2px solid, 2px offset).</p>
             <div style="margin-top:0.5rem">
-              <button class="spark-btn spark-btn-primary spark-btn-small" style="box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--semantic-button-border-focus);">Focus preview</button>
+              <button class="spark-btn spark-btn-primary spark-btn-small" style="box-shadow: var(--semantic-shadow-focus-ring-neutral);">Focus preview</button>
             </div>
           </div>
           <div class="a11y-principle">
@@ -787,12 +899,12 @@
         <h3>Standard Buttons</h3>
         <div class="token-table-wrapper">
           <table class="token-table">
-            <thead><tr><th>Size</th><th>Height</th><th>Horiz. Padding</th><th>Icon Gap</th><th>Border Radius</th><th>Preview</th></tr></thead>
+            <thead><tr><th>Size</th><th>Height token</th><th>Padding X</th><th>Gap token</th><th>Radius token</th><th>Preview</th></tr></thead>
             <tbody>
-              <tr><td>Tiny</td><td>24px</td><td>8px</td><td>4px</td><td>6px</td><td><button class="spark-btn spark-btn-primary spark-btn-tiny">Tiny</button></td></tr>
-              <tr><td>Small</td><td>28px</td><td>12px</td><td>6px</td><td>6px</td><td><button class="spark-btn spark-btn-primary spark-btn-small">Small</button></td></tr>
-              <tr><td>Medium</td><td>36px</td><td>16px</td><td>8px</td><td>8px</td><td><button class="spark-btn spark-btn-primary spark-btn-medium">Medium</button></td></tr>
-              <tr><td>Large</td><td>40px</td><td>20px</td><td>8px</td><td>8px</td><td><button class="spark-btn spark-btn-primary spark-btn-large">Large</button></td></tr>
+              <tr><td>Tiny</td><td><code>--semantic-button-height-tiny</code></td><td><code>--semantic-button-padding-x-tiny</code></td><td><code>--semantic-button-gap-icon-label-tiny</code></td><td><code>--semantic-button-border-radius-small</code></td><td><button class="spark-btn spark-btn-primary spark-btn-tiny">Tiny</button></td></tr>
+              <tr><td>Small</td><td><code>--semantic-button-height-small</code></td><td><code>--semantic-button-padding-x-small</code></td><td><code>--semantic-button-gap-icon-label-small</code></td><td><code>--semantic-button-border-radius-small</code></td><td><button class="spark-btn spark-btn-primary spark-btn-small">Small</button></td></tr>
+              <tr><td>Medium</td><td><code>--semantic-button-height-medium</code></td><td><code>--semantic-button-padding-x-medium</code></td><td><code>--semantic-button-gap-icon-label-medium</code></td><td><code>--semantic-button-border-radius-medium</code></td><td><button class="spark-btn spark-btn-primary spark-btn-medium">Medium</button></td></tr>
+              <tr><td>Large</td><td><code>--semantic-button-height-large</code></td><td><code>--semantic-button-padding-x-large</code></td><td><code>--semantic-button-gap-icon-label-large</code></td><td><code>--semantic-button-border-radius-medium</code></td><td><button class="spark-btn spark-btn-primary spark-btn-large">Large</button></td></tr>
             </tbody>
           </table>
         </div>

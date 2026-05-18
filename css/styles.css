@@ -16,8 +16,9 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  line-height: 1.6;
+  font-family: var(--semantic-typography-body-font-family);
+  font-size: var(--semantic-typography-body-md-font-size);
+  line-height: var(--semantic-typography-body-line-height);
   color: #212529;
   background-color: #F8F9FA;
 }
@@ -775,6 +776,89 @@ pre {
   .guidelines-columns {
     grid-template-columns: 1fr;
   }
+}
+
+/* ============================================
+   COMPONENT DEMOS (shared)
+   ============================================ */
+
+.btn-showcase {
+  background: #fff;
+  border: 1px solid #E9ECEF;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1rem 0 1.5rem;
+}
+
+/* ============================================
+   FOUNDATION PREVIEWS (typography, spacing, shadow demos)
+   ============================================ */
+
+.spacing-visual-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.spacing-visual-row {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: 1rem;
+  align-items: center;
+}
+
+.spacing-visual-bar {
+  height: 16px;
+  background: var(--primitive-blue-400);
+  border-radius: 4px;
+  min-width: 4px;
+}
+
+.shadow-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.25rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.shadow-demo-card {
+  background: var(--primitive-neutral-0);
+  border-radius: var(--primitive-radius-md);
+  padding: var(--primitive-space-6);
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--primitive-font-size-13);
+  color: var(--semantic-content-secondary);
+  border: 1px solid var(--primitive-neutral-200);
+}
+
+.type-sample-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.type-sample-row {
+  padding: var(--primitive-space-4);
+  background: var(--primitive-neutral-0);
+  border: 1px solid var(--primitive-neutral-200);
+  border-radius: var(--primitive-radius-md);
+}
+
+.motion-demo-bar {
+  height: 8px;
+  width: 120px;
+  background: var(--primitive-blue-500);
+  border-radius: var(--primitive-radius-full);
+  transition: transform var(--primitive-duration-normal) var(--primitive-easing-standard);
+}
+
+.motion-demo-wrap:hover .motion-demo-bar {
+  transform: translateX(40px);
 }
 
 /* ============================================
