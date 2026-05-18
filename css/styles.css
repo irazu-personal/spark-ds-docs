@@ -640,6 +640,144 @@ body {
 }
 
 /* ============================================
+   CODE BLOCKS
+   ============================================ */
+
+.code-block {
+  display: block;
+  padding: 1rem 1.25rem;
+  background: #1D2939;
+  color: #E9ECEF;
+  font-family: "SF Mono", "Fira Code", "Consolas", monospace;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  border-radius: 8px;
+  overflow-x: auto;
+  white-space: pre;
+  margin: 0.75rem 0 1.25rem;
+}
+
+pre {
+  margin: 0;
+}
+
+/* ============================================
+   PROPS TABLE
+   ============================================ */
+
+.props-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+}
+
+.props-table thead {
+  background: #F8F9FA;
+}
+
+.props-table th {
+  text-align: left;
+  padding: 0.625rem 0.875rem;
+  font-weight: 600;
+  color: #495057;
+  border-bottom: 2px solid #DEE2E6;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.props-table td {
+  padding: 0.625rem 0.875rem;
+  border-bottom: 1px solid #F1F3F5;
+  vertical-align: top;
+  color: #344054;
+}
+
+.props-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.props-table code {
+  font-size: 0.75rem;
+  background: #F1F3F5;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  font-family: "SF Mono", "Fira Code", monospace;
+  color: #C2255C;
+}
+
+/* ============================================
+   VARIANT GRID
+   ============================================ */
+
+.variant-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.variant-card {
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid #E9ECEF;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.variant-card .variant-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #495057;
+  margin-top: 0.5rem;
+}
+
+.variant-card .variant-sublabel {
+  font-size: 0.6875rem;
+  color: #868E96;
+}
+
+/* ============================================
+   USAGE EXAMPLES LIST
+   ============================================ */
+
+.usage-list {
+  list-style: none;
+  padding: 0;
+}
+
+.usage-list li {
+  padding: 0.75rem 1rem;
+  background: #fff;
+  border: 1px solid #E9ECEF;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  font-size: 0.9375rem;
+  color: #344054;
+}
+
+.usage-list li strong {
+  color: #1D2939;
+}
+
+/* ============================================
+   GUIDELINES COLUMNS
+   ============================================ */
+
+.guidelines-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 1rem 0;
+}
+
+@media (max-width: 768px) {
+  .guidelines-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
    RESPONSIVE
    ============================================ */
 
