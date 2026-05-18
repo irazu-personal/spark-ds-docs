@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shadows &amp; Effects - Spark Design System</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <button class="sidebar-toggle" aria-label="Toggle navigation" aria-expanded="false">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+    </svg>
+  </button>
+
+  <div class="site-wrapper">
+    <aside class="sidebar" role="navigation" aria-label="Main navigation">
+      <div class="sidebar-header">
+        <h1>Spark DS</h1>
+        <div class="subtitle">Design System Docs</div>
+      </div>
+      <nav>
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Overview</div>
+          <a href="index.html" class="sidebar-link">Home</a>
+          <a href="accessibility.html" class="sidebar-link">Accessibility</a>
+        </div>
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Foundations</div>
+          <a href="colors.html" class="sidebar-link">Colors &amp; Tokens</a>
+          <a href="dimensions.html" class="sidebar-link">Dimensions</a>
+          <a href="shadows-effects.html" class="sidebar-link active">Shadows &amp; Effects</a>
+          <a href="typography.html" class="sidebar-link">Typography</a>
+        </div>
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Components</div>
+          <a href="button.html" class="sidebar-link">Button</a>
+        </div>
+      </nav>
+    </aside>
+
+    <main class="main-content" id="main">
+      <div class="page-header">
+        <h1>Shadows &amp; Effects</h1>
+        <p>Elevation shadows, focus rings, inset highlights, motion timing, and easing used across Spark interfaces.</p>
+      </div>
+
+      <div class="token-search-wrapper">
+        <svg class="token-search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+        <input type="search" id="tokenSearch" class="token-search" placeholder="Search tokens..." aria-label="Search tokens">
+        <span class="token-search-count" id="searchCount"></span>
+      </div>
+
+      <div class="doc-section">
+        <h2>Elevation shadows</h2>
+        <div class="shadow-showcase-grid">
+          <div class="shadow-demo-card" style="box-shadow:var(--primitive-shadow-xs);">xs</div>
+          <div class="shadow-demo-card" style="box-shadow:var(--primitive-shadow-sm);">sm</div>
+          <div class="shadow-demo-card" style="box-shadow:var(--primitive-shadow-md);">md</div>
+          <div class="shadow-demo-card" style="box-shadow:var(--primitive-shadow-xs), var(--primitive-shadow-inner-subtle);">xs + inner</div>
+        </div>
+
+        <div class="token-table-wrapper">
+          <table class="token-table">
+            <thead><tr><th>Token</th><th>Use</th></tr></thead>
+            <tbody>
+              <tr data-token-name="primitive-shadow-xs"><td><div class="token-name-cell"><span class="token-name">--primitive-shadow-xs</span><button class="copy-btn" data-copy="--primitive-shadow-xs" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td><td>Subtle lift for inputs and chips</td></tr>
+              <tr data-token-name="primitive-shadow-sm"><td><div class="token-name-cell"><span class="token-name">--primitive-shadow-sm</span><button class="copy-btn" data-copy="--primitive-shadow-sm" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td><td>Cards and menus</td></tr>
+              <tr data-token-name="primitive-shadow-md"><td><div class="token-name-cell"><span class="token-name">--primitive-shadow-md</span><button class="copy-btn" data-copy="--primitive-shadow-md" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td><td>Modals and elevated surfaces</td></tr>
+              <tr data-token-name="semantic-shadow-surface-rest"><td><div class="token-name-cell"><span class="token-name">--semantic-shadow-surface-rest</span><button class="copy-btn" data-copy="--semantic-shadow-surface-rest" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td><td>Default resting elevation</td></tr>
+              <tr data-token-name="semantic-shadow-surface-raised"><td><div class="token-name-cell"><span class="token-name">--semantic-shadow-surface-raised</span><button class="copy-btn" data-copy="--semantic-shadow-surface-raised" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td><td>Raised panels</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="doc-section">
+        <h2>Focus ring</h2>
+        <p>Keyboard focus stacks a neutral outer gap with the interactive focus color. See <a href="accessibility.html">Accessibility</a> for usage expectations.</p>
+        <div class="btn-showcase" style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
+          <button type="button" style="padding:0.5rem 1rem;border:none;border-radius:8px;background:var(--semantic-button-primary-bg-default);color:var(--semantic-button-primary-content-on-surface);font-weight:600;box-shadow:var(--semantic-shadow-focus-ring-neutral);">Focus ring sample</button>
+        </div>
+
+        <div class="token-table-wrapper">
+          <table class="token-table">
+            <thead><tr><th>Token</th><th>Role</th></tr></thead>
+            <tbody>
+              <tr data-token-name="semantic-shadow-focus-ring-neutral"><td><div class="token-name-cell"><span class="token-name">--semantic-shadow-focus-ring-neutral</span><button class="copy-btn" data-copy="--semantic-shadow-focus-ring-neutral" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td><td>Composed ring for buttons and controls</td></tr>
+              <tr data-token-name="semantic-focus-ring-offset"><td><div class="token-name-cell"><span class="token-name">--semantic-focus-ring-offset</span><button class="copy-btn" data-copy="--semantic-focus-ring-offset" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td><td>Gap between control and ring</td></tr>
+              <tr data-token-name="semantic-button-border-focus"><td><div class="token-name-cell"><span class="token-name">--semantic-button-border-focus</span><button class="copy-btn" data-copy="--semantic-button-border-focus" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td><td>Focus ring color (references blue primitive)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="doc-section">
+        <h2>Motion</h2>
+        <p>Durations and easing for interactive feedback. Buttons use <code>--semantic-motion-button-transition</code>.</p>
+        <div class="motion-demo-wrap btn-showcase" style="max-width:280px;">
+          <p style="margin:0 0 0.75rem;font-size:0.8125rem;color:#495057;">Hover this card to slide the bar.</p>
+          <div class="motion-demo-bar"></div>
+        </div>
+
+        <div class="token-table-wrapper">
+          <table class="token-table">
+            <thead><tr><th>Token</th><th>Value</th></tr></thead>
+            <tbody>
+              <tr data-token-name="primitive-duration-fast"><td><div class="token-name-cell"><span class="token-name">--primitive-duration-fast</span><button class="copy-btn" data-copy="--primitive-duration-fast" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td><td><code>150ms</code></td></tr>
+              <tr data-token-name="primitive-duration-normal"><td><div class="token-name-cell"><span class="token-name">--primitive-duration-normal</span><button class="copy-btn" data-copy="--primitive-duration-normal" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td><td><code>220ms</code></td></tr>
+              <tr data-token-name="primitive-easing-standard"><td><div class="token-name-cell"><span class="token-name">--primitive-easing-standard</span><button class="copy-btn" data-copy="--primitive-easing-standard" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td><td>Standard curve</td></tr>
+              <tr data-token-name="semantic-motion-button-transition"><td><div class="token-name-cell"><span class="token-name">--semantic-motion-button-transition</span><button class="copy-btn" data-copy="--semantic-motion-button-transition" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td><td>Background, color, border, shadow</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="doc-section">
+        <h2>Backdrop blur</h2>
+        <div class="token-table-wrapper">
+          <table class="token-table">
+            <thead><tr><th>Token</th><th>Value</th></tr></thead>
+            <tbody>
+              <tr data-token-name="primitive-blur-backdrop-sm"><td><div class="token-name-cell"><span class="token-name">--primitive-blur-backdrop-sm</span><button class="copy-btn" data-copy="--primitive-blur-backdrop-sm" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td><td><code>8px</code> (use with <code>backdrop-filter</code>)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

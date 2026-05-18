@@ -326,4 +326,152 @@
   --semantic-tag-text-accent-07: #1098AD;
   --semantic-tag-text-accent-08: #9C36B5;
   --semantic-tag-text-accent-09: #2F9E44;
+
+  /* ============================================
+     PRIMITIVE TYPOGRAPHY
+     Base type scale and families
+     ============================================ */
+
+  --primitive-font-family-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --primitive-font-family-mono: ui-monospace, "SF Mono", "Fira Code", Menlo, Consolas, monospace;
+
+  --primitive-font-size-10: 0.625rem;
+  --primitive-font-size-11: 0.6875rem;
+  --primitive-font-size-12: 0.75rem;
+  --primitive-font-size-13: 0.8125rem;
+  --primitive-font-size-14: 0.875rem;
+  --primitive-font-size-16: 1rem;
+  --primitive-font-size-18: 1.125rem;
+  --primitive-font-size-24: 1.5rem;
+
+  --primitive-font-weight-regular: 400;
+  --primitive-font-weight-medium: 500;
+  --primitive-font-weight-semibold: 600;
+  --primitive-font-weight-bold: 700;
+
+  --primitive-line-height-none: 1;
+  --primitive-line-height-tight: 1.2;
+  --primitive-line-height-snug: 1.35;
+  --primitive-line-height-normal: 1.5;
+
+  --primitive-letter-spacing-tight: -0.01em;
+  --primitive-letter-spacing-none: 0;
+  --primitive-letter-spacing-wide: 0.02em;
+
+  /* ============================================
+     SEMANTIC TYPOGRAPHY
+     Purpose-driven text styles
+     ============================================ */
+
+  --semantic-typography-body-font-family: var(--primitive-font-family-sans);
+  --semantic-typography-body-sm-font-size: var(--primitive-font-size-13);
+  --semantic-typography-body-md-font-size: var(--primitive-font-size-14);
+  --semantic-typography-body-line-height: var(--primitive-line-height-normal);
+
+  --semantic-typography-heading-font-family: var(--primitive-font-family-sans);
+  --semantic-typography-heading-font-weight: var(--primitive-font-weight-semibold);
+  --semantic-typography-heading-line-height: var(--primitive-line-height-tight);
+
+  --semantic-typography-code-font-family: var(--primitive-font-family-mono);
+
+  --semantic-typography-label-font-weight: var(--primitive-font-weight-semibold);
+  --semantic-typography-label-letter-spacing: var(--primitive-letter-spacing-wide);
+
+  --semantic-typography-button-font-family: var(--primitive-font-family-sans);
+  --semantic-typography-button-font-weight: var(--primitive-font-weight-semibold);
+  --semantic-typography-button-line-height: var(--primitive-line-height-none);
+  --semantic-typography-button-tiny-font-size: var(--primitive-font-size-11);
+  --semantic-typography-button-small-font-size: var(--primitive-font-size-12);
+  --semantic-typography-button-medium-font-size: var(--primitive-font-size-13);
+  --semantic-typography-button-large-font-size: var(--primitive-font-size-14);
+
+  /* ============================================
+     PRIMITIVE DIMENSIONS
+     Spacing, radii, layout grid (4px base)
+     ============================================ */
+
+  --primitive-space-0: 0;
+  --primitive-space-1: 0.25rem;
+  --primitive-space-2: 0.5rem;
+  --primitive-space-3: 0.75rem;
+  --primitive-space-4: 1rem;
+  --primitive-space-5: 1.25rem;
+  --primitive-space-6: 1.5rem;
+  --primitive-space-8: 2rem;
+  --primitive-space-10: 2.5rem;
+
+  --primitive-radius-none: 0;
+  --primitive-radius-sm: 6px;
+  --primitive-radius-md: 8px;
+  --primitive-radius-lg: 12px;
+  --primitive-radius-full: 9999px;
+
+  --primitive-border-width-1: 1px;
+  --primitive-border-width-2: 2px;
+
+  /* ============================================
+     SEMANTIC DIMENSIONS - COMPONENT BUTTON
+     Heights, padding, gaps, radii for Button
+     ============================================ */
+
+  --semantic-button-height-tiny: 24px;
+  --semantic-button-height-small: 28px;
+  --semantic-button-height-medium: 36px;
+  --semantic-button-height-large: 40px;
+
+  --semantic-button-padding-x-tiny: var(--primitive-space-2);
+  --semantic-button-padding-x-small: 12px;
+  --semantic-button-padding-x-medium: var(--primitive-space-4);
+  --semantic-button-padding-x-large: var(--primitive-space-5);
+
+  --semantic-button-gap-icon-label-tiny: var(--primitive-space-1);
+  --semantic-button-gap-icon-label-small: 6px;
+  --semantic-button-gap-icon-label-medium: var(--primitive-space-2);
+  --semantic-button-gap-icon-label-large: var(--primitive-space-2);
+
+  --semantic-button-border-radius-small: var(--primitive-radius-sm);
+  --semantic-button-border-radius-medium: var(--primitive-radius-md);
+
+  --semantic-button-icon-size-inline: 16px;
+  --semantic-button-icon-size-tiny: 14px;
+  --semantic-button-icon-size-small: 14px;
+  --semantic-button-icon-size-medium: 16px;
+  --semantic-button-icon-size-large: 16px;
+
+  /* ============================================
+     PRIMITIVE SHADOWS & EFFECTS
+     ============================================ */
+
+  --primitive-shadow-color-soft: rgba(29, 41, 57, 0.06);
+  --primitive-shadow-color-medium: rgba(29, 41, 57, 0.1);
+  --primitive-shadow-color-strong: rgba(29, 41, 57, 0.14);
+
+  --primitive-shadow-xs: 0 1px 2px var(--primitive-shadow-color-soft);
+  --primitive-shadow-sm: 0 2px 8px var(--primitive-shadow-color-medium);
+  --primitive-shadow-md: 0 4px 16px var(--primitive-shadow-color-strong);
+  --primitive-shadow-inner-subtle: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+
+  --primitive-blur-backdrop-sm: 8px;
+
+  --primitive-duration-fast: 150ms;
+  --primitive-duration-normal: 220ms;
+  --primitive-easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ============================================
+     SEMANTIC SHADOWS & EFFECTS
+     ============================================ */
+
+  --semantic-shadow-surface-rest: var(--primitive-shadow-xs);
+  --semantic-shadow-surface-raised: var(--primitive-shadow-sm);
+  --semantic-shadow-overlay: var(--primitive-shadow-md);
+
+  --semantic-focus-ring-offset: var(--primitive-border-width-2);
+  --semantic-focus-ring-spread: var(--primitive-border-width-2);
+  --semantic-shadow-focus-ring-neutral: 0 0 0 var(--semantic-focus-ring-offset) var(--primitive-neutral-0),
+    0 0 0 calc(var(--semantic-focus-ring-offset) + var(--semantic-focus-ring-spread)) var(--semantic-button-border-focus);
+
+  --semantic-motion-button-transition: background var(--primitive-duration-fast) var(--primitive-easing-standard),
+    color var(--primitive-duration-fast) var(--primitive-easing-standard),
+    border-color var(--primitive-duration-fast) var(--primitive-easing-standard),
+    box-shadow var(--primitive-duration-fast) var(--primitive-easing-standard);
 }

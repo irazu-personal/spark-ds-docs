@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typography - Spark Design System</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <button class="sidebar-toggle" aria-label="Toggle navigation" aria-expanded="false">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+    </svg>
+  </button>
+
+  <div class="site-wrapper">
+    <aside class="sidebar" role="navigation" aria-label="Main navigation">
+      <div class="sidebar-header">
+        <h1>Spark DS</h1>
+        <div class="subtitle">Design System Docs</div>
+      </div>
+      <nav>
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Overview</div>
+          <a href="index.html" class="sidebar-link">Home</a>
+          <a href="accessibility.html" class="sidebar-link">Accessibility</a>
+        </div>
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Foundations</div>
+          <a href="colors.html" class="sidebar-link">Colors &amp; Tokens</a>
+          <a href="dimensions.html" class="sidebar-link">Dimensions</a>
+          <a href="shadows-effects.html" class="sidebar-link">Shadows &amp; Effects</a>
+          <a href="typography.html" class="sidebar-link active">Typography</a>
+        </div>
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Components</div>
+          <a href="button.html" class="sidebar-link">Button</a>
+        </div>
+      </nav>
+    </aside>
+
+    <main class="main-content" id="main">
+      <div class="page-header">
+        <h1>Typography</h1>
+        <p>Font stacks, type scale, weights, and semantic text styles. Button labels use the button subset of this system.</p>
+      </div>
+
+      <div class="token-search-wrapper">
+        <svg class="token-search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+        <input type="search" id="tokenSearch" class="token-search" placeholder="Search tokens..." aria-label="Search tokens">
+        <span class="token-search-count" id="searchCount"></span>
+      </div>
+
+      <div class="doc-section">
+        <h2>Font families</h2>
+        <div class="type-sample-stack">
+          <div class="type-sample-row" style="font-family:var(--primitive-font-family-sans);">
+            <strong>Sans (UI)</strong>
+            <p style="margin:0.35rem 0 0;color:#495057;font-size:var(--primitive-font-size-13);">system-ui, Segoe UI, Roboto, sans-serif</p>
+          </div>
+          <div class="type-sample-row" style="font-family:var(--primitive-font-family-mono);font-size:var(--primitive-font-size-13);">
+            <strong>Mono (code)</strong>
+            <p style="margin:0.35rem 0 0;color:#495057;">ui-monospace, SF Mono, Consolas</p>
+          </div>
+        </div>
+
+        <div class="token-table-wrapper">
+          <table class="token-table">
+            <thead><tr><th>Token</th><th>Role</th></tr></thead>
+            <tbody>
+              <tr data-token-name="primitive-font-family-sans"><td><div class="token-name-cell"><span class="token-name">--primitive-font-family-sans</span><button class="copy-btn" data-copy="--primitive-font-family-sans" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td><td>Default interface text</td></tr>
+              <tr data-token-name="primitive-font-family-mono"><td><div class="token-name-cell"><span class="token-name">--primitive-font-family-mono</span><button class="copy-btn" data-copy="--primitive-font-family-mono" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td><td>Code and technical strings</td></tr>
+              <tr data-token-name="semantic-typography-body-font-family"><td><div class="token-name-cell"><span class="token-name">--semantic-typography-body-font-family</span><button class="copy-btn" data-copy="--semantic-typography-body-font-family" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td><td>Body text family alias</td></tr>
+              <tr data-token-name="semantic-typography-button-font-family"><td><div class="token-name-cell"><span class="token-name">--semantic-typography-button-font-family</span><button class="copy-btn" data-copy="--semantic-typography-button-font-family" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td><td>Button labels</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="doc-section">
+        <h2>Type scale (primitives)</h2>
+        <div class="type-sample-stack">
+          <div class="type-sample-row" style="font-size:var(--primitive-font-size-24);font-weight:var(--primitive-font-weight-semibold);line-height:var(--primitive-line-height-tight);">Scale 24 / Semibold</div>
+          <div class="type-sample-row" style="font-size:var(--primitive-font-size-18);font-weight:var(--primitive-font-weight-semibold);">Scale 18 / Semibold</div>
+          <div class="type-sample-row" style="font-size:var(--primitive-font-size-16);">Scale 16 / Regular</div>
+          <div class="type-sample-row" style="font-size:var(--primitive-font-size-14);">Scale 14 / Regular (body md)</div>
+          <div class="type-sample-row" style="font-size:var(--primitive-font-size-13);">Scale 13 / Regular (body sm)</div>
+          <div class="type-sample-row" style="font-size:var(--primitive-font-size-12);">Scale 12 / Regular</div>
+          <div class="type-sample-row" style="font-size:var(--primitive-font-size-11);">Scale 11 / Regular (button tiny)</div>
+        </div>
+
+        <div class="token-table-wrapper">
+          <table class="token-table">
+            <thead><tr><th>Token</th><th>Approx.</th></tr></thead>
+            <tbody>
+              <tr data-token-name="primitive-font-size-10"><td><div class="token-name-cell"><span class="token-name">--primitive-font-size-10</span><button class="copy-btn" data-copy="--primitive-font-size-10" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td><td>10px</td></tr>
+              <tr data-token-name="primitive-font-size-11"><td><div class="token-name-cell"><span class="token-name">--primitive-font-size-11</span><button class="copy-btn" data-copy="--primitive-font-size-11" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td><td>11px</td></tr>
+              <tr data-token-name="primitive-font-size-12"><td><div class="token-name-cell"><span class="token-name">--primitive-font-size-12</span><button class="copy-btn" data-copy="--primitive-font-size-12" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td><td>12px</td></tr>
+              <tr data-token-name="primitive-font-size-13"><td><div class="token-name-cell"><span class="token-name">--primitive-font-size-13</span><button class="copy-btn" data-copy="--primitive-font-size-13" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td><td>13px</td></tr>
+              <tr data-token-name="primitive-font-size-14"><td><div class="token-name-cell"><span class="token-name">--primitive-font-size-14</span><button class="copy-btn" data-copy="--primitive-font-size-14" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td><td>14px</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="doc-section">
+        <h2>Semantic styles</h2>
+        <div class="token-table-wrapper">
+          <table class="token-table">
+            <thead><tr><th>Token</th><th>Maps to</th></tr></thead>
+            <tbody>
+              <tr data-token-name="semantic-typography-body-md-font-size"><td><div class="token-name-cell"><span class="token-name">--semantic-typography-body-md-font-size</span><button class="copy-btn" data-copy="--semantic-typography-body-md-font-size" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td><td>Default reading size (docs body)</td></tr>
+              <tr data-token-name="semantic-typography-heading-font-weight"><td><div class="token-name-cell"><span class="token-name">--semantic-typography-heading-font-weight</span><button class="copy-btn" data-copy="--semantic-typography-heading-font-weight" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td><td>Section titles</td></tr>
+              <tr data-token-name="semantic-typography-button-font-weight"><td><div class="token-name-cell"><span class="token-name">--semantic-typography-button-font-weight</span><button class="copy-btn" data-copy="--semantic-typography-button-font-weight" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td><td>Semibold for all button sizes</td></tr>
+              <tr data-token-name="semantic-typography-button-line-height"><td><div class="token-name-cell"><span class="token-name">--semantic-typography-button-line-height</span><button class="copy-btn" data-copy="--semantic-typography-button-line-height" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td><td>1 (tight vertical alignment)</td></tr>
+              <tr data-token-name="semantic-typography-button-tiny-font-size"><td><div class="token-name-cell"><span class="token-name">--semantic-typography-button-tiny-font-size</span><button class="copy-btn" data-copy="--semantic-typography-button-tiny-font-size" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td><td>Tiny button label</td></tr>
+              <tr data-token-name="semantic-typography-button-medium-font-size"><td><div class="token-name-cell"><span class="token-name">--semantic-typography-button-medium-font-size</span><button class="copy-btn" data-copy="--semantic-typography-button-medium-font-size" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td><td>Medium button label</td></tr>
+              <tr data-token-name="semantic-typography-button-large-font-size"><td><div class="token-name-cell"><span class="token-name">--semantic-typography-button-large-font-size</span><button class="copy-btn" data-copy="--semantic-typography-button-large-font-size" aria-label="Copy token name"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></button></div></td><td>Large button label</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="doc-section">
+        <h2>Button label ramp</h2>
+        <p>Live samples use the same tokens as the <a href="button.html">Button</a> documentation.</p>
+        <div class="btn-showcase" style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;">
+          <span style="display:inline-flex;align-items:center;justify-content:center;height:var(--semantic-button-height-tiny);padding:0 var(--semantic-button-padding-x-tiny);border-radius:var(--semantic-button-border-radius-small);background:var(--semantic-button-primary-bg-default);color:var(--semantic-button-primary-content-on-surface);font-family:var(--semantic-typography-button-font-family);font-weight:var(--semantic-typography-button-font-weight);font-size:var(--semantic-typography-button-tiny-font-size);line-height:var(--semantic-typography-button-line-height);">Tiny</span>
+          <span style="display:inline-flex;align-items:center;justify-content:center;height:var(--semantic-button-height-medium);padding:0 var(--semantic-button-padding-x-medium);border-radius:var(--semantic-button-border-radius-medium);background:var(--semantic-button-primary-bg-default);color:var(--semantic-button-primary-content-on-surface);font-family:var(--semantic-typography-button-font-family);font-weight:var(--semantic-typography-button-font-weight);font-size:var(--semantic-typography-button-medium-font-size);line-height:var(--semantic-typography-button-line-height);">Medium</span>
+          <span style="display:inline-flex;align-items:center;justify-content:center;height:var(--semantic-button-height-large);padding:0 var(--semantic-button-padding-x-large);border-radius:var(--semantic-button-border-radius-medium);background:var(--semantic-button-primary-bg-default);color:var(--semantic-button-primary-content-on-surface);font-family:var(--semantic-typography-button-font-family);font-weight:var(--semantic-typography-button-font-weight);font-size:var(--semantic-typography-button-large-font-size);line-height:var(--semantic-typography-button-line-height);">Large</span>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
