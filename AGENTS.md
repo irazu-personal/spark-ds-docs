@@ -10,7 +10,7 @@ All UI work in React apps must follow **Spark DS**. Read this before writing or 
 | Published docs | https://irazu-personal.github.io/spark-ds-docs/ |
 | Token definitions | `css/tokens.css` |
 | Components | `button.html` (more added over time) |
-| Foundations | `colors.html`, `typography.html`, `dimensions.html`, `shadows-effects.html` |
+| Foundations | `colors.html`, `typography.html`, `dimensions.html`, `shadows-effects.html`, `icons.html` |
 | Accessibility | `accessibility.html` |
 
 **Priority:** Figma defines visual intent. `css/tokens.css` defines code values. HTML docs define usage and React API. When Figma and code disagree, implement with tokens and flag the drift.

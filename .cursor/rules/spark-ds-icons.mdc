@@ -8,7 +8,7 @@ alwaysApply: false
 
 ## Source
 
-Use icons from `assets/icons/` when a match exists. Each icon has two SVG files in kebab-case:
+Use icons from `assets/icons/` when a match exists. Browse and download SVGs on the [Icons](https://irazu-personal.github.io/spark-ds-docs/icons.html) docs page or in the repo at `assets/icons/`. Each icon has two SVG files in kebab-case:
 
 - `{name}-medium.svg` (24×24 viewBox, 24px)
 - `{name}-small.svg` (16×16 viewBox, 16px)

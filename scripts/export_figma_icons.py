@@ -119,6 +119,21 @@ def write_icons(items: list[dict[str, str]]) -> int:
     return written
 
 
+def write_icons_manifest() -> int:
+    """Write assets/icons/manifest.json for the docs icon browser."""
+    names = sorted(
+        {
+            path.stem.removesuffix("-medium").removesuffix("-small")
+            for path in ICONS_DIR.glob("*.svg")
+            if path.name.endswith("-medium.svg") or path.name.endswith("-small.svg")
+        }
+    )
+    manifest = {"version": 1, "count": len(names), "icons": names}
+    out_path = ICONS_DIR / "manifest.json"
+    out_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+    return len(names)
+
+
 def figma_request(token: str, path: str, params: dict[str, str] | None = None) -> dict:
     url = f"https://api.figma.com/v1{path}"
     if params:
@@ -333,7 +348,9 @@ def main() -> None:
         items = build_inventory_from_figma(token, args.file_key, expected_sets=expect)
 
     count = write_icons(items)
+    icon_sets = write_icons_manifest()
     print(f"Wrote {count} SVG files to {ICONS_DIR}")
+    print(f"Updated manifest.json ({icon_sets} icon sets)")
 
 
 if __name__ == "__main__":
