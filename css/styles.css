@@ -1019,8 +1019,10 @@ pre {
 
 .icons-toolbar {
   display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
   margin-bottom: 1.25rem;
   position: sticky;
   top: 0;
@@ -1033,21 +1035,14 @@ pre {
   box-shadow: 0 1px 0 rgba(29, 41, 57, 0.04);
 }
 
-.icons-toolbar-controls {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 1rem;
-  width: 100%;
-}
-
 .icons-toolbar .spark-segmented-control {
   flex-shrink: 0;
 }
 
 .icons-search-field {
-  flex: 1 1 280px;
+  flex: 0 0 auto;
+  width: 300px;
+  max-width: 100%;
   min-width: 0;
 }
 
@@ -1056,9 +1051,14 @@ pre {
 }
 
 .icons-search-count {
+  flex-shrink: 0;
   margin: 0;
-  font-size: 0.8125rem;
-  color: var(--semantic-content-secondary);
+  padding-left: var(--semantic-search-input-gap);
+  font-size: 0.75rem;
+  font-weight: var(--primitive-font-weight-regular);
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--semantic-search-input-placeholder-color);
 }
 
 .icon-group {
@@ -1123,6 +1123,15 @@ pre {
   font-weight: 600;
   color: #344054;
   word-break: break-word;
+}
+
+.icon-card-name .icon-name-highlight {
+  padding: 0 0.125rem;
+  margin: 0 -0.0625rem;
+  border-radius: var(--primitive-radius-sm);
+  background-color: var(--semantic-surface-muted);
+  color: var(--semantic-action-primary-content-on-surface-active);
+  font-weight: 700;
 }
 
 .icon-card-actions {

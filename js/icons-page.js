@@ -15,6 +15,36 @@ document.addEventListener('DOMContentLoaded', function () {
     return 'assets/icons/' + name + '-' + size + '.svg';
   }
 
+  function escapeHtml(text) {
+    var div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  function escapeRegExp(s) {
+    return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  function highlightName(name, query) {
+    var q = query.trim();
+    if (!q) return escapeHtml(name);
+    var re = new RegExp('(' + escapeRegExp(q) + ')', 'gi');
+    return name.split(re).map(function (part, i) {
+      if (i % 2 === 1) {
+        return '<mark class="icon-name-highlight">' + escapeHtml(part) + '</mark>';
+      }
+      return escapeHtml(part);
+    }).join('');
+  }
+
+  function updateCardNameHighlights(query) {
+    cards.forEach(function (card) {
+      var label = card.querySelector('.icon-card-name');
+      var name = card.getAttribute('data-icon-name') || '';
+      if (label) label.innerHTML = highlightName(name, query);
+    });
+  }
+
   function renderCard(name) {
     var article = document.createElement('article');
     article.className = 'icon-card';
@@ -83,7 +113,8 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function filterIcons(query) {
-    var q = query.trim().toLowerCase();
+    var raw = query == null ? '' : String(query);
+    var q = raw.trim().toLowerCase();
     var visible = 0;
     cards.forEach(function (card) {
       var name = card.getAttribute('data-icon-name') || '';
@@ -98,6 +129,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (searchCount) {
       searchCount.textContent = visible + ' of ' + allNames.length + ' icons';
     }
+    updateCardNameHighlights(raw);
   }
 
   sizeButtons.forEach(function (btn) {
