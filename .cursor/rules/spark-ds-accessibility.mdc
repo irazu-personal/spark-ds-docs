@@ -1,0 +1,42 @@
+---
+description: Spark DS accessibility requirements for React UI (WCAG 2.1 AA)
+globs: "**/*.{tsx,jsx}"
+alwaysApply: false
+---
+
+# Spark DS — Accessibility
+
+Spark targets **WCAG 2.1 Level AA**. See `accessibility.html` for full guidance.
+
+## Checklist (every UI change)
+
+- [ ] All interactive elements reachable and operable via keyboard
+- [ ] Focus order follows logical reading sequence
+- [ ] `:focus-visible` ring using `--semantic-shadow-focus-ring-neutral` or component focus tokens
+- [ ] Never use `outline: none` without a visible focus replacement
+- [ ] Icon-only controls have `aria-label` (or visible text)
+- [ ] Decorative icons use `aria-hidden="true"`
+- [ ] Color is not the only indicator of state or errors
+- [ ] Form fields have visible `<label>` or `aria-labelledby`
+- [ ] Errors include descriptive text, not just red styling
+- [ ] Disabled buttons use `disabled` and `aria-disabled="true"`
+
+## React patterns
+
+```tsx
+// Icon-only button
+<button type="button" aria-label="Delete item" className="spark-btn spark-btn-ghost spark-btn-icon-only spark-btn-medium">
+  <TrashIcon aria-hidden="true" />
+</button>
+
+// Link styled as button
+<a href="/settings" className="spark-btn spark-btn-link spark-btn-medium">Settings</a>
+```
+
+## Motion
+
+Respect `prefers-reduced-motion`. Use `--semantic-motion-*` tokens for transitions defined in Spark.
+
+## Contrast
+
+Normal text: 4.5:1 minimum. Large text and non-text UI: 3:1 minimum. Disabled states are exempt.

@@ -1,0 +1,42 @@
+---
+description: Standards for writing Spark DS documentation pages
+globs: "**/*.{html,md}"
+alwaysApply: false
+---
+
+# Spark DS — Documentation Authoring
+
+Applies when editing pages in this docs repo (`*.html`, `README.md`).
+
+## Writing style
+
+- Practical and brief. Lead with what to use and when.
+- Do not use em dashes in documentation prose.
+- Do not reference fake stories, placeholder products, or undocumented components as if they ship.
+
+## Page structure (components)
+
+Follow `button.html` as the template:
+
+1. Overview and anatomy
+2. Live examples for all variants and states
+3. Token tables mapping props/classes to CSS variables
+4. Usage guidelines (designers and developers)
+5. Accessibility section
+6. Spacing and sizing tables
+
+## Tokens in docs
+
+- Every token shown in docs must exist in `css/tokens.css`.
+- Explain the 3-tier model: Primitive (raw) → Semantic (meaning) → Component (scoped).
+- State clearly that primitives must not be used directly in product UI.
+
+## Code examples
+
+- HTML examples in docs may use class names directly.
+- React prop tables must match implementable API (see Button props in `button.html`).
+- Do not paste example code that uses hardcoded hex or px where tokens exist.
+
+## Navigation
+
+Add new component pages to the sidebar in every HTML file and to the home grid on `index.html`.

@@ -1,0 +1,51 @@
+---
+description: Spark DS React component patterns and composition
+globs: "**/*.{tsx,jsx}"
+alwaysApply: false
+---
+
+# Spark DS — React Components
+
+## Before building custom UI
+
+1. If implementing from Figma, run `get_design_context` and `search_design_system` (see `spark-ds-figma-mcp.mdc`).
+2. Check `index.html` nav for documented components.
+3. Read the component page for variants, props, anatomy, and usage guidelines.
+4. Reuse or extend the shared Spark component. Do not recreate styled one-offs.
+
+## Component standards
+
+- Functional components with typed props.
+- Use `forwardRef` on interactive primitives (Button, Input, Link).
+- Native semantics: `<button>` for actions, `<a>` for navigation (`href`), not `<div onClick>`.
+- Compose classes with `clsx` / `cn`. Map props to documented class names.
+
+## Button (documented in `button.html`)
+
+Props align with Spark docs:
+
+| Prop | Values |
+|------|--------|
+| `type` | `primary`, `secondary`, `tertiary`, `ghost`, `link`, `text` |
+| `size` | `tiny`, `small`, `medium`, `large` |
+| `danger` | boolean |
+| `disabled` | boolean |
+| `icon` | `ReactNode` (leading in DOM) |
+| `iconEnd` | trailing icon visually |
+| `iconOnly` | square icon button; requires `ariaLabel` |
+| `href` | renders as anchor when set |
+
+CSS classes: `spark-btn`, `spark-btn-{type}`, `spark-btn-{size}`, `spark-btn-icon-only`, `spark-btn-icon-end`, `spark-btn-disabled`, `spark-btn-danger`.
+
+Styles must use tokens from `button.html` and `--semantic-button-*` in `tokens.css`.
+
+## Hierarchy
+
+- One **Primary** button per view.
+- Pair Primary with Secondary for main actions.
+- Use **Danger** only for destructive actions.
+- Prefer **Ghost** / **Text** in dense or inline contexts.
+
+## Undocumented UI
+
+If no Spark component exists, build with semantic tokens and match Button structure (focus ring, disabled states, sizes). Flag the gap; do not ship ad hoc patterns as permanent API.

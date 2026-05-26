@@ -1,0 +1,70 @@
+---
+description: Spark DS Figma file and Figma MCP workflows for design-to-code and code-to-design
+alwaysApply: true
+---
+
+# Spark DS — Figma MCP
+
+Spark DS in Figma is the design source. Use Figma MCP tools to read designs and keep Figma aligned with code.
+
+## Spark Figma file
+
+| Field | Value |
+|-------|-------|
+| File | [Spark DS](https://www.figma.com/design/KYq9ka9Hg16HdfzR4gMoMH/Spark---DS) |
+| `fileKey` | `KYq9ka9Hg16HdfzR4gMoMH` |
+| Default `nodeId` | `620:10020` (use node from the URL the user shares when implementing a specific screen or component) |
+
+Always pass `fileKey: "KYq9ka9Hg16HdfzR4gMoMH"` to Spark DS Figma MCP calls unless the user links a different file.
+
+## Source priority
+
+| Layer | Role |
+|-------|------|
+| Figma | Layout, variants, visual intent, variables in the library |
+| `css/tokens.css` | Canonical token names and values in React/CSS |
+| HTML docs | Usage guidelines, a11y, React prop API |
+
+When Figma and `tokens.css` disagree, implement with `tokens.css` and flag the drift. Do not hardcode values from Figma that lack a token mapping.
+
+## Design-to-code (Figma → React)
+
+Use when implementing UI from a design or Figma link.
+
+1. Parse `fileKey` and `nodeId` from the Figma URL (`620-10020` → `620:10020`).
+2. Call **`get_design_context`** with `fileKey`, `nodeId`, `clientLanguages: "typescript"`, `clientFrameworks: "react"`.
+3. Call **`search_design_system`** with the same `fileKey` to find Spark components and variables (Button, colors, spacing).
+4. Read the matching page in this repo (`button.html`, foundations).
+5. Grep `css/tokens.css` for token names. Map Figma variables to `--semantic-*` / `--semantic-button-*`.
+6. Adapt MCP output to Spark React patterns (see `spark-ds-react-components.mdc`). MCP code is reference only, not final code.
+7. Prefer Code Connect snippets when **`get_code_connect_map`** returns a mapping.
+
+## Code-to-design (React → Figma)
+
+Use when updating Figma to match code or building library assets.
+
+1. Load **`figma-use`** skill before every **`use_figma`** call.
+2. For full pages or screens, also load **`figma-generate-design`**.
+3. For new components or variables, also load **`figma-generate-library`**.
+4. Call **`search_design_system`** first. Reuse existing Spark components and variables; do not recreate from scratch.
+5. Bind fills, text, spacing, and radii to Spark variables, not raw hex.
+6. Work in small **`use_figma`** steps. Return created node IDs from each call.
+
+## Useful MCP tools
+
+| Tool | When |
+|------|------|
+| `get_design_context` | Primary design-to-code read for a frame or component |
+| `get_screenshot` | Visual check without full code context |
+| `get_metadata` | File structure, node names, IDs |
+| `get_variable_defs` | Figma variable names and values at a node |
+| `search_design_system` | Find Spark Button, tokens, styles by query |
+| `get_code_connect_map` | Figma component → codebase mapping |
+| `use_figma` | Create or edit nodes (requires `figma-use` skill) |
+
+## Do not
+
+- Implement from screenshot alone when `get_design_context` is available.
+- Paste Tailwind or arbitrary hex from MCP output without mapping to Spark tokens.
+- Call `use_figma` without loading the `figma-use` skill first.
+- Invent component variants that are not in Figma or `button.html`.
