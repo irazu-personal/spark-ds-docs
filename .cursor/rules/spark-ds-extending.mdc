@@ -1,0 +1,45 @@
+---
+description: How to extend Spark DS when tokens or components are missing
+alwaysApply: true
+---
+
+# Spark DS — Extending the System
+
+When the design system does not cover a need, follow this order. Do not skip steps.
+
+## 1. Search first
+
+- Grep `css/tokens.css` for related `--semantic-*` names.
+- Read foundation and component pages for composable patterns.
+
+## 2. Compose before creating
+
+- Prefer existing semantic tokens combined in new CSS.
+- Match patterns from documented components (Button is the reference for states, focus, sizes).
+
+## 3. Add tokens at the correct tier
+
+| Need | Add to |
+|------|--------|
+| New raw color or size | `--primitive-*` in `tokens.css` only |
+| Reusable meaning (error text, card border) | `--semantic-*` |
+| Single component scope (button hover) | `--semantic-{component}-*` |
+
+Never reference `--primitive-*` from React component CSS.
+
+## 4. Document the change
+
+In the same change set:
+
+- Update `tokens.css`
+- Update the relevant foundation or component HTML page
+- Link new components from `index.html`
+- Update the Spark Figma library (`fileKey`: `KYq9ka9Hg16HdfzR4gMoMH`) using Figma MCP and the `figma-generate-library` skill
+
+## 5. Add or update Cursor rules
+
+When a component stabilizes, add props and usage to `spark-ds-react-components.mdc`.
+
+## When blocked
+
+If requirements conflict with Spark DS or no token fits, stop and ask. Do not ship hardcoded values as a permanent solution.

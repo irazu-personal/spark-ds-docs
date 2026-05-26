@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap");
+
 :root {
   /* ============================================
      PRIMITIVE / SYSTEM COLORS
@@ -18,12 +20,25 @@
   --primitive-neutral-900: #212529;
   --primitive-neutral-1000: #000000;
 
-  /* Blue */
+  /* Strong body / button label ink (Spark DS) */
+  --primitive-neutral-ink: #1A1B23;
+  --primitive-neutral-border-muted: #E2E2E9;
+
+  /* Blue (Spark interactive ramp; aligns Button / Action in Figma) */
   --primitive-blue-100: #D0EBFF;
   --primitive-blue-200: #A5D8FF;
   --primitive-blue-300: #74C0FC;
   --primitive-blue-400: #339AF0;
-  --primitive-blue-500: #1C7ED6;
+  --primitive-blue-500: #008EF5;
+  --primitive-blue-600: #376BBD;
+
+  /* Focus tint / secondary hover surface */
+  --primitive-blue-focus-tint: #ECF4FE;
+
+  /* Primary danger fill (Button danger in Spark DS) */
+  --primitive-red-danger-primary: #EF0B17;
+  --primitive-red-danger-hover: #d60a15;
+  --primitive-red-danger-pressed: #bf0912;
 
   /* Deep Blue */
   --primitive-deep-blue-100: #D0D5DD;
@@ -94,7 +109,7 @@
   --brand-blue-200: #A5D8FF;
   --brand-blue-300: #74C0FC;
   --brand-blue-400: #339AF0;
-  --brand-blue-500: #1C7ED6;
+  --brand-blue-500: #008EF5;
 
   --brand-deep-blue-100: #D0D5DD;
   --brand-deep-blue-200: #98A2B3;
@@ -156,18 +171,18 @@
 
   /* Action / Primary */
   --semantic-action-primary-bg-default: var(--primitive-blue-500);
-  --semantic-action-primary-bg-hover: var(--primitive-blue-400);
-  --semantic-action-primary-bg-click-on: var(--primitive-blue-500);
+  --semantic-action-primary-bg-hover: var(--primitive-blue-600);
+  --semantic-action-primary-bg-click-on: var(--primitive-blue-600);
   --semantic-action-primary-bg-inverse: var(--primitive-neutral-0);
   --semantic-action-primary-border-default: var(--primitive-neutral-300);
   --semantic-action-primary-border-hover: var(--primitive-blue-500);
-  --semantic-action-primary-border-click-on: var(--primitive-blue-400);
-  --semantic-action-primary-border-focus: var(--primitive-blue-300);
+  --semantic-action-primary-border-click-on: var(--primitive-blue-500);
+  --semantic-action-primary-border-focus: var(--primitive-blue-focus-tint);
   --semantic-action-primary-content-on-surface: var(--primitive-neutral-900);
   --semantic-action-primary-content-on-surface-subtle: var(--primitive-neutral-600);
   --semantic-action-primary-content-on-surface-inverse: var(--primitive-neutral-0);
   --semantic-action-primary-content-on-surface-active: var(--primitive-blue-500);
-  --semantic-action-primary-content-on-surface-hover: var(--primitive-blue-400);
+  --semantic-action-primary-content-on-surface-hover: var(--primitive-blue-600);
 
   /* Action / Secondary */
   --semantic-action-secondary-bg-default: var(--primitive-neutral-0);
@@ -193,34 +208,34 @@
 
   /* Button / Primary */
   --semantic-button-primary-bg-default: var(--primitive-blue-500);
-  --semantic-button-primary-bg-hover-click-on: var(--primitive-blue-400);
+  --semantic-button-primary-bg-hover-click-on: var(--primitive-blue-600);
   --semantic-button-primary-content-on-surface: var(--primitive-neutral-0);
 
   /* Button / Secondary */
   --semantic-button-secondary-bg-default: var(--primitive-neutral-0);
-  --semantic-button-secondary-bg-hover: var(--primitive-neutral-50);
+  --semantic-button-secondary-bg-hover: var(--primitive-blue-focus-tint);
   --semantic-button-secondary-bg-click-on: var(--primitive-neutral-100);
-  --semantic-button-secondary-border: var(--primitive-neutral-300);
+  --semantic-button-secondary-border: var(--primitive-blue-500);
   --semantic-button-secondary-border-hover: var(--primitive-blue-500);
-  --semantic-button-secondary-content-on-surface: var(--primitive-neutral-900);
+  --semantic-button-secondary-content-on-surface: var(--primitive-blue-500);
 
   /* Button / Tertiary */
   --semantic-button-tertiary-bg-default: var(--primitive-neutral-0);
   --semantic-button-tertiary-bg-click-on: var(--primitive-neutral-100);
-  --semantic-button-tertiary-border: var(--primitive-neutral-200);
-  --semantic-button-tertiary-content-on-surface: var(--primitive-neutral-700);
+  --semantic-button-tertiary-border: var(--primitive-neutral-border-muted);
+  --semantic-button-tertiary-content-on-surface: var(--primitive-neutral-ink);
   --semantic-button-tertiary-content-on-surface-hover-click-on: var(--primitive-blue-500);
 
   /* Button / Tertiary Icon Button */
   --semantic-button-tertiary-icon-button-bg-default: var(--primitive-neutral-0);
   --semantic-button-tertiary-icon-button-bg-hover: var(--primitive-neutral-100);
   --semantic-button-tertiary-icon-button-bg-click-on: var(--primitive-neutral-200);
-  --semantic-button-tertiary-icon-button-content-on-surface: var(--primitive-neutral-700);
+  --semantic-button-tertiary-icon-button-content-on-surface: var(--primitive-neutral-ink);
 
   /* Button / Ghost */
   --semantic-button-ghost-bg-hover: var(--primitive-neutral-50);
   --semantic-button-ghost-bg-click-on: var(--primitive-neutral-100);
-  --semantic-button-ghost-content-on-surface-default: var(--primitive-neutral-900);
+  --semantic-button-ghost-content-on-surface-default: var(--primitive-blue-500);
 
   /* Button / Ghost Danger */
   --semantic-button-ghost-danger-bg-surface: var(--primitive-red-100);
@@ -230,23 +245,23 @@
 
   /* Button / Link */
   --semantic-button-link-content-on-surface-default: var(--primitive-blue-500);
-  --semantic-button-link-content-on-surface-hover-focused-click-on: var(--primitive-blue-400);
+  --semantic-button-link-content-on-surface-hover-focused-click-on: var(--primitive-blue-600);
 
   /* Button / Text */
   --semantic-button-text-bg-hover: var(--primitive-neutral-50);
   --semantic-button-text-bg-click-on: var(--primitive-neutral-100);
-  --semantic-button-text-content-on-surface-default: var(--primitive-neutral-700);
+  --semantic-button-text-content-on-surface-default: var(--primitive-neutral-ink);
   --semantic-button-text-content-on-surface-hover: var(--primitive-neutral-800);
-  --semantic-button-text-content-on-surface-click-on: var(--primitive-neutral-700);
+  --semantic-button-text-content-on-surface-click-on: var(--primitive-neutral-ink);
 
   /* Button / Disabled */
   --semantic-button-disabled-bg: var(--primitive-neutral-100);
   --semantic-button-disabled-content-on-action: var(--primitive-neutral-400);
 
   /* Button / Primary Danger */
-  --semantic-button-primary-danger-bg-default: var(--primitive-red-500);
-  --semantic-button-primary-danger-bg-hover: var(--primitive-red-600);
-  --semantic-button-primary-danger-bg-click-on: var(--primitive-red-700);
+  --semantic-button-primary-danger-bg-default: var(--primitive-red-danger-primary);
+  --semantic-button-primary-danger-bg-hover: var(--primitive-red-danger-hover);
+  --semantic-button-primary-danger-bg-click-on: var(--primitive-red-danger-pressed);
   --semantic-button-primary-danger-content-on-surface: var(--primitive-neutral-0);
 
   /* Button / Secondary Danger */
@@ -263,7 +278,7 @@
   --semantic-button-notification-content-on-surface-disabled: var(--primitive-neutral-400);
 
   /* Button / Focus */
-  --semantic-button-border-focus: var(--primitive-blue-300);
+  --semantic-button-border-focus: var(--primitive-blue-focus-tint);
 
   /* ============================================
      SEMANTIC TOKENS - FEEDBACK
@@ -332,7 +347,7 @@
      Base type scale and families
      ============================================ */
 
-  --primitive-font-family-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --primitive-font-family-sans: "Figtree", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --primitive-font-family-mono: ui-monospace, "SF Mono", "Fira Code", Menlo, Consolas, monospace;
 
   --primitive-font-size-10: 0.625rem;
@@ -342,7 +357,10 @@
   --primitive-font-size-14: 0.875rem;
   --primitive-font-size-16: 1rem;
   --primitive-font-size-18: 1.125rem;
+  --primitive-font-size-20: 1.25rem;
   --primitive-font-size-24: 1.5rem;
+  --primitive-font-size-30: 1.875rem;
+  --primitive-font-size-38: 2.375rem;
 
   --primitive-font-weight-regular: 400;
   --primitive-font-weight-medium: 500;
@@ -353,6 +371,11 @@
   --primitive-line-height-tight: 1.2;
   --primitive-line-height-snug: 1.35;
   --primitive-line-height-normal: 1.5;
+
+  /* Fixed line heights: Spark DS type ramp (Figma Typography; matches button/detail/base/lead rows) */
+  --primitive-line-height-button-detail: 18px;
+  --primitive-line-height-button-base: 22px;
+  --primitive-line-height-button-lead: 24px;
 
   --primitive-letter-spacing-tight: -0.01em;
   --primitive-letter-spacing-none: 0;
@@ -366,11 +389,39 @@
   --semantic-typography-body-font-family: var(--primitive-font-family-sans);
   --semantic-typography-body-sm-font-size: var(--primitive-font-size-13);
   --semantic-typography-body-md-font-size: var(--primitive-font-size-14);
-  --semantic-typography-body-line-height: var(--primitive-line-height-normal);
+  /* Default UI reading line matches Figma Base (14px / 22px) */
+  --semantic-typography-body-line-height: var(--primitive-line-height-button-base);
+
+  /* Figma: Paragraph row (16px / 24px, weights 400–700) */
+  --semantic-typography-body-lg-font-size: var(--primitive-font-size-16);
+  --semantic-typography-body-lg-line-height: var(--primitive-line-height-button-lead);
+  /* Aliases for Figma naming */
+  --semantic-typography-body-base-font-size: var(--primitive-font-size-14);
+  --semantic-typography-body-base-line-height: var(--primitive-line-height-button-base);
+  --semantic-typography-detail-font-size: var(--primitive-font-size-12);
+  --semantic-typography-detail-line-height: var(--primitive-line-height-button-detail);
 
   --semantic-typography-heading-font-family: var(--primitive-font-family-sans);
   --semantic-typography-heading-font-weight: var(--primitive-font-weight-semibold);
   --semantic-typography-heading-line-height: var(--primitive-line-height-tight);
+
+  /* Display headings in Figma: Semibold, sizes top to bottom */
+  --semantic-typography-heading-1-font-size: var(--primitive-font-size-38);
+  --semantic-typography-heading-1-line-height: 46px;
+  --semantic-typography-heading-2-font-size: var(--primitive-font-size-30);
+  --semantic-typography-heading-2-line-height: 38px;
+  --semantic-typography-heading-3-font-size: var(--primitive-font-size-24);
+  --semantic-typography-heading-3-line-height: 32px;
+  --semantic-typography-heading-4-font-size: var(--primitive-font-size-20);
+  --semantic-typography-heading-4-line-height: 28px;
+  --semantic-typography-heading-5-font-size: var(--primitive-font-size-18);
+  --semantic-typography-heading-5-line-height: 24px;
+
+  /* Figma uniq: table header caps (Detail semibold, uppercase) */
+  --semantic-typography-table-header-caps-font-size: var(--primitive-font-size-12);
+  --semantic-typography-table-header-caps-font-weight: var(--primitive-font-weight-semibold);
+  --semantic-typography-table-header-caps-line-height: var(--primitive-line-height-button-detail);
+  --semantic-typography-table-header-caps-text-transform: uppercase;
 
   --semantic-typography-code-font-family: var(--primitive-font-family-mono);
 
@@ -378,12 +429,26 @@
   --semantic-typography-label-letter-spacing: var(--primitive-letter-spacing-wide);
 
   --semantic-typography-button-font-family: var(--primitive-font-family-sans);
-  --semantic-typography-button-font-weight: var(--primitive-font-weight-semibold);
-  --semantic-typography-button-line-height: var(--primitive-line-height-none);
-  --semantic-typography-button-tiny-font-size: var(--primitive-font-size-11);
-  --semantic-typography-button-small-font-size: var(--primitive-font-size-12);
-  --semantic-typography-button-medium-font-size: var(--primitive-font-size-13);
-  --semantic-typography-button-large-font-size: var(--primitive-font-size-14);
+  /* Fallback when a size class does not set weight (prefer size tokens below). */
+  --semantic-typography-button-font-weight: var(--primitive-font-weight-medium);
+  --semantic-typography-button-line-height: var(--primitive-line-height-button-base);
+
+  --semantic-typography-button-tiny-font-size: var(--primitive-font-size-12);
+  --semantic-typography-button-tiny-font-weight: var(--primitive-font-weight-regular);
+  --semantic-typography-button-tiny-line-height: var(--primitive-line-height-button-detail);
+
+  --semantic-typography-button-small-font-size: var(--primitive-font-size-14);
+  --semantic-typography-button-small-font-weight: var(--primitive-font-weight-regular);
+  --semantic-typography-button-small-line-height: var(--primitive-line-height-button-base);
+
+  --semantic-typography-button-medium-font-size: var(--primitive-font-size-14);
+  --semantic-typography-button-medium-font-weight: var(--primitive-font-weight-medium);
+  --semantic-typography-button-medium-line-height: var(--primitive-line-height-button-base);
+  --semantic-typography-button-medium-font-weight-active: var(--primitive-font-weight-semibold);
+
+  --semantic-typography-button-large-font-size: var(--primitive-font-size-16);
+  --semantic-typography-button-large-font-weight: var(--primitive-font-weight-regular);
+  --semantic-typography-button-large-line-height: var(--primitive-line-height-button-lead);
 
   /* ============================================
      PRIMITIVE DIMENSIONS
@@ -419,24 +484,26 @@
   --semantic-button-height-medium: 36px;
   --semantic-button-height-large: 40px;
 
-  --semantic-button-padding-x-tiny: var(--primitive-space-2);
-  --semantic-button-padding-x-small: 12px;
+  --semantic-button-padding-x-tiny: var(--primitive-space-3);
+  --semantic-button-padding-x-small: var(--primitive-space-3);
   --semantic-button-padding-x-medium: var(--primitive-space-4);
-  --semantic-button-padding-x-large: var(--primitive-space-5);
+  --semantic-button-padding-x-large: var(--primitive-space-4);
 
-  --semantic-button-gap-icon-label-tiny: var(--primitive-space-1);
-  --semantic-button-gap-icon-label-small: 6px;
-  --semantic-button-gap-icon-label-medium: var(--primitive-space-2);
-  --semantic-button-gap-icon-label-large: var(--primitive-space-2);
+  --semantic-button-gap-icon-label-tiny: var(--primitive-space-2);
+  --semantic-button-gap-icon-label-small: var(--primitive-space-2);
+  --semantic-button-gap-icon-label-medium: var(--primitive-space-3);
+  --semantic-button-gap-icon-label-large: var(--primitive-space-3);
 
-  --semantic-button-border-radius-small: var(--primitive-radius-sm);
+  /* Main Button uses 8px radius through medium; large tier uses 12px in Figma */
+  --semantic-button-border-radius-small: var(--primitive-radius-md);
   --semantic-button-border-radius-medium: var(--primitive-radius-md);
+  --semantic-button-border-radius-large: var(--primitive-radius-lg);
 
   --semantic-button-icon-size-inline: 16px;
   --semantic-button-icon-size-tiny: 14px;
   --semantic-button-icon-size-small: 14px;
-  --semantic-button-icon-size-medium: 16px;
-  --semantic-button-icon-size-large: 16px;
+  --semantic-button-icon-size-medium: 24px;
+  --semantic-button-icon-size-large: 24px;
 
   /* ============================================
      PRIMITIVE SHADOWS & EFFECTS
@@ -473,5 +540,73 @@
   --semantic-motion-button-transition: background var(--primitive-duration-fast) var(--primitive-easing-standard),
     color var(--primitive-duration-fast) var(--primitive-easing-standard),
     border-color var(--primitive-duration-fast) var(--primitive-easing-standard),
+    box-shadow var(--primitive-duration-fast) var(--primitive-easing-standard);
+
+  /* ============================================
+     SEMANTIC TOKENS - COMPONENT MODAL
+     Overlay dialog with header, search, slot, footer
+     ============================================ */
+
+  --semantic-modal-overlay-bg: color-mix(in srgb, var(--primitive-neutral-700) 30%, transparent);
+  --semantic-modal-panel-bg: var(--semantic-surface-white);
+  --semantic-modal-panel-shadow: var(--semantic-shadow-overlay);
+  --semantic-modal-panel-radius: var(--primitive-radius-lg);
+  --semantic-modal-panel-width: 691px;
+  --semantic-modal-panel-max-width: calc(100vw - 2 * var(--primitive-space-6));
+  --semantic-modal-padding-x: var(--primitive-space-6);
+  --semantic-modal-header-padding-y: var(--primitive-space-4);
+  --semantic-modal-footer-padding-y: var(--primitive-space-4);
+  --semantic-modal-footer-gap: var(--primitive-space-3);
+  --semantic-modal-header-gap: var(--primitive-space-6);
+  --semantic-modal-section-gap: var(--primitive-space-3);
+  --semantic-modal-body-min-height: 307px;
+  --semantic-modal-close-size: 28px;
+  --semantic-modal-z-index: 1000;
+
+  --semantic-modal-title-font-family: var(--semantic-typography-heading-font-family);
+  --semantic-modal-title-font-size: var(--semantic-typography-heading-5-font-size);
+  --semantic-modal-title-font-weight: var(--semantic-typography-heading-font-weight);
+  --semantic-modal-title-line-height: var(--semantic-typography-heading-5-line-height);
+  --semantic-modal-title-color: var(--semantic-content-primary);
+
+  --semantic-modal-subtitle-font-family: var(--semantic-typography-body-font-family);
+  --semantic-modal-subtitle-font-size: var(--semantic-typography-body-base-font-size);
+  --semantic-modal-subtitle-font-weight: var(--primitive-font-weight-regular);
+  --semantic-modal-subtitle-line-height: var(--semantic-typography-body-base-line-height);
+  --semantic-modal-subtitle-color: var(--semantic-content-secondary);
+
+  --semantic-modal-slot-bg: var(--semantic-surface-muted);
+  --semantic-modal-slot-border: var(--semantic-border-default);
+  --semantic-modal-slot-min-height: var(--semantic-modal-body-min-height);
+
+  --semantic-motion-modal-transition: opacity var(--primitive-duration-normal) var(--primitive-easing-standard),
+    visibility var(--primitive-duration-normal) var(--primitive-easing-standard);
+
+  /* ============================================
+     SEMANTIC TOKENS - COMPONENT SEARCH INPUT
+     Search field used in Modal and filters
+     ============================================ */
+
+  --semantic-search-input-height-medium: 36px;
+  --semantic-search-input-padding-x: var(--primitive-space-3);
+  --semantic-search-input-gap: var(--primitive-space-2);
+  --semantic-search-input-border-radius: var(--primitive-radius-md);
+  --semantic-search-input-border-width: var(--primitive-border-width-1);
+  --semantic-search-input-border-color: var(--semantic-border-default);
+  --semantic-search-input-border-color-hover: var(--semantic-action-primary-border-hover);
+  --semantic-search-input-border-color-focus: var(--semantic-action-primary-border-focus);
+  --semantic-search-input-bg: var(--semantic-action-secondary-bg-default);
+  --semantic-search-input-bg-hover: var(--semantic-action-secondary-bg-hover);
+  --semantic-search-input-text-color: var(--semantic-content-primary);
+  --semantic-search-input-placeholder-color: var(--semantic-action-primary-content-on-surface-subtle);
+  --semantic-search-input-icon-size: 16px;
+  --semantic-search-input-icon-color: var(--semantic-action-primary-content-on-surface-subtle);
+  --semantic-search-input-font-family: var(--semantic-typography-body-font-family);
+  --semantic-search-input-font-size: var(--semantic-typography-body-base-font-size);
+  --semantic-search-input-font-weight: var(--primitive-font-weight-regular);
+  --semantic-search-input-line-height: var(--semantic-typography-body-base-line-height);
+
+  --semantic-motion-search-input-transition: border-color var(--primitive-duration-fast) var(--primitive-easing-standard),
+    background var(--primitive-duration-fast) var(--primitive-easing-standard),
     box-shadow var(--primitive-duration-fast) var(--primitive-easing-standard);
 }

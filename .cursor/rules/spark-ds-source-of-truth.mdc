@@ -1,0 +1,33 @@
+---
+description: Spark DS source of truth and UI discovery workflow for React apps
+alwaysApply: true
+---
+
+# Spark DS — Source of Truth
+
+Before writing or changing UI, consult Spark Design System.
+
+## Where to look
+
+1. **Figma library:** [Spark DS](https://www.figma.com/design/KYq9ka9Hg16HdfzR4gMoMH/Spark---DS) (`fileKey`: `KYq9ka9Hg16HdfzR4gMoMH`)
+2. **Tokens:** `css/tokens.css` (canonical names and values in code)
+3. **Components:** HTML pages linked from `index.html` (e.g. `button.html`)
+4. **Foundations:** `colors.html`, `typography.html`, `dimensions.html`, `shadows-effects.html`
+5. **Accessibility:** `accessibility.html`
+6. **Published docs:** https://irazu-personal.github.io/spark-ds-docs/
+
+## Required workflow
+
+1. Identify UI elements in the task.
+2. If a Figma link is provided (or the task is design-related), use Figma MCP per `spark-ds-figma-mcp.mdc`.
+3. Search component docs for existing Spark patterns.
+4. Grep `tokens.css` for matching `--semantic-*` tokens.
+5. Implement using documented components and tokens only.
+6. Verify keyboard focus, labels, and contrast (see accessibility rule).
+
+## Do not
+
+- Guess hex values, font sizes, or spacing.
+- Reference undocumented components or fake Storybook examples.
+- Use third-party UI kits (MUI, Chakra, etc.) for elements Spark already defines.
+- Bypass Spark DS without noting the gap and asking how to proceed.

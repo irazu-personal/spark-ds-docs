@@ -1,0 +1,46 @@
+---
+description: Spark DS typography, spacing, dimensions, and shadows in React
+globs: "**/*.{tsx,jsx,css,scss,module.css}"
+alwaysApply: false
+---
+
+# Spark DS — Foundations
+
+Use foundation docs before picking type, space, or elevation values.
+
+| Topic | Doc | Token prefix |
+|-------|-----|--------------|
+| Colors | `colors.html` | `--semantic-content-*`, `--semantic-surface-*` |
+| Typography | `typography.html` | `--semantic-typography-*` |
+| Dimensions | `dimensions.html` | `--primitive-space-*`, component layout tokens |
+| Shadows | `shadows-effects.html` | `--semantic-shadow-*` |
+
+## Typography
+
+- Font family: Figtree via `--semantic-typography-*-font-family`.
+- Headings: `--semantic-typography-heading-1-font-size` through `heading-5`.
+- Body: `--semantic-typography-body-*`. Detail/caption: `--semantic-typography-detail-*`.
+- Do not set arbitrary `font-size`, `font-weight`, or `line-height` when a semantic token exists.
+
+## Layout and spacing
+
+- Use the spacing scale in `dimensions.html` (`--primitive-space-1` through `--primitive-space-10`). Avoid magic numbers (`margin: 13px`).
+- For components, prefer scoped layout tokens (e.g. `--semantic-button-padding-x-medium`, `--semantic-button-gap-icon-label-medium`).
+- Canvas background: `--semantic-surface-canvas`. Cards/panels: `--semantic-surface-white` or `--semantic-surface-muted`.
+
+## Shadows and focus
+
+- Elevation: `--semantic-shadow-*` from `shadows-effects.html`.
+- Focus rings: `--semantic-shadow-focus-ring-neutral` or component-specific focus tokens.
+
+## React example
+
+```css
+.pageTitle {
+  font-family: var(--semantic-typography-heading-font-family);
+  font-size: var(--semantic-typography-heading-2-font-size);
+  line-height: var(--semantic-typography-heading-2-line-height);
+  font-weight: var(--semantic-typography-heading-font-weight);
+  color: var(--semantic-content-primary);
+}
+```

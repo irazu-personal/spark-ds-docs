@@ -1,0 +1,45 @@
+---
+description: Spark DS 3-tier token hierarchy for React styles
+globs: "**/*.{tsx,jsx,css,scss,module.css}"
+alwaysApply: false
+---
+
+# Spark DS — Token Hierarchy
+
+Spark uses three tiers: **Primitive → Semantic → Component**.
+
+## Rules
+
+| Tier | Prefix | Use in React/CSS |
+|------|--------|------------------|
+| Primitive | `--primitive-*` | **Never** for colors in app UI. Spacing scale (`--primitive-space-*`) is OK per `dimensions.html`. |
+| Semantic | `--semantic-*` | Default for layout, text, surfaces, borders, motion. |
+| Component | `--semantic-button-*`, etc. | When a component token exists for that element. |
+
+## Styling in React
+
+```tsx
+// Bad — hardcoded values
+<div style={{ color: '#008EF5', padding: 12 }} />
+
+// Bad — primitive in component CSS
+.button { background: var(--primitive-blue-500); }
+
+// Good — semantic or component tokens
+.button {
+  color: var(--semantic-content-brand);
+  padding: var(--semantic-button-padding-x-medium);
+  background: var(--semantic-button-primary-bg-default);
+}
+```
+
+## Token groups
+
+- **Content:** `--semantic-content-*`
+- **Surface:** `--semantic-surface-*`
+- **Border:** `--semantic-border-*`
+- **Typography:** `--semantic-typography-*`
+- **Shadow / focus:** `--semantic-shadow-*`
+- **Motion:** `--semantic-motion-*`
+
+Import `tokens.css` at the app root. Reference tokens via `var()` in CSS Modules, global CSS, or styled wrappers. Avoid inline styles except for dynamic layout that has no token.
