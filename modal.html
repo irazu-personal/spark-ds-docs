@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modal - Spark Design System</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ---- Button styles (footer + close; subset from Button docs) ---- */
+    .spark-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      font-family: var(--semantic-typography-button-font-family);
+      border: none;
+      cursor: pointer;
+      transition: var(--semantic-motion-button-transition);
+      white-space: nowrap;
+      text-decoration: none;
+    }
+    .spark-btn:focus-visible {
+      outline: none;
+      box-shadow: var(--semantic-shadow-focus-ring-neutral);
+    }
+    .spark-btn svg { flex-shrink: 0; }
+    .spark-btn-small {
+      height: var(--semantic-button-height-small);
+      min-height: var(--semantic-button-height-small);
+      padding: 0 var(--semantic-button-padding-x-small);
+      font-size: var(--semantic-typography-button-small-font-size);
+      font-weight: var(--semantic-typography-button-small-font-weight);
+      line-height: var(--semantic-typography-button-small-line-height);
+      border-radius: var(--semantic-button-border-radius-small);
+      gap: var(--semantic-button-gap-icon-label-small);
+    }
+    .spark-btn-medium {
+      height: var(--semantic-button-height-medium);
+      min-height: var(--semantic-button-height-medium);
+      padding: 0 var(--semantic-button-padding-x-medium);
+      font-size: var(--semantic-typography-button-medium-font-size);
+      font-weight: var(--semantic-typography-button-medium-font-weight);
+      line-height: var(--semantic-typography-button-medium-line-height);
+      border-radius: var(--semantic-button-border-radius-medium);
+      gap: var(--semantic-button-gap-icon-label-medium);
+    }
+    .spark-btn-small svg { width: var(--semantic-button-icon-size-small); height: var(--semantic-button-icon-size-small); }
+    .spark-btn-medium svg { width: var(--semantic-button-icon-size-medium); height: var(--semantic-button-icon-size-medium); }
+    .spark-btn-icon-only.spark-btn-small {
+      width: var(--semantic-button-height-small);
+      padding: 0;
+      gap: 0;
+    }
+    .spark-btn-primary {
+      background: var(--semantic-button-primary-bg-default);
+      color: var(--semantic-button-primary-content-on-surface);
+    }
+    .spark-btn-primary:hover { background: var(--semantic-button-primary-bg-hover-click-on); }
+    .spark-btn-primary:active { background: var(--semantic-button-primary-bg-hover-click-on); }
+    .spark-btn-secondary {
+      background: var(--semantic-button-secondary-bg-default);
+      color: var(--semantic-button-secondary-content-on-surface);
+      border: var(--primitive-border-width-1) solid var(--semantic-button-secondary-border);
+    }
+    .spark-btn-secondary:hover {
+      background: var(--semantic-button-secondary-bg-hover);
+      border-color: var(--semantic-button-secondary-border-hover);
+    }
+    .spark-btn-secondary:active { background: var(--semantic-button-secondary-bg-click-on); }
+    .spark-btn-ghost:not(.spark-btn-danger) {
+      background: transparent;
+      color: var(--semantic-button-ghost-content-on-surface-default);
+    }
+    .spark-btn-ghost:not(.spark-btn-danger):hover { background: var(--semantic-button-ghost-bg-hover); }
+    .spark-btn-primary.spark-btn-danger {
+      background: var(--semantic-button-primary-danger-bg-default);
+      color: var(--semantic-button-primary-danger-content-on-surface);
+    }
+    .spark-btn-primary.spark-btn-danger:hover { background: var(--semantic-button-primary-danger-bg-hover); }
+
+    /* ---- Search input ---- */
+    .spark-search-input-wrap {
+      display: flex;
+      align-items: center;
+      gap: var(--semantic-search-input-gap);
+      box-sizing: border-box;
+      width: 100%;
+      height: var(--semantic-search-input-height-medium);
+      padding: 0 var(--semantic-search-input-padding-x);
+      background: var(--semantic-search-input-bg);
+      border: var(--semantic-search-input-border-width) solid var(--semantic-search-input-border-color);
+      border-radius: var(--semantic-search-input-border-radius);
+      transition: var(--semantic-motion-search-input-transition);
+    }
+    .spark-search-input-wrap:hover {
+      background: var(--semantic-search-input-bg-hover);
+      border-color: var(--semantic-search-input-border-color-hover);
+    }
+    .spark-search-input-wrap:focus-within {
+      border-color: var(--semantic-search-input-border-color-focus);
+      box-shadow: var(--semantic-shadow-focus-ring-neutral);
+    }
+    .spark-search-input {
+      flex: 1;
+      min-width: 0;
+      height: 100%;
+      border: none;
+      background: transparent;
+      font-family: var(--semantic-search-input-font-family);
+      font-size: var(--semantic-search-input-font-size);
+      font-weight: var(--semantic-search-input-font-weight);
+      line-height: var(--semantic-search-input-line-height);
+      color: var(--semantic-search-input-text-color);
+    }
+    .spark-search-input::placeholder {
+      color: var(--semantic-search-input-placeholder-color);
+    }
+    .spark-search-input:focus { outline: none; }
+    .spark-search-input-icon {
+      flex-shrink: 0;
+      width: var(--semantic-search-input-icon-size);
+      height: var(--semantic-search-input-icon-size);
+      color: var(--semantic-search-input-icon-color);
+    }
+
+    /* ---- Modal panel (shared) ---- */
+    .spark-modal-panel {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: var(--semantic-modal-panel-width);
+      background: var(--semantic-modal-panel-bg);
+      border-radius: var(--semantic-modal-panel-radius);
+      box-shadow: var(--semantic-modal-panel-shadow);
+      overflow: hidden;
+    }
+    .spark-modal-header {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--semantic-modal-header-gap);
+      padding: var(--semantic-modal-header-padding-y) var(--semantic-modal-padding-x);
+      background: var(--semantic-modal-panel-bg);
+    }
+    .spark-modal-header-text {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--semantic-modal-section-gap);
+    }
+    .spark-modal-title {
+      margin: 0;
+      font-family: var(--semantic-modal-title-font-family);
+      font-size: var(--semantic-modal-title-font-size);
+      font-weight: var(--semantic-modal-title-font-weight);
+      line-height: var(--semantic-modal-title-line-height);
+      color: var(--semantic-modal-title-color);
+    }
+    .spark-modal-subtitle {
+      margin: 0;
+      font-family: var(--semantic-modal-subtitle-font-family);
+      font-size: var(--semantic-modal-subtitle-font-size);
+      font-weight: var(--semantic-modal-subtitle-font-weight);
+      line-height: var(--semantic-modal-subtitle-line-height);
+      color: var(--semantic-modal-subtitle-color);
+    }
+    .spark-modal-search {
+      padding: 0 var(--semantic-modal-padding-x) var(--semantic-modal-section-gap);
+    }
+    .spark-modal-body {
+      flex: 1;
+      min-height: var(--semantic-modal-slot-min-height);
+      margin: 0 var(--semantic-modal-padding-x);
+      padding: var(--primitive-space-4);
+      background: var(--semantic-modal-slot-bg);
+      border: var(--primitive-border-width-1) dashed var(--semantic-modal-slot-border);
+      border-radius: var(--primitive-radius-md);
+      box-sizing: border-box;
+    }
+    .spark-modal-body-label {
+      margin: 0;
+      font-size: var(--semantic-typography-detail-font-size);
+      line-height: var(--semantic-typography-detail-line-height);
+      color: var(--semantic-content-tertiary);
+      text-align: center;
+      padding-top: 4rem;
+    }
+    .spark-modal-footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: var(--semantic-modal-footer-gap);
+      padding: var(--semantic-modal-footer-padding-y) var(--semantic-modal-padding-x);
+      background: var(--semantic-modal-panel-bg);
+    }
+
+    /* ---- Full modal (overlay + centered) ---- */
+    .spark-modal {
+      position: fixed;
+      inset: 0;
+      z-index: var(--semantic-modal-z-index);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--primitive-space-6);
+      box-sizing: border-box;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--semantic-motion-modal-transition);
+    }
+    .spark-modal[data-open] {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .spark-modal-overlay {
+      position: absolute;
+      inset: 0;
+      background: var(--semantic-modal-overlay-bg);
+      cursor: pointer;
+    }
+    .spark-modal .spark-modal-panel {
+      position: relative;
+      z-index: 1;
+      max-width: min(var(--semantic-modal-panel-width), var(--semantic-modal-panel-max-width));
+      max-height: calc(100vh - 2 * var(--primitive-space-6));
+      overflow: auto;
+    }
+
+    /* ---- Static showcase (panel only, no overlay) ---- */
+    .modal-showcase {
+      background: var(--semantic-surface-canvas);
+      border: 1px solid var(--semantic-border-default);
+      border-radius: var(--primitive-radius-lg);
+      padding: var(--primitive-space-6);
+      margin: 1rem 0 1.5rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .anatomy-diagram {
+      display: flex;
+      align-items: flex-start;
+      gap: 2rem;
+      padding: 2rem;
+      background: var(--semantic-surface-canvas);
+      border-radius: var(--primitive-radius-lg);
+      margin: 1rem 0 1.5rem;
+      flex-wrap: wrap;
+    }
+    .anatomy-labels {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      min-width: 200px;
+    }
+    .anatomy-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8125rem;
+      color: #344054;
+    }
+    .anatomy-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .code-block {
+      display: block;
+      padding: 1rem 1.25rem;
+      background: #1D2939;
+      color: #E9ECEF;
+      font-family: "SF Mono", "Fira Code", monospace;
+      font-size: 0.8125rem;
+      line-height: 1.7;
+      overflow-x: auto;
+      white-space: pre;
+      border-radius: 8px;
+    }
+    .code-block-wrapper { margin-bottom: 1.5rem; }
+    .code-block-wrapper h4 { font-size: 0.875rem; font-weight: 600; color: #344054; margin-bottom: 0.5rem; }
+    .props-table { width: 100%; border-collapse: collapse; font-size: 0.8125rem; }
+    .props-table th { text-align: left; padding: 0.625rem 0.875rem; font-weight: 600; color: #495057; border-bottom: 2px solid #DEE2E6; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; background: #F8F9FA; }
+    .props-table td { padding: 0.625rem 0.875rem; border-bottom: 1px solid #F1F3F5; vertical-align: top; color: #344054; }
+    .props-table code { font-family: "SF Mono", "Fira Code", monospace; font-size: 0.75rem; background: #F1F3F5; padding: 0.1rem 0.35rem; border-radius: 4px; }
+    .guideline-list { margin: 0.5rem 0 0 1.25rem; color: #495057; }
+    .guideline-list li { margin-bottom: 0.35rem; font-size: 0.9375rem; }
+    .usage-pattern { padding: 1rem 1.25rem; background: #fff; border: 1px solid #DEE2E6; border-radius: 8px; margin-bottom: 0.75rem; }
+    .usage-pattern h4 { font-size: 0.875rem; font-weight: 600; color: #344054; margin-bottom: 0.25rem; }
+    .usage-pattern p { font-size: 0.8125rem; color: #495057; margin: 0 0 0.75rem; }
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <button class="sidebar-toggle" aria-label="Toggle navigation" aria-expanded="false">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.1035 11.0996" fill="none" aria-hidden="true"><path d="M14.6035 10.0996C14.8796 10.0996 15.1034 10.3236 15.1035 10.5996C15.1035 10.8757 14.8796 11.0996 14.6035 11.0996H0.5C0.224022 11.0994 0 10.8756 0 10.5996 0 10.8756 0.224074 10.0998 0.5 10.0996H14.6035ZM14.6035 5.0498C14.8796 5.04982 15.1035 5.27367 15.1035 5.5498C15.1035 5.82593 14.8796 6.04978 14.6035 6.0498H0.5C0.224022 6.04961 0 5.82583 0 5.5498 0 5.27378 0.224022 5.05 0.5 5.0498H14.6035ZM14.6035 0C14.8795 0 15.1034 0.224 15.1035 0.5C15.1035 0.776 14.8796 1 14.6035 1H0.5C0.224 0.999806 0 0.776 0 0.5C0 0.224 0.224 0 0.5 0H14.6035Z" fill="currentColor"/></svg>
+  </button>
+
+  <div class="site-wrapper">
+    <aside class="sidebar" role="navigation" aria-label="Main navigation">
+      <div class="sidebar-header">
+        <h1>Spark DS</h1>
+        <div class="subtitle">Design System Docs</div>
+      </div>
+      <nav>
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Overview</div>
+          <a href="index.html" class="sidebar-link">Home</a>
+          <a href="accessibility.html" class="sidebar-link">Accessibility</a>
+        </div>
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Foundations</div>
+          <a href="colors.html" class="sidebar-link">Colors &amp; Tokens</a>
+          <a href="dimensions.html" class="sidebar-link">Dimensions</a>
+          <a href="shadows-effects.html" class="sidebar-link">Shadows &amp; Effects</a>
+          <a href="typography.html" class="sidebar-link">Typography</a>
+        </div>
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Components</div>
+          <a href="button.html" class="sidebar-link">Button</a>
+          <a href="modal.html" class="sidebar-link active">Modal</a>
+        </div>
+      </nav>
+    </aside>
+
+    <main class="main-content" id="main">
+
+      <div class="page-header">
+        <h1>Modal</h1>
+        <p>Modals focus attention on a single task. This pattern combines the Figma Modal <code>Type=Slot</code> layout with the Search-input field for filterable slot content.</p>
+      </div>
+
+      <div class="doc-section">
+        <h2>Overview</h2>
+        <p>Use when users must complete or dismiss a focused flow: pick items from a searchable list, confirm settings, or review content in a centered dialog. Pair a Primary footer action with a Secondary cancel action. Keep one Primary button per modal.</p>
+        <p><strong>Design note:</strong> Figma documents Modal and Search-input as separate components. This page describes their composed pattern for product UI.</p>
+
+        <h3>Anatomy</h3>
+        <div class="anatomy-diagram">
+          <div class="spark-modal-panel" style="max-width: 420px; flex: 1;">
+            <header class="spark-modal-header">
+              <div class="spark-modal-header-text">
+                <h2 class="spark-modal-title" id="anatomy-modal-title">Title</h2>
+                <p class="spark-modal-subtitle">Subtitle</p>
+              </div>
+              <button type="button" class="spark-btn spark-btn-ghost spark-btn-icon-only spark-btn-small" aria-label="Close" tabindex="-1">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.1035 15.1035" fill="none" aria-hidden="true"><path d="M3.89258 2.93945L2.93945 3.89258L6.04688 7L2.93945 10.1074L3.89258 11.0605L7 7.95312L10.1074 11.0605L11.0605 10.1074L7.95312 7L11.0605 3.89258L10.1074 2.93945L7 6.04688L3.89258 2.93945Z" fill="currentColor"/></svg>
+              </button>
+            </header>
+            <div class="spark-modal-search">
+              <div class="spark-search-input-wrap">
+                <input type="search" class="spark-search-input" placeholder="Search" readonly tabindex="-1" aria-hidden="true">
+                <svg class="spark-search-input-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.1034 15.1034" fill="none" aria-hidden="true"><path d="M5.98438 0C6.77029 7.96207e-06 7.5493 0.154326 8.27539 0.455078C9.00143 0.755836 9.6611 1.19724 10.2168 1.75293C10.7724 2.30857 11.2129 2.96839 11.5137 3.69434C11.8144 4.42031 11.9697 5.19859 11.9697 5.98438C11.9697 6.77028 11.8144 7.54931 11.5137 8.27539C11.2769 8.84682 10.9516 9.37574 10.5537 9.84668L14.957 14.25C15.1522 14.4453 15.1523 14.7618 14.957 14.957C14.7618 15.1522 14.4452 15.1522 14.25 14.957L9.84668 10.5537C9.37574 10.9516 8.84685 11.2769 8.27539 11.5137C7.5493 11.8144 6.77029 11.9697 5.98438 11.9697C5.19861 11.9697 4.4203 11.8144 3.69434 11.5137C2.9684 11.2129 2.30857 10.7724 1.75293 10.2168C1.19725 9.66113 0.75584 9.00139 0.455078 8.27539C0.15432 7.54931 0 6.77028 0 5.98438C0 5.1986 0.154381 4.42031 0.455078 3.69434C0.75584 2.96824 1.1972 2.30866 1.75293 1.75293C2.30867 1.1972 2.96823 0.755837 3.69434 0.455078C4.4203 0.154386 5.1986 0 5.98438 0Z" fill="currentColor"/></svg>
+              </div>
+            </div>
+            <div class="spark-modal-body" style="min-height: 120px;">
+              <p class="spark-modal-body-label">Slot</p>
+            </div>
+            <footer class="spark-modal-footer">
+              <button type="button" class="spark-btn spark-btn-secondary spark-btn-medium" tabindex="-1">Cancel</button>
+              <button type="button" class="spark-btn spark-btn-primary spark-btn-medium" tabindex="-1">Confirm</button>
+            </footer>
+          </div>
+          <div class="anatomy-labels">
+            <div class="anatomy-label"><span class="anatomy-dot" style="background: var(--semantic-modal-title-color)"></span> <strong>Header</strong> title, subtitle, close</div>
+            <div class="anatomy-label"><span class="anatomy-dot" style="background: var(--semantic-search-input-border-color)"></span> <strong>Search bar</strong> filter slot content</div>
+            <div class="anatomy-label"><span class="anatomy-dot" style="background: var(--semantic-modal-slot-bg)"></span> <strong>Slot</strong> custom body content</div>
+            <div class="anatomy-label"><span class="anatomy-dot" style="background: var(--semantic-button-primary-bg-default)"></span> <strong>Footer</strong> Secondary + Primary actions</div>
+            <div class="anatomy-label"><span class="anatomy-dot" style="background: var(--semantic-modal-overlay-bg)"></span> <strong>Overlay</strong> scrim behind panel (interactive demo)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="doc-section">
+        <h2>Live Examples</h2>
+
+        <h3>Static panel</h3>
+        <p>Modal panel without overlay, useful for design review and layout checks.</p>
+        <div class="modal-showcase">
+          <div class="spark-modal-panel">
+            <header class="spark-modal-header">
+              <div class="spark-modal-header-text">
+                <h2 class="spark-modal-title">Select items</h2>
+                <p class="spark-modal-subtitle">Search and choose entries to add.</p>
+              </div>
+              <button type="button" class="spark-btn spark-btn-ghost spark-btn-icon-only spark-btn-small" aria-label="Close">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.1035 15.1035" fill="none" aria-hidden="true"><path d="M3.89258 2.93945L2.93945 3.89258L6.04688 7L2.93945 10.1074L3.89258 11.0605L7 7.95312L10.1074 11.0605L11.0605 10.1074L7.95312 7L11.0605 3.89258L10.1074 2.93945L7 6.04688L3.89258 2.93945Z" fill="currentColor"/></svg>
+              </button>
+            </header>
+            <div class="spark-modal-search">
+              <label class="visually-hidden" for="static-modal-search">Search items</label>
+              <div class="spark-search-input-wrap">
+                <input type="search" id="static-modal-search" class="spark-search-input" placeholder="Search items">
+                <svg class="spark-search-input-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.1034 15.1034" fill="none" aria-hidden="true"><path d="M5.98438 0C6.77029 7.96207e-06 7.5493 0.154326 8.27539 0.455078C9.00143 0.755836 9.6611 1.19724 10.2168 1.75293C10.7724 2.30857 11.2129 2.96839 11.5137 3.69434C11.8144 4.42031 11.9697 5.19859 11.9697 5.98438C11.9697 6.77028 11.8144 7.54931 11.5137 8.27539C11.2769 8.84682 10.9516 9.37574 10.5537 9.84668L14.957 14.25C15.1522 14.4453 15.1523 14.7618 14.957 14.957C14.7618 15.1522 14.4452 15.1522 14.25 14.957L9.84668 10.5537C9.37574 10.9516 8.84685 11.2769 8.27539 11.5137C7.5493 11.8144 6.77029 11.9697 5.98438 11.9697C5.19861 11.9697 4.4203 11.8144 3.69434 11.5137C2.9684 11.2129 2.30857 10.7724 1.75293 10.2168C1.19725 9.66113 0.75584 9.00139 0.455078 8.27539C0.15432 7.54931 0 6.77028 0 5.98438C0 5.1986 0.154381 4.42031 0.455078 3.69434C0.75584 2.96824 1.1972 2.30866 1.75293 1.75293C2.30867 1.1972 2.96823 0.755837 3.69434 0.455078C4.4203 0.154386 5.1986 0 5.98438 0Z" fill="currentColor"/></svg>
+              </div>
+            </div>
+            <div class="spark-modal-body">
+              <p class="spark-modal-body-label">Your list, table, or form goes here</p>
+            </div>
+            <footer class="spark-modal-footer">
+              <button type="button" class="spark-btn spark-btn-secondary spark-btn-medium">Cancel</button>
+              <button type="button" class="spark-btn spark-btn-primary spark-btn-medium">Add selected</button>
+            </footer>
+          </div>
+        </div>
+
+        <h3>Interactive demo</h3>
+        <p>Opens with overlay. Close with the X control, Cancel, overlay click, or <kbd>Escape</kbd>.</p>
+        <button type="button" class="spark-btn spark-btn-primary spark-btn-medium" id="modalOpenBtn">Open modal</button>
+
+        <div class="spark-modal" id="modalDemo" aria-hidden="true">
+          <div class="spark-modal-overlay" id="modalOverlay" tabindex="-1" aria-hidden="true"></div>
+          <div class="spark-modal-panel" role="dialog" aria-modal="true" aria-labelledby="demo-modal-title">
+            <header class="spark-modal-header">
+              <div class="spark-modal-header-text">
+                <h2 class="spark-modal-title" id="demo-modal-title">Select items</h2>
+                <p class="spark-modal-subtitle">Search and choose entries to add.</p>
+              </div>
+              <button type="button" class="spark-btn spark-btn-ghost spark-btn-icon-only spark-btn-small spark-modal-close" aria-label="Close">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.1035 15.1035" fill="none" aria-hidden="true"><path d="M3.89258 2.93945L2.93945 3.89258L6.04688 7L2.93945 10.1074L3.89258 11.0605L7 7.95312L10.1074 11.0605L11.0605 10.1074L7.95312 7L11.0605 3.89258L10.1074 2.93945L7 6.04688L3.89258 2.93945Z" fill="currentColor"/></svg>
+              </button>
+            </header>
+            <div class="spark-modal-search">
+              <label class="visually-hidden" for="demo-modal-search">Search items</label>
+              <div class="spark-search-input-wrap">
+                <input type="search" id="demo-modal-search" class="spark-search-input" placeholder="Search items">
+                <svg class="spark-search-input-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.1034 15.1034" fill="none" aria-hidden="true"><path d="M5.98438 0C6.77029 7.96207e-06 7.5493 0.154326 8.27539 0.455078C9.00143 0.755836 9.6611 1.19724 10.2168 1.75293C10.7724 2.30857 11.2129 2.96839 11.5137 3.69434C11.8144 4.42031 11.9697 5.19859 11.9697 5.98438C11.9697 6.77028 11.8144 7.54931 11.5137 8.27539C11.2769 8.84682 10.9516 9.37574 10.5537 9.84668L14.957 14.25C15.1522 14.4453 15.1523 14.7618 14.957 14.957C14.7618 15.1522 14.4452 15.1522 14.25 14.957L9.84668 10.5537C9.37574 10.9516 8.84685 11.2769 8.27539 11.5137C7.5493 11.8144 6.77029 11.9697 5.98438 11.9697C5.19861 11.9697 4.4203 11.8144 3.69434 11.5137C2.9684 11.2129 2.30857 10.7724 1.75293 10.2168C1.19725 9.66113 0.75584 9.00139 0.455078 8.27539C0.15432 7.54931 0 6.77028 0 5.98438C0 5.1986 0.154381 4.42031 0.455078 3.69434C0.75584 2.96824 1.1972 2.30866 1.75293 1.75293C2.30867 1.1972 2.96823 0.755837 3.69434 0.455078C4.4203 0.154386 5.1986 0 5.98438 0Z" fill="currentColor"/></svg>
+              </div>
+            </div>
+            <div class="spark-modal-body">
+              <ul style="margin:0; padding-left:1.25rem; color: var(--semantic-content-primary); font-size: 0.875rem;">
+                <li>Alpha document</li>
+                <li>Beta report</li>
+                <li>Gamma template</li>
+              </ul>
+            </div>
+            <footer class="spark-modal-footer">
+              <button type="button" class="spark-btn spark-btn-secondary spark-btn-medium spark-modal-dismiss">Cancel</button>
+              <button type="button" class="spark-btn spark-btn-primary spark-btn-medium">Add selected</button>
+            </footer>
+          </div>
+        </div>
+      </div>
+
+      <div class="doc-section">
+        <h2>Design Tokens</h2>
+
+        <h3>Modal</h3>
+        <div class="token-table-wrapper">
+          <table class="token-table">
+            <thead><tr><th>Part</th><th>Token</th><th>Usage</th></tr></thead>
+            <tbody>
+              <tr data-token-name="--semantic-modal-overlay-bg"><td>Overlay scrim</td><td class="token-name-cell"><code>--semantic-modal-overlay-bg</code></td><td>Full-screen backdrop</td></tr>
+              <tr data-token-name="--semantic-modal-panel-bg"><td>Panel background</td><td class="token-name-cell"><code>--semantic-modal-panel-bg</code></td><td>Dialog surface</td></tr>
+              <tr data-token-name="--semantic-modal-panel-shadow"><td>Panel shadow</td><td class="token-name-cell"><code>--semantic-modal-panel-shadow</code></td><td>Elevation</td></tr>
+              <tr data-token-name="--semantic-modal-panel-radius"><td>Panel radius</td><td class="token-name-cell"><code>--semantic-modal-panel-radius</code></td><td>12px corners</td></tr>
+              <tr data-token-name="--semantic-modal-panel-width"><td>Panel width</td><td class="token-name-cell"><code>--semantic-modal-panel-width</code></td><td>Default 691px</td></tr>
+              <tr data-token-name="--semantic-modal-padding-x"><td>Horizontal padding</td><td class="token-name-cell"><code>--semantic-modal-padding-x</code></td><td>Header, search, footer insets</td></tr>
+              <tr data-token-name="--semantic-modal-header-padding-y"><td>Header padding Y</td><td class="token-name-cell"><code>--semantic-modal-header-padding-y</code></td><td>16px</td></tr>
+              <tr data-token-name="--semantic-modal-footer-gap"><td>Footer button gap</td><td class="token-name-cell"><code>--semantic-modal-footer-gap</code></td><td>12px between actions</td></tr>
+              <tr data-token-name="--semantic-modal-title-color"><td>Title color</td><td class="token-name-cell"><code>--semantic-modal-title-color</code></td><td>Primary content</td></tr>
+              <tr data-token-name="--semantic-modal-subtitle-color"><td>Subtitle color</td><td class="token-name-cell"><code>--semantic-modal-subtitle-color</code></td><td>Secondary content</td></tr>
+              <tr data-token-name="--semantic-modal-slot-bg"><td>Slot background</td><td class="token-name-cell"><code>--semantic-modal-slot-bg</code></td><td>Body placeholder area</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Search input (medium)</h3>
+        <div class="token-table-wrapper">
+          <table class="token-table">
+            <thead><tr><th>Part</th><th>Token</th><th>Usage</th></tr></thead>
+            <tbody>
+              <tr data-token-name="--semantic-search-input-height-medium"><td>Height</td><td class="token-name-cell"><code>--semantic-search-input-height-medium</code></td><td>36px</td></tr>
+              <tr data-token-name="--semantic-search-input-padding-x"><td>Padding X</td><td class="token-name-cell"><code>--semantic-search-input-padding-x</code></td><td>12px</td></tr>
+              <tr data-token-name="--semantic-search-input-border-radius"><td>Radius</td><td class="token-name-cell"><code>--semantic-search-input-border-radius</code></td><td>8px</td></tr>
+              <tr data-token-name="--semantic-search-input-border-color"><td>Border</td><td class="token-name-cell"><code>--semantic-search-input-border-color</code></td><td>Default state</td></tr>
+              <tr data-token-name="--semantic-search-input-border-color-focus"><td>Focus border</td><td class="token-name-cell"><code>--semantic-search-input-border-color-focus</code></td><td>Keyboard focus</td></tr>
+              <tr data-token-name="--semantic-search-input-bg"><td>Background</td><td class="token-name-cell"><code>--semantic-search-input-bg</code></td><td>Field fill</td></tr>
+              <tr data-token-name="--semantic-search-input-placeholder-color"><td>Placeholder</td><td class="token-name-cell"><code>--semantic-search-input-placeholder-color</code></td><td>Hint text</td></tr>
+              <tr data-token-name="--semantic-search-input-icon-size"><td>Icon size</td><td class="token-name-cell"><code>--semantic-search-input-icon-size</code></td><td>16px search icon</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="doc-section">
+        <h2>Usage Guidelines</h2>
+        <ul class="guideline-list">
+          <li>Use for focused tasks that block the page until completed or dismissed.</li>
+          <li>Place the search field directly under the header when the slot lists filterable items.</li>
+          <li>Use Secondary for cancel and Primary for the main action. Only one Primary per modal.</li>
+          <li>Keep titles short. Use the subtitle for context, not essential instructions.</li>
+          <li>Return focus to the trigger element when the modal closes in production apps.</li>
+        </ul>
+
+        <div class="usage-pattern">
+          <h4>Destructive confirmation</h4>
+          <p>Swap the Primary button to the Danger variant when the main action is destructive.</p>
+          <footer class="spark-modal-footer" style="padding: 0; justify-content: flex-start;">
+            <button type="button" class="spark-btn spark-btn-secondary spark-btn-medium">Cancel</button>
+            <button type="button" class="spark-btn spark-btn-primary spark-btn-danger spark-btn-medium">Delete</button>
+          </footer>
+        </div>
+      </div>
+
+      <div class="doc-section">
+        <h2>Accessibility</h2>
+        <div class="a11y-principle">
+          <h3>Dialog semantics</h3>
+          <p>Use <code>role="dialog"</code>, <code>aria-modal="true"</code>, and <code>aria-labelledby</code> pointing at the title. Set <code>aria-hidden="true"</code> on the page behind the modal while open.</p>
+        </div>
+        <div class="a11y-principle">
+          <h3>Search field</h3>
+          <p>Provide a visible <code>&lt;label&gt;</code> or <code>aria-label</code> on the search input. Use <code>type="search"</code> for appropriate browser behavior.</p>
+        </div>
+        <div class="a11y-principle">
+          <h3>Keyboard</h3>
+          <p><kbd>Escape</kbd> closes the modal. Tab order runs header, search, slot focusables, footer buttons. Production apps should trap focus inside the dialog while open and restore focus to the opener on close.</p>
+        </div>
+        <div class="a11y-principle">
+          <h3>Close control</h3>
+          <p>The icon-only close button requires <code>aria-label="Close"</code>. Decorative icons use <code>aria-hidden="true"</code>.</p>
+        </div>
+      </div>
+
+      <div class="doc-section">
+        <h2>Spacing and Sizing</h2>
+        <div class="token-table-wrapper">
+          <table class="token-table">
+            <thead><tr><th>Region</th><th>Token / value</th></tr></thead>
+            <tbody>
+              <tr><td>Panel max width</td><td><code>--semantic-modal-panel-width</code> (691px)</td></tr>
+              <tr><td>Header / footer padding Y</td><td><code>--semantic-modal-header-padding-y</code> (16px)</td></tr>
+              <tr><td>Content padding X</td><td><code>--semantic-modal-padding-x</code> (24px)</td></tr>
+              <tr><td>Slot min height</td><td><code>--semantic-modal-body-min-height</code> (307px)</td></tr>
+              <tr><td>Search field height</td><td><code>--semantic-search-input-height-medium</code> (36px)</td></tr>
+              <tr><td>Footer button gap</td><td><code>--semantic-modal-footer-gap</code> (12px)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="doc-section">
+        <h2>For Developers</h2>
+        <div class="token-table-wrapper">
+          <table class="props-table">
+            <thead>
+              <tr><th>Prop</th><th>Type</th><th>Default</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>open</code></td><td><code>boolean</code></td><td><code>false</code></td><td>Whether the modal is visible</td></tr>
+              <tr><td><code>onClose</code></td><td><code>() =&gt; void</code></td><td><code>undefined</code></td><td>Called when the user dismisses the modal</td></tr>
+              <tr><td><code>title</code></td><td><code>string</code></td><td>required</td><td>Header title</td></tr>
+              <tr><td><code>subtitle</code></td><td><code>string</code></td><td><code>undefined</code></td><td>Optional header subtitle</td></tr>
+              <tr><td><code>searchPlaceholder</code></td><td><code>string</code></td><td><code>"Search"</code></td><td>Search input placeholder</td></tr>
+              <tr><td><code>onSearchChange</code></td><td><code>(value: string) =&gt; void</code></td><td><code>undefined</code></td><td>Search input change handler</td></tr>
+              <tr><td><code>primaryAction</code></td><td><code>{ label, onClick, disabled? }</code></td><td>required</td><td>Primary footer button</td></tr>
+              <tr><td><code>secondaryAction</code></td><td><code>{ label, onClick, disabled? }</code></td><td>required</td><td>Secondary footer button (cancel)</td></tr>
+              <tr><td><code>danger</code></td><td><code>boolean</code></td><td><code>false</code></td><td>Applies danger style to the primary action</td></tr>
+              <tr><td><code>children</code></td><td><code>ReactNode</code></td><td><code>undefined</code></td><td>Slot body content</td></tr>
+              <tr><td><code>closeOnOverlayClick</code></td><td><code>boolean</code></td><td><code>true</code></td><td>Close when the overlay is clicked</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="doc-section">
+        <h2>Code Snippets</h2>
+
+        <div class="code-block-wrapper">
+          <h4>Modal markup</h4>
+          <pre><code class="code-block">&lt;div class="spark-modal" data-open&gt;
+  &lt;div class="spark-modal-overlay" aria-hidden="true"&gt;&lt;/div&gt;
+  &lt;div class="spark-modal-panel" role="dialog" aria-modal="true"
+    aria-labelledby="modal-title"&gt;
+    &lt;header class="spark-modal-header"&gt;
+      &lt;div class="spark-modal-header-text"&gt;
+        &lt;h2 class="spark-modal-title" id="modal-title"&gt;Select items&lt;/h2&gt;
+        &lt;p class="spark-modal-subtitle"&gt;Search and choose entries.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;button type="button" class="spark-btn spark-btn-ghost spark-btn-icon-only spark-btn-small"
+        aria-label="Close"&gt;...&lt;/button&gt;
+    &lt;/header&gt;
+    &lt;div class="spark-modal-search"&gt;
+      &lt;div class="spark-search-input-wrap"&gt;
+        &lt;input type="search" class="spark-search-input" placeholder="Search"
+          aria-label="Search items" /&gt;
+        &lt;svg class="spark-search-input-icon" aria-hidden="true"&gt;...&lt;/svg&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="spark-modal-body"&gt;
+      &lt;!-- slot content --&gt;
+    &lt;/div&gt;
+    &lt;footer class="spark-modal-footer"&gt;
+      &lt;button class="spark-btn spark-btn-secondary spark-btn-medium"&gt;Cancel&lt;/button&gt;
+      &lt;button class="spark-btn spark-btn-primary spark-btn-medium"&gt;Confirm&lt;/button&gt;
+    &lt;/footer&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

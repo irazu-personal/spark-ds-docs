@@ -39,6 +39,37 @@ CSS classes: `spark-btn`, `spark-btn-{type}`, `spark-btn-{size}`, `spark-btn-ico
 
 Styles must use tokens from `button.html` and `--semantic-button-*` in `tokens.css`.
 
+## Modal (documented in `modal.html`)
+
+Composes Modal `Type=Slot` (Figma) with Search-input. Use for focused flows with filterable slot content.
+
+| Prop | Values |
+|------|--------|
+| `open` | boolean |
+| `onClose` | `() => void` |
+| `title` | string (required) |
+| `subtitle` | string (optional) |
+| `searchPlaceholder` | string (default `"Search"`) |
+| `onSearchChange` | `(value: string) => void` (optional) |
+| `primaryAction` | `{ label, onClick, disabled? }` |
+| `secondaryAction` | `{ label, onClick, disabled? }` |
+| `danger` | boolean (primary action uses danger button tokens) |
+| `children` | `ReactNode` (slot body) |
+| `closeOnOverlayClick` | boolean (default `true`) |
+
+CSS classes:
+
+- Root: `spark-modal` with `data-open` when visible
+- Overlay: `spark-modal-overlay`
+- Panel: `spark-modal-panel` with `role="dialog"`, `aria-modal="true"`, `aria-labelledby`
+- Regions: `spark-modal-header`, `spark-modal-header-text`, `spark-modal-title`, `spark-modal-subtitle`, `spark-modal-search`, `spark-modal-body`, `spark-modal-footer`
+- Search: `spark-search-input-wrap`, `spark-search-input`, `spark-search-input-icon`
+- Close: `spark-btn spark-btn-ghost spark-btn-icon-only spark-btn-small` with `aria-label="Close"`
+
+Footer buttons reuse `spark-btn-secondary` and `spark-btn-primary` (see Button). Tokens: `--semantic-modal-*`, `--semantic-search-input-*` in `tokens.css`.
+
+Accessibility: trap focus while open, restore focus to trigger on close, `Escape` calls `onClose`, label the search field.
+
 ## Hierarchy
 
 - One **Primary** button per view.

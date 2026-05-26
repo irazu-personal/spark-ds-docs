@@ -79,10 +79,11 @@ body {
 }
 
 .sidebar-header h1 {
-  font-size: 1.125rem;
-  font-weight: 700;
+  font-family: var(--semantic-typography-heading-font-family);
+  font-size: var(--semantic-typography-heading-5-font-size);
+  font-weight: var(--semantic-typography-heading-font-weight);
+  line-height: var(--semantic-typography-heading-5-line-height);
   color: #1D2939;
-  line-height: 1.3;
 }
 
 .sidebar-header .subtitle {
@@ -181,14 +182,17 @@ body {
 }
 
 .page-header h1 {
-  font-size: 2rem;
-  font-weight: 700;
+  font-family: var(--semantic-typography-heading-font-family);
+  font-size: var(--semantic-typography-heading-2-font-size);
+  font-weight: var(--semantic-typography-heading-font-weight);
+  line-height: var(--semantic-typography-heading-2-line-height);
   color: #1D2939;
-  line-height: 1.2;
 }
 
 .page-header p {
-  font-size: 1.0625rem;
+  font-size: var(--semantic-typography-body-lg-font-size);
+  font-weight: var(--primitive-font-weight-regular);
+  line-height: var(--semantic-typography-body-lg-line-height);
   color: #495057;
   margin-top: 0.5rem;
   max-width: 680px;
@@ -203,8 +207,10 @@ body {
 }
 
 .doc-section h2 {
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-family: var(--semantic-typography-heading-font-family);
+  font-size: var(--semantic-typography-heading-4-font-size);
+  font-weight: var(--semantic-typography-heading-font-weight);
+  line-height: var(--semantic-typography-heading-4-line-height);
   color: #1D2939;
   margin-bottom: 0.75rem;
   padding-bottom: 0.5rem;
@@ -212,8 +218,10 @@ body {
 }
 
 .doc-section h3 {
-  font-size: 1.125rem;
-  font-weight: 600;
+  font-family: var(--semantic-typography-heading-font-family);
+  font-size: var(--semantic-typography-heading-5-font-size);
+  font-weight: var(--semantic-typography-heading-font-weight);
+  line-height: var(--semantic-typography-heading-5-line-height);
   color: #344054;
   margin-bottom: 0.5rem;
   margin-top: 1.5rem;

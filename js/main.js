@@ -109,4 +109,55 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 1500);
   }
 
+  // Modal demo (modal.html)
+  var modalDemo = document.getElementById('modalDemo');
+  var modalOpenBtn = document.getElementById('modalOpenBtn');
+
+  if (modalDemo && modalOpenBtn) {
+    var modalOverlay = document.getElementById('modalOverlay');
+    var lastFocusedBeforeModal = null;
+
+    function openModal() {
+      lastFocusedBeforeModal = document.activeElement;
+      modalDemo.setAttribute('data-open', '');
+      modalDemo.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      var searchInput = modalDemo.querySelector('#demo-modal-search');
+      if (searchInput) {
+        searchInput.focus();
+      }
+    }
+
+    function closeModal() {
+      modalDemo.removeAttribute('data-open');
+      modalDemo.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (lastFocusedBeforeModal && typeof lastFocusedBeforeModal.focus === 'function') {
+        lastFocusedBeforeModal.focus();
+      } else {
+        modalOpenBtn.focus();
+      }
+    }
+
+    modalOpenBtn.addEventListener('click', openModal);
+
+    modalDemo.querySelectorAll('.spark-modal-close, .spark-modal-dismiss').forEach(function (el) {
+      el.addEventListener('click', closeModal);
+    });
+
+    if (modalOverlay) {
+      modalOverlay.addEventListener('click', closeModal);
+    }
+
+    modalDemo.querySelector('.spark-modal-panel').addEventListener('click', function (e) {
+      e.stopPropagation();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modalDemo.hasAttribute('data-open')) {
+        closeModal();
+      }
+    });
+  }
+
 });

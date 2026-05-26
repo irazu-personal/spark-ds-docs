@@ -14,8 +14,6 @@
       justify-content: center;
       box-sizing: border-box;
       font-family: var(--semantic-typography-button-font-family);
-      font-weight: var(--semantic-typography-button-font-weight);
-      line-height: var(--semantic-typography-button-line-height);
       border: none;
       cursor: pointer;
       transition: var(--semantic-motion-button-transition);
@@ -29,6 +27,10 @@
     .spark-btn svg {
       flex-shrink: 0;
     }
+    /* Trailing icon: keep SVG before label in markup; flex reverses visual order */
+    .spark-btn.spark-btn-icon-end {
+      flex-direction: row-reverse;
+    }
 
     /* Sizes */
     .spark-btn-tiny {
@@ -36,6 +38,8 @@
       min-height: var(--semantic-button-height-tiny);
       padding: 0 var(--semantic-button-padding-x-tiny);
       font-size: var(--semantic-typography-button-tiny-font-size);
+      font-weight: var(--semantic-typography-button-tiny-font-weight);
+      line-height: var(--semantic-typography-button-tiny-line-height);
       border-radius: var(--semantic-button-border-radius-small);
       gap: var(--semantic-button-gap-icon-label-tiny);
     }
@@ -44,6 +48,8 @@
       min-height: var(--semantic-button-height-small);
       padding: 0 var(--semantic-button-padding-x-small);
       font-size: var(--semantic-typography-button-small-font-size);
+      font-weight: var(--semantic-typography-button-small-font-weight);
+      line-height: var(--semantic-typography-button-small-line-height);
       border-radius: var(--semantic-button-border-radius-small);
       gap: var(--semantic-button-gap-icon-label-small);
     }
@@ -52,6 +58,8 @@
       min-height: var(--semantic-button-height-medium);
       padding: 0 var(--semantic-button-padding-x-medium);
       font-size: var(--semantic-typography-button-medium-font-size);
+      font-weight: var(--semantic-typography-button-medium-font-weight);
+      line-height: var(--semantic-typography-button-medium-line-height);
       border-radius: var(--semantic-button-border-radius-medium);
       gap: var(--semantic-button-gap-icon-label-medium);
     }
@@ -60,8 +68,14 @@
       min-height: var(--semantic-button-height-large);
       padding: 0 var(--semantic-button-padding-x-large);
       font-size: var(--semantic-typography-button-large-font-size);
-      border-radius: var(--semantic-button-border-radius-medium);
+      font-weight: var(--semantic-typography-button-large-font-weight);
+      line-height: var(--semantic-typography-button-large-line-height);
+      border-radius: var(--semantic-button-border-radius-large);
       gap: var(--semantic-button-gap-icon-label-large);
+    }
+
+    .spark-btn-medium.spark-btn-primary:active {
+      font-weight: var(--semantic-typography-button-medium-font-weight-active);
     }
 
     .spark-btn-tiny svg { width: var(--semantic-button-icon-size-tiny); height: var(--semantic-button-icon-size-tiny); }
@@ -99,7 +113,6 @@
     .spark-btn-primary:hover { background: var(--semantic-button-primary-bg-hover-click-on); }
     .spark-btn-primary:active {
       background: var(--semantic-button-primary-bg-hover-click-on);
-      filter: brightness(0.96);
     }
 
     /* Secondary */
@@ -295,17 +308,16 @@
       background: var(--semantic-button-primary-bg-default);
       color: var(--semantic-button-primary-content-on-surface);
       border: none;
-      border-radius: var(--semantic-button-border-radius-medium);
+      border-radius: var(--semantic-button-border-radius-large);
       font-family: var(--semantic-typography-button-font-family);
       font-size: var(--semantic-typography-button-large-font-size);
-      font-weight: var(--semantic-typography-button-font-weight);
-      line-height: var(--semantic-typography-button-line-height);
+      font-weight: var(--semantic-typography-button-large-font-weight);
+      line-height: var(--semantic-typography-button-large-line-height);
     }
     .anatomy-btn svg {
-      width: var(--semantic-button-icon-size-medium);
-      height: var(--semantic-button-icon-size-medium);
-      stroke: currentColor;
-      fill: none;
+      width: var(--semantic-button-icon-size-large);
+      height: var(--semantic-button-icon-size-large);
+      fill: currentColor;
     }
     .anatomy-labels {
       display: flex;
@@ -366,9 +378,7 @@
   <a href="#main" class="skip-link">Skip to main content</a>
 
   <button class="sidebar-toggle" aria-label="Toggle navigation" aria-expanded="false">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.1035 11.0996" fill="none" aria-hidden="true"><path id="Vector" d="M14.6035 10.0996C14.8796 10.0996 15.1034 10.3236 15.1035 10.5996C15.1035 10.8757 14.8796 11.0996 14.6035 11.0996H0.5C0.224022 11.0994 0 10.8756 0 10.5996C8.38968e-05 10.3237 0.224074 10.0998 0.5 10.0996H14.6035ZM14.6035 5.0498C14.8796 5.04982 15.1035 5.27367 15.1035 5.5498C15.1035 5.82593 14.8796 6.04978 14.6035 6.0498H0.5C0.224022 6.04961 0 5.82583 0 5.5498C0 5.27378 0.224022 5.05 0.5 5.0498H14.6035ZM14.6035 0C14.8795 2.00931e-05 15.1034 0.223996 15.1035 0.5C15.1035 0.77613 14.8796 0.99998 14.6035 1H0.5C0.224023 0.999806 0 0.776023 0 0.5C0.000147373 0.224102 0.224113 0.000193524 0.5 0H14.6035Z" fill="currentColor"/></svg>
   </button>
 
   <div class="site-wrapper">
@@ -393,6 +403,7 @@
         <div class="sidebar-section">
           <div class="sidebar-section-title">Components</div>
           <a href="button.html" class="sidebar-link active">Button</a>
+          <a href="modal.html" class="sidebar-link">Modal</a>
         </div>
       </nav>
     </aside>
@@ -416,14 +427,14 @@
         <div class="anatomy-diagram">
           <div class="anatomy-btn-container">
             <div class="anatomy-btn">
-              <svg viewBox="0 0 16 16"><path d="M8 1v14M1 8h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4.40039C12.3314 4.40039 12.5996 4.66863 12.5996 5V11.4004H19C19.3314 11.4004 19.5996 11.6686 19.5996 12C19.5996 12.3314 19.3314 12.5996 19 12.5996H12.5996V19C12.5996 19.3314 12.3314 19.5996 12 19.5996C11.6686 19.5996 11.4004 19.3314 11.4004 19V12.5996H5C4.66863 12.5996 4.40039 12.3314 4.40039 12C4.40039 11.6686 4.66863 11.4004 5 11.4004H11.4004V5C11.4004 4.66863 11.6686 4.40039 12 4.40039Z" fill="currentColor"/></svg>
               Add Item
             </div>
           </div>
           <div class="anatomy-labels">
             <div class="anatomy-label"><span class="anatomy-dot" style="background: var(--semantic-button-primary-bg-default)"></span> <strong>Container</strong> - Background fill + border radius</div>
             <div class="anatomy-label"><span class="anatomy-dot" style="background: #495057"></span> <strong>Label</strong> - Action text, centered</div>
-            <div class="anatomy-label"><span class="anatomy-dot" style="background: #868E96"></span> <strong>Icon (optional)</strong> - Leading icon, aligned with label</div>
+            <div class="anatomy-label"><span class="anatomy-dot" style="background: #868E96"></span> <strong>Icon (optional)</strong> - Leading icon by default; use <code>spark-btn-icon-end</code> for a trailing icon</div>
             <div class="anatomy-label"><span class="anatomy-dot" style="background: var(--semantic-button-border-focus)"></span> <strong>Focus ring</strong> - Visible on keyboard focus</div>
           </div>
         </div>
@@ -584,16 +595,16 @@
             <span class="btn-row-label">Types</span>
             <div class="btn-row-items">
               <button class="spark-btn spark-btn-primary spark-btn-icon-only spark-btn-medium" aria-label="Add">
-                <svg viewBox="0 0 16 16"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4.40039C12.3314 4.40039 12.5996 4.66863 12.5996 5V11.4004H19C19.3314 11.4004 19.5996 11.6686 19.5996 12C19.5996 12.3314 19.3314 12.5996 19 12.5996H12.5996V19C12.5996 19.3314 12.3314 19.5996 12 19.5996C11.6686 19.5996 11.4004 19.3314 11.4004 19V12.5996H5C4.66863 12.5996 4.40039 12.3314 4.40039 12C4.40039 11.6686 4.66863 11.4004 5 11.4004H11.4004V5C11.4004 4.66863 11.6686 4.40039 12 4.40039Z" fill="currentColor"/></svg>
               </button>
               <button class="spark-btn spark-btn-secondary spark-btn-icon-only spark-btn-medium" aria-label="Edit">
-                <svg viewBox="0 0 16 16"><path d="M11.5 2.5l2 2L5 13H3v-2L11.5 2.5z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.1035 15.1035" fill="none" aria-hidden="true"><path d="M12.001 0C12.4083 4.44424e-05 12.8122 0.0804646 13.1885 0.236328C13.5644 0.392175 13.9065 0.620453 14.1943 0.908203C14.4823 1.19622 14.7113 1.53877 14.8672 1.91504C15.023 2.29131 15.1035 2.69529 15.1035 3.10254C15.1034 3.50955 15.0229 3.913 14.8672 4.28906C14.7113 4.66533 14.4823 5.0079 14.1943 5.2959L4.53418 14.957C4.44056 15.0506 4.313 15.1034 4.18066 15.1035H0.5C0.224131 15.1035 0.000442341 14.8793 0 14.6035V10.9229C5.04855e-06 10.7903 0.0528067 10.6631 0.146484 10.5693L9.80664 0.908203C10.0947 0.620169 10.4372 0.392233 10.8135 0.236328C11.1899 0.0804215 11.5936 0 12.001 0ZM1 11.1299V14.1035H3.97363L12.2139 5.8623L9.24023 2.88867L1 11.1299ZM12.001 1C11.7249 1 11.4514 1.0545 11.1963 1.16016C10.9412 1.26581 10.7099 1.421 10.5146 1.61621L9.94727 2.18164L12.9209 5.15527L13.4873 4.58887C13.6824 4.39378 13.8377 4.16208 13.9434 3.90723C14.0489 3.65236 14.1034 3.37841 14.1035 3.10254C14.1035 2.82666 14.0489 2.55276 13.9434 2.29785C13.8378 2.043 13.6823 1.81133 13.4873 1.61621C13.2922 1.42115 13.0605 1.2658 12.8057 1.16016C12.5507 1.05455 12.2769 1.00004 12.001 1Z" fill="currentColor"/></svg>
               </button>
-              <button class="spark-btn spark-btn-tertiary spark-btn-icon-only spark-btn-medium" aria-label="Settings">
-                <svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="2" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.05 3.05l1.41 1.41M11.54 11.54l1.41 1.41M3.05 12.95l1.41-1.41M11.54 4.46l1.41-1.41" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <button class="spark-btn spark-btn-tertiary spark-btn-icon-only spark-btn-medium" aria-label="More options">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 10C5.53043 10 6.03899 10.2109 6.41406 10.5859C6.78913 10.961 7 11.4696 7 12C7 12.5304 6.78913 13.039 6.41406 13.4141C6.03899 13.7891 5.53043 14 5 14C4.46957 14 3.96101 13.7891 3.58594 13.4141C3.21087 13.039 3 12.5304 3 12C3 11.9648 3.00158 11.931 3.00488 11.8984C3.03005 11.3864 3.25163 10.9032 3.62305 10.5498C3.99444 10.1966 4.48743 9.99964 5 10ZM12 10C12.5304 10 13.039 10.2109 13.4141 10.5859C13.7891 10.961 14 11.4696 14 12C14 12.5304 13.7891 13.039 13.4141 13.4141C13.039 13.7891 12.5304 14 12 14C11.4696 14 10.961 13.7891 10.5859 13.4141C10.2109 13.039 10 12.5304 10 12C10 11.9648 10.0016 11.931 10.0049 11.8984C10.0301 11.3864 10.2516 10.9032 10.623 10.5498C10.9944 10.1966 11.4874 9.99964 12 10ZM19 10C19.5304 10 20.039 10.2109 20.4141 10.5859C20.7891 10.961 21 11.4696 21 12C21 12.5304 20.7891 13.039 20.4141 13.4141C20.039 13.7891 19.5304 14 19 14C18.4696 14 17.961 13.7891 17.5859 13.4141C17.2109 13.039 17 12.5304 17 12C17 11.9648 17.0016 11.931 17.0049 11.8984C17.0301 11.3864 17.2516 10.9032 17.623 10.5498C17.9944 10.1966 18.4874 9.99964 19 10Z" fill="currentColor"/></svg>
               </button>
               <button class="spark-btn spark-btn-ghost spark-btn-icon-only spark-btn-medium" aria-label="More">
-                <svg viewBox="0 0 16 16"><circle cx="4" cy="8" r="1.25" fill="currentColor"/><circle cx="8" cy="8" r="1.25" fill="currentColor"/><circle cx="12" cy="8" r="1.25" fill="currentColor"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 10C5.53043 10 6.03899 10.2109 6.41406 10.5859C6.78913 10.961 7 11.4696 7 12C7 12.5304 6.78913 13.039 6.41406 13.4141C6.03899 13.7891 5.53043 14 5 14C4.46957 14 3.96101 13.7891 3.58594 13.4141C3.21087 13.039 3 12.5304 3 12C3 11.9648 3.00158 11.931 3.00488 11.8984C3.03005 11.3864 3.25163 10.9032 3.62305 10.5498C3.99444 10.1966 4.48743 9.99964 5 10ZM12 10C12.5304 10 13.039 10.2109 13.4141 10.5859C13.7891 10.961 14 11.4696 14 12C14 12.5304 13.7891 13.039 13.4141 13.4141C13.039 13.7891 12.5304 14 12 14C11.4696 14 10.961 13.7891 10.5859 13.4141C10.2109 13.039 10 12.5304 10 12C10 11.9648 10.0016 11.931 10.0049 11.8984C10.0301 11.3864 10.2516 10.9032 10.623 10.5498C10.9944 10.1966 11.4874 9.99964 12 10ZM19 10C19.5304 10 20.039 10.2109 20.4141 10.5859C20.7891 10.961 21 11.4696 21 12C21 12.5304 20.7891 13.039 20.4141 13.4141C20.039 13.7891 19.5304 14 19 14C18.4696 14 17.961 13.7891 17.5859 13.4141C17.2109 13.039 17 12.5304 17 12C17 11.9648 17.0016 11.931 17.0049 11.8984C17.0301 11.3864 17.2516 10.9032 17.623 10.5498C17.9944 10.1966 18.4874 9.99964 19 10Z" fill="currentColor"/></svg>
               </button>
             </div>
           </div>
@@ -602,25 +613,25 @@
             <div class="btn-row-items" style="align-items:flex-end;">
               <div style="text-align:center">
                 <button class="spark-btn spark-btn-primary spark-btn-icon-only spark-btn-tiny" aria-label="Add">
-                  <svg viewBox="0 0 16 16"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4.40039C12.3314 4.40039 12.5996 4.66863 12.5996 5V11.4004H19C19.3314 11.4004 19.5996 11.6686 19.5996 12C19.5996 12.3314 19.3314 12.5996 19 12.5996H12.5996V19C12.5996 19.3314 12.3314 19.5996 12 19.5996C11.6686 19.5996 11.4004 19.3314 11.4004 19V12.5996H5C4.66863 12.5996 4.40039 12.3314 4.40039 12C4.40039 11.6686 4.66863 11.4004 5 11.4004H11.4004V5C11.4004 4.66863 11.6686 4.40039 12 4.40039Z" fill="currentColor"/></svg>
                 </button>
                 <div style="font-size:0.6875rem;color:#868E96;margin-top:4px">24px</div>
               </div>
               <div style="text-align:center">
                 <button class="spark-btn spark-btn-primary spark-btn-icon-only spark-btn-small" aria-label="Add">
-                  <svg viewBox="0 0 16 16"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4.40039C12.3314 4.40039 12.5996 4.66863 12.5996 5V11.4004H19C19.3314 11.4004 19.5996 11.6686 19.5996 12C19.5996 12.3314 19.3314 12.5996 19 12.5996H12.5996V19C12.5996 19.3314 12.3314 19.5996 12 19.5996C11.6686 19.5996 11.4004 19.3314 11.4004 19V12.5996H5C4.66863 12.5996 4.40039 12.3314 4.40039 12C4.40039 11.6686 4.66863 11.4004 5 11.4004H11.4004V5C11.4004 4.66863 11.6686 4.40039 12 4.40039Z" fill="currentColor"/></svg>
                 </button>
                 <div style="font-size:0.6875rem;color:#868E96;margin-top:4px">28px</div>
               </div>
               <div style="text-align:center">
                 <button class="spark-btn spark-btn-primary spark-btn-icon-only spark-btn-medium" aria-label="Add">
-                  <svg viewBox="0 0 16 16"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4.40039C12.3314 4.40039 12.5996 4.66863 12.5996 5V11.4004H19C19.3314 11.4004 19.5996 11.6686 19.5996 12C19.5996 12.3314 19.3314 12.5996 19 12.5996H12.5996V19C12.5996 19.3314 12.3314 19.5996 12 19.5996C11.6686 19.5996 11.4004 19.3314 11.4004 19V12.5996H5C4.66863 12.5996 4.40039 12.3314 4.40039 12C4.40039 11.6686 4.66863 11.4004 5 11.4004H11.4004V5C11.4004 4.66863 11.6686 4.40039 12 4.40039Z" fill="currentColor"/></svg>
                 </button>
                 <div style="font-size:0.6875rem;color:#868E96;margin-top:4px">36px</div>
               </div>
               <div style="text-align:center">
                 <button class="spark-btn spark-btn-primary spark-btn-icon-only spark-btn-large" aria-label="Add">
-                  <svg viewBox="0 0 16 16"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4.40039C12.3314 4.40039 12.5996 4.66863 12.5996 5V11.4004H19C19.3314 11.4004 19.5996 11.6686 19.5996 12C19.5996 12.3314 19.3314 12.5996 19 12.5996H12.5996V19C12.5996 19.3314 12.3314 19.5996 12 19.5996C11.6686 19.5996 11.4004 19.3314 11.4004 19V12.5996H5C4.66863 12.5996 4.40039 12.3314 4.40039 12C4.40039 11.6686 4.66863 11.4004 5 11.4004H11.4004V5C11.4004 4.66863 11.6686 4.40039 12 4.40039Z" fill="currentColor"/></svg>
                 </button>
                 <div style="font-size:0.6875rem;color:#868E96;margin-top:4px">40px</div>
               </div>
@@ -630,23 +641,32 @@
 
         <!-- With icons -->
         <h3>Buttons with Icons</h3>
+        <p>Icons come from the Spark icon set (same assets as the docs chrome). Put the SVG before the label. For a trailing icon, add <code>spark-btn-icon-end</code> on the button.</p>
         <div class="btn-showcase">
           <div class="btn-row-items">
             <button class="spark-btn spark-btn-primary spark-btn-medium">
-              <svg viewBox="0 0 16 16"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4.40039C12.3314 4.40039 12.5996 4.66863 12.5996 5V11.4004H19C19.3314 11.4004 19.5996 11.6686 19.5996 12C19.5996 12.3314 19.3314 12.5996 19 12.5996H12.5996V19C12.5996 19.3314 12.3314 19.5996 12 19.5996C11.6686 19.5996 11.4004 19.3314 11.4004 19V12.5996H5C4.66863 12.5996 4.40039 12.3314 4.40039 12C4.40039 11.6686 4.66863 11.4004 5 11.4004H11.4004V5C11.4004 4.66863 11.6686 4.40039 12 4.40039Z" fill="currentColor"/></svg>
               Add Item
             </button>
             <button class="spark-btn spark-btn-secondary spark-btn-medium">
-              <svg viewBox="0 0 16 16"><path d="M2 10l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M17.0526 9C17.0526 7.94251 16.8439 6.89527 16.4392 5.91828C16.0346 4.94138 15.4421 4.05331 14.6944 3.30561C13.9467 2.55792 13.0586 1.96543 12.0817 1.56075C11.1047 1.15607 10.0575 0.947368 9 0.947368C7.94251 0.947368 6.89527 1.15607 5.91828 1.56075C4.94138 1.96543 4.05331 2.55792 3.30561 3.30561C2.55792 4.05331 1.96543 4.94138 1.56075 5.91828C1.15607 6.89527 0.947368 7.94251 0.947368 9C0.947368 10.0575 1.15607 11.1047 1.56075 12.0817C1.96543 13.0586 2.55792 13.9467 3.30561 14.6944C4.05331 15.4421 4.94138 16.0346 5.91828 16.4392C6.89527 16.8439 7.94251 17.0526 9 17.0526C10.0575 17.0526 11.1047 16.8439 12.0817 16.4392C13.0586 16.0346 13.9467 15.4421 14.6944 14.6944C15.4421 13.9467 16.0346 13.0586 16.4392 12.0817C16.8439 11.1047 17.0526 10.0575 17.0526 9ZM11.5072 6.77035C11.6922 6.58537 11.992 6.58537 12.177 6.77035C12.362 6.95534 12.362 7.25519 12.177 7.44017L8.38754 11.2296C8.20256 11.4146 7.90271 11.4146 7.71772 11.2296L5.82299 9.33491C5.638 9.14992 5.638 8.85008 5.82299 8.66509C6.00797 8.48011 6.30782 8.48011 6.4928 8.66509L8.05263 10.2249L11.5072 6.77035ZM18 9C18 10.1819 17.7677 11.3525 17.3154 12.4444C16.8631 13.5363 16.1999 14.5285 15.3642 15.3642C14.5285 16.1999 13.5363 16.8631 12.4444 17.3154C11.3525 17.7677 10.1819 18 9 18C7.8181 18 6.64754 17.7677 5.55561 17.3154C4.4637 16.8631 3.47151 16.1999 2.63579 15.3642C1.80008 14.5285 1.13691 13.5363 0.684622 12.4444C0.232329 11.3525 0 10.1819 0 9C0 7.8181 0.232329 6.64754 0.684622 5.55561C1.13691 4.4637 1.80008 3.47151 2.63579 2.63579C3.47143 1.80016 4.46383 1.13784 5.55561 0.685547C6.64754 0.233255 7.8181 0 9 0C10.1819 0 11.3525 0.233255 12.4444 0.685547C13.5362 1.13784 14.5286 1.80016 15.3642 2.63579C16.1999 3.47151 16.8631 4.4637 17.3154 5.55561C17.7677 6.64754 18 7.8181 18 9Z" fill="currentColor"/></svg>
               Confirm
             </button>
             <button class="spark-btn spark-btn-primary spark-btn-danger spark-btn-medium">
-              <svg viewBox="0 0 16 16"><path d="M3 4h10M6 4V3a1 1 0 011-1h2a1 1 0 011 1v1M5 7v5M8 7v5M11 7v5M4 4l.7 9.1a1 1 0 001 .9h4.6a1 1 0 001-.9L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2.5C14.3978 2.5 14.7792 2.65815 15.0605 2.93945C15.3419 3.22076 15.5 3.60218 15.5 4V6.5H20C20.2761 6.5 20.5 6.72386 20.5 7C20.5 7.27614 20.2761 7.5 20 7.5H19.46L18.498 19.042C18.4872 19.6898 18.2265 20.3087 17.7676 20.7676C17.2987 21.2364 16.663 21.5 16 21.5H8C7.33696 21.5 6.70126 21.2364 6.23242 20.7676C5.77349 20.3086 5.51283 19.6898 5.50195 19.042L4.54004 7.5H4C3.72386 7.5 3.5 7.27614 3.5 7C3.5 6.72386 3.72386 6.5 4 6.5H8.5V4C8.5 3.60218 8.65815 3.22076 8.93945 2.93945C9.22076 2.65815 9.60218 2.5 10 2.5H14ZM6.49805 18.958C6.4992 18.9718 6.5 18.9861 6.5 19C6.5 19.3978 6.65815 19.7792 6.93945 20.0605C7.22076 20.3419 7.60218 20.5 8 20.5H16C16.3978 20.5 16.7792 20.3419 17.0605 20.0605C17.3419 19.7792 17.5 19.3978 17.5 19C17.5 18.9861 17.5008 18.9718 17.502 18.958L18.457 7.5H5.54297L6.49805 18.958ZM10 10.5C10.2761 10.5 10.5 10.7239 10.5 11V17C10.5 17.2761 10.2761 17.5 10 17.5C9.72386 17.5 9.5 17.2761 9.5 17V11C9.5 10.7239 9.72386 10.5 10 10.5ZM14 10.5C14.2761 10.5 14.5 10.7239 14.5 11V17C14.5 17.2761 14.2761 17.5 14 17.5C13.7239 17.5 13.5 17.2761 13.5 17V11C13.5 10.7239 13.7239 10.5 14 10.5ZM10 3.5C9.86739 3.5 9.74025 3.55272 9.64648 3.64648C9.55272 3.74025 9.5 3.86739 9.5 4V6.5H14.5V4C14.5 3.86739 14.4473 3.74025 14.3535 3.64648C14.2597 3.55272 14.1326 3.5 14 3.5H10Z" fill="currentColor"/></svg>
               Delete
             </button>
             <button class="spark-btn spark-btn-ghost spark-btn-medium">
-              <svg viewBox="0 0 16 16"><path d="M8 2v8M4 8l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18.5024 15.2041C18.7784 15.2042 19.0023 15.4281 19.0024 15.7041V17.3506C19.0024 17.9177 18.7801 18.4633 18.3823 18.8662C17.9842 19.2694 17.4422 19.497 16.8765 19.4971H7.12354C6.55773 19.4971 6.0158 19.2694 5.61768 18.8662C5.21981 18.4632 4.99758 17.9178 4.99756 17.3506V15.7041C4.99769 15.4281 5.2215 15.2041 5.49756 15.2041C5.77355 15.2042 5.99743 15.4281 5.99756 15.7041V17.3506C5.99758 17.6566 6.11788 17.9486 6.32959 18.1631C6.54119 18.3774 6.82707 18.4971 7.12354 18.4971H16.8765C17.1729 18.497 17.4589 18.3773 17.6704 18.1631C17.882 17.9486 18.0024 17.6565 18.0024 17.3506V15.7041C18.0026 15.4281 18.2264 15.2041 18.5024 15.2041ZM11.9995 4.50293C12.2757 4.50293 12.4995 4.72679 12.4995 5.00293V13.6611L15.7085 10.4131C15.9025 10.2172 16.2192 10.2154 16.4155 10.4092C16.6117 10.6031 16.613 10.9198 16.4194 11.1162L12.356 15.2324C12.2622 15.3273 12.1339 15.3807 12.0005 15.3809C11.9962 15.3809 11.991 15.379 11.9868 15.3789C11.858 15.3754 11.7348 15.3243 11.644 15.2324L7.58057 11.1162C7.38675 10.9198 7.3883 10.6032 7.58447 10.4092C7.78086 10.2156 8.09756 10.2171 8.2915 10.4131L11.4995 13.6611V5.00293C11.4995 4.72689 11.7235 4.5031 11.9995 4.50293Z" fill="currentColor"/></svg>
               Download
+            </button>
+            <button class="spark-btn spark-btn-secondary spark-btn-medium spark-btn-icon-end">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.876 17.874" fill="none" aria-hidden="true"><path d="M2.27832 7.50781C2.48518 7.32534 2.80159 7.34515 2.98438 7.55176C3.16712 7.75859 3.14708 8.07493 2.94043 8.25781L2.39941 8.73535C1.95749 9.17462 1.60638 9.69744 1.36621 10.2725C1.12451 10.8514 1.00006 11.4733 1 12.1006C1.00004 12.7277 1.12467 13.349 1.36621 13.9277C1.60792 14.5066 1.96217 15.0325 2.4082 15.4736C3.31525 16.3705 4.5398 16.8739 5.81543 16.874C7.0805 16.874 8.29444 16.378 9.19922 15.4951L9.5918 14.9678C9.7566 14.7465 10.0705 14.7007 10.292 14.8652C10.5132 15.03 10.5589 15.343 10.3945 15.5645L9.97559 16.1279C9.96076 16.1478 9.94437 16.1671 9.92676 16.1846C8.83243 17.2667 7.35444 17.874 5.81543 17.874C4.27654 17.8739 2.79933 17.2666 1.70508 16.1846C1.16504 15.6505 0.736014 15.0144 0.443359 14.3135C0.150751 13.6125 4.19272e-05 12.8601 0 12.1006C6.23687e-05 11.3409 0.150664 10.5877 0.443359 9.88672C0.736068 9.18595 1.16506 8.54962 1.70508 8.01562L1.72559 7.99609L2.27832 7.50781ZM11.75 5.41992C11.9453 5.22509 12.2619 5.2248 12.457 5.41992C12.6521 5.61505 12.6518 5.93169 12.457 6.12695L6.12793 12.4551C5.93266 12.6503 5.61616 12.6503 5.4209 12.4551C5.22585 12.2598 5.2257 11.9432 5.4209 11.748L11.75 5.41992ZM12.1016 6.96558e-10C13.6329 0.000129015 15.1018 0.608611 16.1846 1.69141C17.2672 2.77429 17.8761 4.24318 17.876 5.77441C17.8758 7.30561 17.2674 8.77476 16.1846 9.85742C16.1765 9.86547 16.1678 9.87338 16.1592 9.88086L15.5957 10.3701C15.3873 10.551 15.0708 10.5294 14.8896 10.3213C14.7088 10.113 14.7315 9.79737 14.9395 9.61621L15.4893 9.13672C16.3766 8.2428 16.8758 7.03442 16.876 5.77441C16.8761 4.50838 16.3727 3.29379 15.4775 2.39844C14.5823 1.50317 13.3677 1.00011 12.1016 1C10.8399 0.999976 9.6298 1.49943 8.73535 2.38867L8.26172 2.93652C8.08123 3.1451 7.7655 3.16846 7.55664 2.98828C7.34787 2.80781 7.32558 2.49213 7.50586 2.2832L7.99414 1.71777L8.01855 1.69043C9.10145 0.607845 10.5703 -2.37601e-05 12.1016 6.96558e-10Z" fill="currentColor"/></svg>
+              Open link
+            </button>
+            <button class="spark-btn spark-btn-primary spark-btn-medium spark-btn-icon-end">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4.40039C12.3314 4.40039 12.5996 4.66863 12.5996 5V11.4004H19C19.3314 11.4004 19.5996 11.6686 19.5996 12C19.5996 12.3314 19.3314 12.5996 19 12.5996H12.5996V19C12.5996 19.3314 12.3314 19.5996 12 19.5996C11.6686 19.5996 11.4004 19.3314 11.4004 19V12.5996H5C4.66863 12.5996 4.40039 12.3314 4.40039 12C4.40039 11.6686 4.66863 11.4004 5 11.4004H11.4004V5C11.4004 4.66863 11.6686 4.40039 12 4.40039Z" fill="currentColor"/></svg>
+              Add item
             </button>
           </div>
         </div>
@@ -851,7 +871,8 @@
               <tr><td><code>size</code></td><td><code>"tiny" | "small" | "medium" | "large"</code></td><td><code>"medium"</code></td><td>Button size</td></tr>
               <tr><td><code>danger</code></td><td><code>boolean</code></td><td><code>false</code></td><td>Destructive action style</td></tr>
               <tr><td><code>disabled</code></td><td><code>boolean</code></td><td><code>false</code></td><td>Disables the button</td></tr>
-              <tr><td><code>icon</code></td><td><code>ReactNode</code></td><td><code>null</code></td><td>Icon element before the label</td></tr>
+              <tr><td><code>icon</code></td><td><code>ReactNode</code></td><td><code>null</code></td><td>Icon element before the label in the DOM</td></tr>
+              <tr><td><code>iconEnd</code> / class</td><td><code>boolean</code> / <code>spark-btn-icon-end</code></td><td><code>false</code></td><td>Places the icon after the label visually (still pass icon before label in DOM)</td></tr>
               <tr><td><code>iconOnly</code></td><td><code>boolean</code></td><td><code>false</code></td><td>Renders as square icon-only button</td></tr>
               <tr><td><code>onClick</code></td><td><code>function</code></td><td><code>undefined</code></td><td>Click handler</td></tr>
               <tr><td><code>href</code></td><td><code>string</code></td><td><code>undefined</code></td><td>Renders as anchor element when provided</td></tr>
@@ -904,7 +925,7 @@
               <tr><td>Tiny</td><td><code>--semantic-button-height-tiny</code></td><td><code>--semantic-button-padding-x-tiny</code></td><td><code>--semantic-button-gap-icon-label-tiny</code></td><td><code>--semantic-button-border-radius-small</code></td><td><button class="spark-btn spark-btn-primary spark-btn-tiny">Tiny</button></td></tr>
               <tr><td>Small</td><td><code>--semantic-button-height-small</code></td><td><code>--semantic-button-padding-x-small</code></td><td><code>--semantic-button-gap-icon-label-small</code></td><td><code>--semantic-button-border-radius-small</code></td><td><button class="spark-btn spark-btn-primary spark-btn-small">Small</button></td></tr>
               <tr><td>Medium</td><td><code>--semantic-button-height-medium</code></td><td><code>--semantic-button-padding-x-medium</code></td><td><code>--semantic-button-gap-icon-label-medium</code></td><td><code>--semantic-button-border-radius-medium</code></td><td><button class="spark-btn spark-btn-primary spark-btn-medium">Medium</button></td></tr>
-              <tr><td>Large</td><td><code>--semantic-button-height-large</code></td><td><code>--semantic-button-padding-x-large</code></td><td><code>--semantic-button-gap-icon-label-large</code></td><td><code>--semantic-button-border-radius-medium</code></td><td><button class="spark-btn spark-btn-primary spark-btn-large">Large</button></td></tr>
+              <tr><td>Large</td><td><code>--semantic-button-height-large</code></td><td><code>--semantic-button-padding-x-large</code></td><td><code>--semantic-button-gap-icon-label-large</code></td><td><code>--semantic-button-border-radius-large</code></td><td><button class="spark-btn spark-btn-primary spark-btn-large">Large</button></td></tr>
             </tbody>
           </table>
         </div>
@@ -914,10 +935,10 @@
           <table class="token-table">
             <thead><tr><th>Size</th><th>Dimensions</th><th>Border Radius</th><th>Preview</th></tr></thead>
             <tbody>
-              <tr><td>Tiny</td><td>24 x 24px</td><td>6px</td><td><button class="spark-btn spark-btn-primary spark-btn-icon-only spark-btn-tiny" aria-label="Add"><svg viewBox="0 0 16 16"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg></button></td></tr>
-              <tr><td>Small</td><td>28 x 28px</td><td>6px</td><td><button class="spark-btn spark-btn-primary spark-btn-icon-only spark-btn-small" aria-label="Add"><svg viewBox="0 0 16 16"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg></button></td></tr>
-              <tr><td>Medium</td><td>36 x 36px</td><td>8px</td><td><button class="spark-btn spark-btn-primary spark-btn-icon-only spark-btn-medium" aria-label="Add"><svg viewBox="0 0 16 16"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg></button></td></tr>
-              <tr><td>Large</td><td>40 x 40px</td><td>8px</td><td><button class="spark-btn spark-btn-primary spark-btn-icon-only spark-btn-large" aria-label="Add"><svg viewBox="0 0 16 16"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg></button></td></tr>
+              <tr><td>Tiny</td><td>24 x 24px</td><td>6px</td><td><button class="spark-btn spark-btn-primary spark-btn-icon-only spark-btn-tiny" aria-label="Add"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4.40039C12.3314 4.40039 12.5996 4.66863 12.5996 5V11.4004H19C19.3314 11.4004 19.5996 11.6686 19.5996 12C19.5996 12.3314 19.3314 12.5996 19 12.5996H12.5996V19C12.5996 19.3314 12.3314 19.5996 12 19.5996C11.6686 19.5996 11.4004 19.3314 11.4004 19V12.5996H5C4.66863 12.5996 4.40039 12.3314 4.40039 12C4.40039 11.6686 4.66863 11.4004 5 11.4004H11.4004V5C11.4004 4.66863 11.6686 4.40039 12 4.40039Z" fill="currentColor"/></svg></button></td></tr>
+              <tr><td>Small</td><td>28 x 28px</td><td>6px</td><td><button class="spark-btn spark-btn-primary spark-btn-icon-only spark-btn-small" aria-label="Add"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4.40039C12.3314 4.40039 12.5996 4.66863 12.5996 5V11.4004H19C19.3314 11.4004 19.5996 11.6686 19.5996 12C19.5996 12.3314 19.3314 12.5996 19 12.5996H12.5996V19C12.5996 19.3314 12.3314 19.5996 12 19.5996C11.6686 19.5996 11.4004 19.3314 11.4004 19V12.5996H5C4.66863 12.5996 4.40039 12.3314 4.40039 12C4.40039 11.6686 4.66863 11.4004 5 11.4004H11.4004V5C11.4004 4.66863 11.6686 4.40039 12 4.40039Z" fill="currentColor"/></svg></button></td></tr>
+              <tr><td>Medium</td><td>36 x 36px</td><td>8px</td><td><button class="spark-btn spark-btn-primary spark-btn-icon-only spark-btn-medium" aria-label="Add"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4.40039C12.3314 4.40039 12.5996 4.66863 12.5996 5V11.4004H19C19.3314 11.4004 19.5996 11.6686 19.5996 12C19.5996 12.3314 19.3314 12.5996 19 12.5996H12.5996V19C12.5996 19.3314 12.3314 19.5996 12 19.5996C11.6686 19.5996 11.4004 19.3314 11.4004 19V12.5996H5C4.66863 12.5996 4.40039 12.3314 4.40039 12C4.40039 11.6686 4.66863 11.4004 5 11.4004H11.4004V5C11.4004 4.66863 11.6686 4.40039 12 4.40039Z" fill="currentColor"/></svg></button></td></tr>
+              <tr><td>Large</td><td>40 x 40px</td><td>8px</td><td><button class="spark-btn spark-btn-primary spark-btn-icon-only spark-btn-large" aria-label="Add"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4.40039C12.3314 4.40039 12.5996 4.66863 12.5996 5V11.4004H19C19.3314 11.4004 19.5996 11.6686 19.5996 12C19.5996 12.3314 19.3314 12.5996 19 12.5996H12.5996V19C12.5996 19.3314 12.3314 19.5996 12 19.5996C11.6686 19.5996 11.4004 19.3314 11.4004 19V12.5996H5C4.66863 12.5996 4.40039 12.3314 4.40039 12C4.40039 11.6686 4.66863 11.4004 5 11.4004H11.4004V5C11.4004 4.66863 11.6686 4.40039 12 4.40039Z" fill="currentColor"/></svg></button></td></tr>
             </tbody>
           </table>
         </div>
@@ -940,11 +961,11 @@
 
         <div class="usage-pattern">
           <h4>Toolbar</h4>
-          <p>Ghost or Tertiary icon buttons in a row for compact toolbars.</p>
+          <p>Ghost icon buttons in a row using Spark icons (text, link, edit).</p>
           <div style="margin-top:0.75rem; display:flex; gap:6px; background:#F8F9FA; padding:6px 8px; border-radius:8px; width:fit-content;">
-            <button class="spark-btn spark-btn-ghost spark-btn-icon-only spark-btn-small" aria-label="Bold"><svg viewBox="0 0 16 16"><path d="M4 2h5a3 3 0 010 6H4V2zM4 8h6a3 3 0 010 6H4V8z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></button>
-            <button class="spark-btn spark-btn-ghost spark-btn-icon-only spark-btn-small" aria-label="Italic"><svg viewBox="0 0 16 16"><path d="M6 14l4-12M5 14h6M5 2h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
-            <button class="spark-btn spark-btn-ghost spark-btn-icon-only spark-btn-small" aria-label="Underline"><svg viewBox="0 0 16 16"><path d="M4 2v5a4 4 0 008 0V2M3 14h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+            <button class="spark-btn spark-btn-ghost spark-btn-icon-only spark-btn-small" aria-label="Text formatting"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 15" fill="none" aria-hidden="true"><path d="M13.5 0C13.7761 0 14 0.223858 14 0.5V2.5C14 2.77614 13.7761 3 13.5 3C13.2239 3 13 2.77614 13 2.5V1H8V14H9.5C9.77614 14 10 14.2239 10 14.5C10 14.7761 9.77614 15 9.5 15H5.5C5.22386 15 5 14.7761 5 14.5C5 14.2239 5.22386 14 5.5 14H7V1H1V2.5C1 2.77614 0.776142 3 0.5 3C0.223858 3 0 2.77614 0 2.5V0.5C0 0.223858 0.223858 0 0.5 0H13.5Z" fill="currentColor"/><path d="M18.5 7C18.7761 7 19 7.22386 19 7.5V8.5C19 8.77614 18.7761 9 18.5 9C18.2239 9 18 8.77614 18 8.5V8H16V14H16.5C16.7761 14 17 14.2239 17 14.5C17 14.7761 16.7761 15 16.5 15H14.5C14.2239 15 14 14.7761 14 14.5C14 14.2239 14.2239 14 14.5 14H15V8H13V8.5C13 8.77614 12.7761 9 12.5 9C12.2239 9 12 8.77614 12 8.5V7.5C12 7.22386 12.2239 7 12.5 7H18.5Z" fill="currentColor"/></svg></button>
+            <button class="spark-btn spark-btn-ghost spark-btn-icon-only spark-btn-small" aria-label="Insert link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.876 17.874" fill="none" aria-hidden="true"><path d="M2.27832 7.50781C2.48518 7.32534 2.80159 7.34515 2.98438 7.55176C3.16712 7.75859 3.14708 8.07493 2.94043 8.25781L2.39941 8.73535C1.95749 9.17462 1.60638 9.69744 1.36621 10.2725C1.12451 10.8514 1.00006 11.4733 1 12.1006C1.00004 12.7277 1.12467 13.349 1.36621 13.9277C1.60792 14.5066 1.96217 15.0325 2.4082 15.4736C3.31525 16.3705 4.5398 16.8739 5.81543 16.874C7.0805 16.874 8.29444 16.378 9.19922 15.4951L9.5918 14.9678C9.7566 14.7465 10.0705 14.7007 10.292 14.8652C10.5132 15.03 10.5589 15.343 10.3945 15.5645L9.97559 16.1279C9.96076 16.1478 9.94437 16.1671 9.92676 16.1846C8.83243 17.2667 7.35444 17.874 5.81543 17.874C4.27654 17.8739 2.79933 17.2666 1.70508 16.1846C1.16504 15.6505 0.736014 15.0144 0.443359 14.3135C0.150751 13.6125 4.19272e-05 12.8601 0 12.1006C6.23687e-05 11.3409 0.150664 10.5877 0.443359 9.88672C0.736068 9.18595 1.16506 8.54962 1.70508 8.01562L1.72559 7.99609L2.27832 7.50781ZM11.75 5.41992C11.9453 5.22509 12.2619 5.2248 12.457 5.41992C12.6521 5.61505 12.6518 5.93169 12.457 6.12695L6.12793 12.4551C5.93266 12.6503 5.61616 12.6503 5.4209 12.4551C5.22585 12.2598 5.2257 11.9432 5.4209 11.748L11.75 5.41992ZM12.1016 6.96558e-10C13.6329 0.000129015 15.1018 0.608611 16.1846 1.69141C17.2672 2.77429 17.8761 4.24318 17.876 5.77441C17.8758 7.30561 17.2674 8.77476 16.1846 9.85742C16.1765 9.86547 16.1678 9.87338 16.1592 9.88086L15.5957 10.3701C15.3873 10.551 15.0708 10.5294 14.8896 10.3213C14.7088 10.113 14.7315 9.79737 14.9395 9.61621L15.4893 9.13672C16.3766 8.2428 16.8758 7.03442 16.876 5.77441C16.8761 4.50838 16.3727 3.29379 15.4775 2.39844C14.5823 1.50317 13.3677 1.00011 12.1016 1C10.8399 0.999976 9.6298 1.49943 8.73535 2.38867L8.26172 2.93652C8.08123 3.1451 7.7655 3.16846 7.55664 2.98828C7.34787 2.80781 7.32558 2.49213 7.50586 2.2832L7.99414 1.71777L8.01855 1.69043C9.10145 0.607845 10.5703 -2.37601e-05 12.1016 6.96558e-10Z" fill="currentColor"/></svg></button>
+            <button class="spark-btn spark-btn-ghost spark-btn-icon-only spark-btn-small" aria-label="Edit"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.1035 15.1035" fill="none" aria-hidden="true"><path d="M12.001 0C12.4083 4.44424e-05 12.8122 0.0804646 13.1885 0.236328C13.5644 0.392175 13.9065 0.620453 14.1943 0.908203C14.4823 1.19622 14.7113 1.53877 14.8672 1.91504C15.023 2.29131 15.1035 2.69529 15.1035 3.10254C15.1034 3.50955 15.0229 3.913 14.8672 4.28906C14.7113 4.66533 14.4823 5.0079 14.1943 5.2959L4.53418 14.957C4.44056 15.0506 4.313 15.1034 4.18066 15.1035H0.5C0.224131 15.1035 0.000442341 14.8793 0 14.6035V10.9229C5.04855e-06 10.7903 0.0528067 10.6631 0.146484 10.5693L9.80664 0.908203C10.0947 0.620169 10.4372 0.392233 10.8135 0.236328C11.1899 0.0804215 11.5936 0 12.001 0ZM1 11.1299V14.1035H3.97363L12.2139 5.8623L9.24023 2.88867L1 11.1299ZM12.001 1C11.7249 1 11.4514 1.0545 11.1963 1.16016C10.9412 1.26581 10.7099 1.421 10.5146 1.61621L9.94727 2.18164L12.9209 5.15527L13.4873 4.58887C13.6824 4.39378 13.8377 4.16208 13.9434 3.90723C14.0489 3.65236 14.1034 3.37841 14.1035 3.10254C14.1035 2.82666 14.0489 2.55276 13.9434 2.29785C13.8378 2.043 13.6823 1.81133 13.4873 1.61621C13.2922 1.42115 13.0605 1.2658 12.8057 1.16016C12.5507 1.05455 12.2769 1.00004 12.001 1Z" fill="currentColor"/></svg></button>
           </div>
         </div>
 
@@ -953,7 +974,7 @@
           <p>Primary Danger paired with Secondary for destructive confirmations.</p>
           <div style="margin-top:0.75rem; display:flex; gap:10px;">
             <button class="spark-btn spark-btn-primary spark-btn-danger spark-btn-medium">
-              <svg viewBox="0 0 16 16" style="width:14px;height:14px"><path d="M3 4h10M6 4V3a1 1 0 011-1h2a1 1 0 011 1v1M5 7v5M8 7v5M11 7v5M4 4l.7 9.1a1 1 0 001 .9h4.6a1 1 0 001-.9L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2.5C14.3978 2.5 14.7792 2.65815 15.0605 2.93945C15.3419 3.22076 15.5 3.60218 15.5 4V6.5H20C20.2761 6.5 20.5 6.72386 20.5 7C20.5 7.27614 20.2761 7.5 20 7.5H19.46L18.498 19.042C18.4872 19.6898 18.2265 20.3087 17.7676 20.7676C17.2987 21.2364 16.663 21.5 16 21.5H8C7.33696 21.5 6.70126 21.2364 6.23242 20.7676C5.77349 20.3086 5.51283 19.6898 5.50195 19.042L4.54004 7.5H4C3.72386 7.5 3.5 7.27614 3.5 7C3.5 6.72386 3.72386 6.5 4 6.5H8.5V4C8.5 3.60218 8.65815 3.22076 8.93945 2.93945C9.22076 2.65815 9.60218 2.5 10 2.5H14ZM6.49805 18.958C6.4992 18.9718 6.5 18.9861 6.5 19C6.5 19.3978 6.65815 19.7792 6.93945 20.0605C7.22076 20.3419 7.60218 20.5 8 20.5H16C16.3978 20.5 16.7792 20.3419 17.0605 20.0605C17.3419 19.7792 17.5 19.3978 17.5 19C17.5 18.9861 17.5008 18.9718 17.502 18.958L18.457 7.5H5.54297L6.49805 18.958ZM10 10.5C10.2761 10.5 10.5 10.7239 10.5 11V17C10.5 17.2761 10.2761 17.5 10 17.5C9.72386 17.5 9.5 17.2761 9.5 17V11C9.5 10.7239 9.72386 10.5 10 10.5ZM14 10.5C14.2761 10.5 14.5 10.7239 14.5 11V17C14.5 17.2761 14.2761 17.5 14 17.5C13.7239 17.5 13.5 17.2761 13.5 17V11C13.5 10.7239 13.7239 10.5 14 10.5ZM10 3.5C9.86739 3.5 9.74025 3.55272 9.64648 3.64648C9.55272 3.74025 9.5 3.86739 9.5 4V6.5H14.5V4C14.5 3.86739 14.4473 3.74025 14.3535 3.64648C14.2597 3.55272 14.1326 3.5 14 3.5H10Z" fill="currentColor"/></svg>
               Delete
             </button>
             <button class="spark-btn spark-btn-secondary spark-btn-medium">Cancel</button>
@@ -966,7 +987,7 @@
           <div style="margin-top:0.75rem; text-align:center; padding:2rem; background:#F8F9FA; border-radius:10px;">
             <p style="color:#868E96; margin-bottom:0.75rem; font-size:0.875rem;">No items found</p>
             <button class="spark-btn spark-btn-primary spark-btn-medium">
-              <svg viewBox="0 0 16 16" style="width:14px;height:14px"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4.40039C12.3314 4.40039 12.5996 4.66863 12.5996 5V11.4004H19C19.3314 11.4004 19.5996 11.6686 19.5996 12C19.5996 12.3314 19.3314 12.5996 19 12.5996H12.5996V19C12.5996 19.3314 12.3314 19.5996 12 19.5996C11.6686 19.5996 11.4004 19.3314 11.4004 19V12.5996H5C4.66863 12.5996 4.40039 12.3314 4.40039 12C4.40039 11.6686 4.66863 11.4004 5 11.4004H11.4004V5C11.4004 4.66863 11.6686 4.40039 12 4.40039Z" fill="currentColor"/></svg>
               Create First Item
             </button>
           </div>
@@ -995,6 +1016,14 @@
         </div>
 
         <div class="code-block-wrapper">
+          <h4>Trailing icon</h4>
+          <pre><code class="code-block">&lt;button class="spark-btn spark-btn-secondary spark-btn-medium spark-btn-icon-end"&gt;
+  &lt;svg aria-hidden="true"&gt;...&lt;/svg&gt;
+  Open link
+&lt;/button&gt;</code></pre>
+        </div>
+
+        <div class="code-block-wrapper">
           <h4>Danger Primary</h4>
           <pre><code class="code-block">&lt;button class="spark-btn spark-btn-primary spark-btn-danger spark-btn-medium"&gt;
   Delete
@@ -1004,7 +1033,7 @@
         <div class="code-block-wrapper">
           <h4>Icon-only (requires aria-label)</h4>
           <pre><code class="code-block">&lt;button class="spark-btn spark-btn-ghost spark-btn-icon-only spark-btn-medium"
-  aria-label="Settings"&gt;
+  aria-label="More options"&gt;
   &lt;svg&gt;...&lt;/svg&gt;
 &lt;/button&gt;</code></pre>
         </div>

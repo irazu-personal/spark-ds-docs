@@ -8,10 +8,18 @@ alwaysApply: false
 
 ## Source
 
-Use icons from `assets/icons/` when a match exists (search, plus, trash, edit, copy, download, link, menu, dots, activity, circle-check, text).
+Use icons from `assets/icons/` when a match exists. Each icon has two SVG files in kebab-case:
+
+- `{name}-medium.svg` (24px)
+- `{name}-small.svg` (16px)
+
+Examples: `search-medium.svg`, `search-small.svg`, `chevron-left-large-medium.svg`.
+
+Run `collect_icon_batches.py` after export to regenerate `assets/icons/` from Figma batches.
 
 ## Implementation
 
+- Import the size you need: `import SearchMedium from 'assets/icons/search-medium.svg'`.
 - Prefer inline SVG React components or imports from a shared icons module in your app.
 - Set `fill="currentColor"` (or `stroke="currentColor"`) so icons inherit token-driven text color.
 - Size icons with component tokens (e.g. `--semantic-button-icon-size-medium`), not fixed px in JSX.
