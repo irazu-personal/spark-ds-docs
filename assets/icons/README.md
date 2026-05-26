@@ -10,7 +10,7 @@ Outlined icons exported from the Spark Figma library (Icons Outlined). Each icon
 Browse and download from the docs: [Icons](https://irazu-personal.github.io/spark-ds-docs/icons.html)
 
 **Repository path:** `assets/icons/`  
-**Manifest:** `assets/icons/manifest.json` (icon names for tooling and the docs browser)
+**Manifest:** `assets/icons/manifest.json` (v2: icon names plus Figma section groups for the docs browser)
 
 Regenerate from Figma:
 

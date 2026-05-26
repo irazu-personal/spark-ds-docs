@@ -1,14 +1,15 @@
 document.addEventListener('DOMContentLoaded', function () {
-  var grid = document.getElementById('iconGrid');
+  var gallery = document.getElementById('iconGallery');
   var searchInput = document.getElementById('iconSearch');
   var searchCount = document.getElementById('iconSearchCount');
   var sizeButtons = document.querySelectorAll('[data-icon-size]');
 
-  if (!grid) return;
+  if (!gallery) return;
 
   var currentSize = 'medium';
   var allNames = [];
   var cards = [];
+  var groupSections = [];
 
   function iconPath(name, size) {
     return 'assets/icons/' + name + '-' + size + '.svg';
@@ -24,8 +25,6 @@ document.addEventListener('DOMContentLoaded', function () {
     var img = document.createElement('img');
     img.src = iconPath(name, currentSize);
     img.alt = '';
-    img.width = currentSize === 'medium' ? 24 : 16;
-    img.height = currentSize === 'medium' ? 24 : 16;
     img.loading = 'lazy';
     img.decoding = 'async';
     preview.appendChild(img);
@@ -37,17 +36,12 @@ document.addEventListener('DOMContentLoaded', function () {
     var actions = document.createElement('div');
     actions.className = 'icon-card-actions';
 
-    var mediumLink = document.createElement('a');
-    mediumLink.href = iconPath(name, 'medium');
-    mediumLink.download = name + '-medium.svg';
-    mediumLink.textContent = 'Medium';
-    mediumLink.setAttribute('aria-label', 'Download ' + name + ' medium SVG');
-
-    var smallLink = document.createElement('a');
-    smallLink.href = iconPath(name, 'small');
-    smallLink.download = name + '-small.svg';
-    smallLink.textContent = 'Small';
-    smallLink.setAttribute('aria-label', 'Download ' + name + ' small SVG');
+    var downloadLink = document.createElement('a');
+    downloadLink.className = 'icon-card-download';
+    downloadLink.href = iconPath(name, currentSize);
+    downloadLink.download = name + '-' + currentSize + '.svg';
+    downloadLink.textContent = 'Download';
+    downloadLink.setAttribute('aria-label', 'Download ' + name + ' ' + currentSize + ' SVG');
 
     var copyBtn = document.createElement('button');
     copyBtn.type = 'button';
@@ -56,8 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
     copyBtn.setAttribute('aria-label', 'Copy path for ' + name + ' ' + currentSize);
     copyBtn.textContent = 'Copy path';
 
-    actions.appendChild(mediumLink);
-    actions.appendChild(smallLink);
+    actions.appendChild(downloadLink);
     actions.appendChild(copyBtn);
 
     article.appendChild(preview);
@@ -72,14 +65,21 @@ document.addEventListener('DOMContentLoaded', function () {
       var img = card.querySelector('img');
       if (!img) return;
       img.src = iconPath(name, currentSize);
-      img.width = currentSize === 'medium' ? 24 : 16;
-      img.height = currentSize === 'medium' ? 24 : 16;
+      var downloadLink = card.querySelector('.icon-card-download');
+      if (downloadLink) {
+        downloadLink.href = iconPath(name, currentSize);
+        downloadLink.download = name + '-' + currentSize + '.svg';
+        downloadLink.setAttribute('aria-label', 'Download ' + name + ' ' + currentSize + ' SVG');
+      }
       var copyBtn = card.querySelector('.copy-btn');
       if (copyBtn) {
         copyBtn.setAttribute('data-copy', iconPath(name, currentSize));
+        copyBtn.setAttribute('aria-label', 'Copy path for ' + name + ' ' + currentSize);
       }
     });
-    grid.setAttribute('data-size', currentSize);
+    gallery.querySelectorAll('.icon-grid').forEach(function (grid) {
+      grid.setAttribute('data-size', currentSize);
+    });
   }
 
   function filterIcons(query) {
@@ -90,6 +90,10 @@ document.addEventListener('DOMContentLoaded', function () {
       var show = !q || name.indexOf(q) !== -1;
       card.hidden = !show;
       if (show) visible += 1;
+    });
+    groupSections.forEach(function (section) {
+      var visibleInGroup = section.querySelectorAll('.icon-card:not([hidden])').length;
+      section.hidden = visibleInGroup === 0;
     });
     if (searchCount) {
       searchCount.textContent = visible + ' of ' + allNames.length + ' icons';
@@ -119,16 +123,43 @@ document.addEventListener('DOMContentLoaded', function () {
     })
     .then(function (data) {
       allNames = data.icons || [];
-      grid.innerHTML = '';
-      allNames.forEach(function (name) {
-        var card = renderCard(name);
-        cards.push(card);
-        grid.appendChild(card);
+      var groups = data.groups;
+      gallery.innerHTML = '';
+
+      if (!groups || !groups.length) {
+        groups = [{ id: 'all', title: 'All icons', icons: allNames }];
+      }
+
+      groups.forEach(function (group) {
+        var section = document.createElement('section');
+        section.className = 'icon-group';
+        section.setAttribute('data-group-id', group.id);
+
+        var heading = document.createElement('h3');
+        heading.className = 'icon-group-title';
+        heading.textContent = group.title;
+        section.appendChild(heading);
+
+        var grid = document.createElement('div');
+        grid.className = 'icon-grid';
+        grid.setAttribute('data-size', currentSize);
+
+        (group.icons || []).forEach(function (name) {
+          var card = renderCard(name);
+          cards.push(card);
+          grid.appendChild(card);
+        });
+
+        section.appendChild(grid);
+        groupSections.push(section);
+        gallery.appendChild(section);
       });
+
       filterIcons(searchInput ? searchInput.value : '');
     })
     .catch(function () {
-      grid.innerHTML = '<p class="icon-empty-state">Could not load the icon manifest. SVG files are still available under <code>assets/icons/</code> in the repository.</p>';
+      gallery.innerHTML =
+        '<p class="icon-empty-state">Could not load the icon manifest. SVG files are still available under <code>assets/icons/</code> in the repository.</p>';
       if (searchCount) searchCount.textContent = '';
     });
 });

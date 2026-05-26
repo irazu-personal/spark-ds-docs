@@ -27,6 +27,20 @@ FILE_KEY = "KYq9ka9Hg16HdfzR4gMoMH"
 SECTION_NODE_ID = "984:12"
 SVG_NS = "http://www.w3.org/2000/svg"
 DEFAULT_EXPECTED_SETS = 130
+ICON_FRAME_POSITIONS = SCRIPT_DIR / "icon_frame_positions.tsv"
+ICON_GROUP_HEADERS = [
+    (275, "arrows", "Arrows"),
+    (718, "feedback", "Feedback"),
+    (984, "actions", "Actions"),
+    (1693, "general", "General"),
+    (2046, "graphs", "Graphs"),
+    (2290, "flow", "Flow"),
+    (2489, "code", "Code"),
+    (2701, "cloud", "Cloud"),
+    (2905, "ai", "AI"),
+    (3130, "social", "Social"),
+    (3383, "model", "Model"),
+]
 
 
 def to_kebab(name: str) -> str:
@@ -119,6 +133,56 @@ def write_icons(items: list[dict[str, str]]) -> int:
     return written
 
 
+def _group_for_y(y: float) -> tuple[str, str]:
+    group_id, title = ICON_GROUP_HEADERS[0][1], ICON_GROUP_HEADERS[0][2]
+    for threshold, gid, group_title in ICON_GROUP_HEADERS:
+        if y >= threshold:
+            group_id, title = gid, group_title
+    return group_id, title
+
+
+def _load_icon_frame_positions() -> list[tuple[str, float, float]]:
+    if not ICON_FRAME_POSITIONS.is_file():
+        return []
+    frames: list[tuple[str, float, float]] = []
+    for line in ICON_FRAME_POSITIONS.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        name, y, x = line.split("|")
+        frames.append((to_kebab(name), float(y), float(x)))
+    return frames
+
+
+def build_icon_groups(icon_names: set[str]) -> list[dict[str, object]]:
+    """Group icon stems using Figma frame Y positions (icon_frame_positions.tsv)."""
+    frames = _load_icon_frame_positions()
+    if not frames:
+        return [
+            {
+                "id": "all",
+                "title": "All icons",
+                "icons": sorted(icon_names),
+            }
+        ]
+
+    group_order = [gid for _, gid, _ in ICON_GROUP_HEADERS]
+    groups_map: dict[str, dict[str, object]] = {
+        gid: {"id": gid, "title": title, "icons": []}
+        for _, gid, title in ICON_GROUP_HEADERS
+    }
+    for kebab, y, x in sorted(
+        frames,
+        key=lambda item: (group_order.index(_group_for_y(item[1])[0]), item[1], item[2]),
+    ):
+        if kebab not in icon_names:
+            continue
+        gid, _ = _group_for_y(y)
+        groups_map[gid]["icons"].append(kebab)
+
+    return [groups_map[gid] for gid in group_order if groups_map[gid]["icons"]]
+
+
 def write_icons_manifest() -> int:
     """Write assets/icons/manifest.json for the docs icon browser."""
     names = sorted(
@@ -128,7 +192,14 @@ def write_icons_manifest() -> int:
             if path.name.endswith("-medium.svg") or path.name.endswith("-small.svg")
         }
     )
-    manifest = {"version": 1, "count": len(names), "icons": names}
+    name_set = set(names)
+    groups = build_icon_groups(name_set)
+    manifest: dict[str, object] = {
+        "version": 2,
+        "count": len(names),
+        "groups": groups,
+        "icons": names,
+    }
     out_path = ICONS_DIR / "manifest.json"
     out_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
     return len(names)

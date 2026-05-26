@@ -1,6 +1,204 @@
 {
-  "version": 1,
+  "version": 2,
   "count": 130,
+  "groups": [
+    {
+      "id": "arrows",
+      "title": "Arrows",
+      "icons": [
+        "chevron-up",
+        "chevron-down",
+        "chevron-left",
+        "chevron-right",
+        "chevrons-left",
+        "chevrons-right",
+        "chevron-left-large",
+        "chevron-up-large",
+        "chevron-right-large",
+        "chevron-down-large",
+        "arrow-back-up",
+        "arrow-left",
+        "arrow-right",
+        "arrows-shuffle",
+        "switch-horizontal",
+        "arrows-sort",
+        "sort",
+        "arrow-narrow-down",
+        "arrow-narrow-up",
+        "trending-down",
+        "trending-up"
+      ]
+    },
+    {
+      "id": "feedback",
+      "title": "Feedback",
+      "icons": [
+        "circle-check",
+        "circle-x",
+        "circle-minus",
+        "circle-info",
+        "circle-alert",
+        "circle-help",
+        "circle-alert-triangle"
+      ]
+    },
+    {
+      "id": "actions",
+      "title": "Actions",
+      "icons": [
+        "upload",
+        "download",
+        "export",
+        "external-link-icons",
+        "minimize-arrows",
+        "maximize-arrow",
+        "reload",
+        "refresh",
+        "viewport-tall",
+        "viewport-wide",
+        "viewport-narrow",
+        "close",
+        "minus",
+        "plus",
+        "eye",
+        "eye-closed",
+        "heart",
+        "current-location",
+        "link",
+        "attach",
+        "share",
+        "layers-linked",
+        "trash",
+        "settings",
+        "search",
+        "bell",
+        "home",
+        "filter",
+        "edit",
+        "copy",
+        "menu",
+        "dots",
+        "file-close",
+        "spreadsheet",
+        "description",
+        "calendar",
+        "calendar-check",
+        "clock-hour-icon"
+      ]
+    },
+    {
+      "id": "general",
+      "title": "General",
+      "icons": [
+        "user",
+        "message-icon",
+        "message-circle-icon",
+        "microphone-icon",
+        "lock-password-icon",
+        "bookmark",
+        "bulb",
+        "activity",
+        "report-analytics-icon",
+        "task",
+        "task-check",
+        "assembly",
+        "category-plus",
+        "category",
+        "layout",
+        "table",
+        "layout-rows",
+        "tag",
+        "pinned",
+        "pin",
+        "text"
+      ]
+    },
+    {
+      "id": "graphs",
+      "title": "Graphs",
+      "icons": [
+        "www",
+        "box-graph",
+        "cohort-chart",
+        "sitemap",
+        "pie-chart",
+        "donut-chart",
+        "bar-chart-center",
+        "bar-chart-ascending",
+        "chart-area-line",
+        "graph"
+      ]
+    },
+    {
+      "id": "flow",
+      "title": "Flow",
+      "icons": [
+        "git-merge",
+        "git-fork",
+        "hierarchy",
+        "branch",
+        "merge",
+        "polygon"
+      ]
+    },
+    {
+      "id": "code",
+      "title": "Code",
+      "icons": [
+        "code-dots",
+        "code-circle",
+        "code-circle-2",
+        "code",
+        "codeblock"
+      ]
+    },
+    {
+      "id": "cloud",
+      "title": "Cloud",
+      "icons": [
+        "cloud-check",
+        "cloud-code",
+        "cloud-upload",
+        "cloud-download",
+        "cloud-data-connection",
+        "cloud-computing",
+        "cloud"
+      ]
+    },
+    {
+      "id": "ai",
+      "title": "AI",
+      "icons": [
+        "brain-icon",
+        "sparkles-2",
+        "sparkles-3",
+        "file-sparkles"
+      ]
+    },
+    {
+      "id": "social",
+      "title": "Social",
+      "icons": [
+        "open-ai",
+        "deepseek",
+        "anthropic",
+        "google",
+        "github",
+        "huggingface"
+      ]
+    },
+    {
+      "id": "model",
+      "title": "Model",
+      "icons": [
+        "data",
+        "database",
+        "rocket",
+        "train",
+        "model"
+      ]
+    }
+  ],
   "icons": [
     "activity",
     "anthropic",

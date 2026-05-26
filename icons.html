@@ -55,37 +55,41 @@
       </div>
 
       <div class="doc-section">
-        <h2>Size tokens</h2>
+        <h2>SVG artboard sizes</h2>
         <div class="token-table-wrapper">
           <table class="token-table">
             <thead>
-              <tr><th>Variant</th><th>File suffix</th><th>Token</th><th>Dimensions</th></tr>
+              <tr><th>Variant</th><th>File suffix</th><th>Artboard token</th><th>ViewBox</th></tr>
             </thead>
             <tbody>
-              <tr><td>Medium</td><td><code>-medium.svg</code></td><td><code>--semantic-button-icon-size-medium</code></td><td>24px</td></tr>
-              <tr><td>Small</td><td><code>-small.svg</code></td><td><code>--semantic-button-icon-size-small</code></td><td>16px</td></tr>
+              <tr><td>Medium</td><td><code>-medium.svg</code></td><td><code>--semantic-icon-artboard-size-medium</code></td><td>24×24</td></tr>
+              <tr><td>Small</td><td><code>-small.svg</code></td><td><code>--semantic-icon-artboard-size-small</code></td><td>16×16</td></tr>
             </tbody>
           </table>
         </div>
-        <p>Match the SVG variant to the component size. Do not scale a small file up to medium in CSS.</p>
+        <p>These are the exported SVG dimensions from Figma Icons Outlined. They are not the same as button icon layout tokens (<code>--semantic-button-icon-size-small</code> is 14px for Small buttons).</p>
+        <p>Match the SVG file to the UI size you need. Do not scale a small file up to medium in CSS.</p>
       </div>
 
       <div class="doc-section">
         <h2>Icon library</h2>
         <p>Search by name, preview at medium or small size, then download or copy the repo path.</p>
 
-        <div class="token-search-wrapper">
-          <svg class="token-search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.1034 15.1034" fill="none" aria-hidden="true"><path d="M5.98438 0C6.77029 7.96207e-06 7.5493 0.154326 8.27539 0.455078C9.00143 0.755836 9.6611 1.19724 10.2168 1.75293C10.7724 2.30857 11.2129 2.96839 11.5137 3.69434C11.8144 4.42031 11.9697 5.19859 11.9697 5.98438C11.9697 6.77028 11.8144 7.54931 11.5137 8.27539C11.2769 8.84682 10.9516 9.37574 10.5537 9.84668L14.957 14.25C15.1522 14.4453 15.1523 14.7618 14.957 14.957C14.7618 15.1522 14.4452 15.1522 14.25 14.957L9.84668 10.5537C9.37574 10.9516 8.84685 11.2769 8.27539 11.5137C7.5493 11.8144 6.77029 11.9697 5.98438 11.9697C5.19861 11.9697 4.4203 11.8144 3.69434 11.5137C2.9684 11.2129 2.30857 10.7724 1.75293 10.2168C1.19725 9.66113 0.75584 9.00139 0.455078 8.27539C0.15432 7.54931 6.99062e-06 6.77028 0 5.98438C4.52615e-05 5.1986 0.154381 4.42031 0.455078 3.69434C0.75584 2.96824 1.1972 2.30866 1.75293 1.75293C2.30867 1.1972 2.96823 0.755837 3.69434 0.455078C4.4203 0.154386 5.1986 5.47122e-05 5.98438 0ZM5.98438 1C5.32992 1.00005 4.68179 1.12944 4.07715 1.37988C3.47244 1.63039 2.92279 1.99714 2.45996 2.45996C1.99712 2.92279 1.63039 3.47244 1.37988 4.07715C1.12942 4.68181 1.00005 5.3299 1 5.98438C1.00001 6.63896 1.12938 7.28782 1.37988 7.89258C1.63039 8.49717 1.9972 9.04701 2.45996 9.50977C2.92278 9.97253 3.47249 10.3394 4.07715 10.5898C4.68178 10.8403 5.32993 10.9697 5.98438 10.9697C6.63897 10.9697 7.28781 10.8403 7.89258 10.5898C8.49724 10.3394 9.04696 9.97255 9.50977 9.50977C9.97255 9.04699 10.3393 8.4972 10.5898 7.89258C10.8403 7.28782 10.9697 6.63896 10.9697 5.98438C10.9697 5.32991 10.8403 4.6818 10.5898 4.07715C10.3394 3.47248 9.97255 2.92278 9.50977 2.45996C9.04698 1.99719 8.49721 1.63039 7.89258 1.37988C7.28781 1.12938 6.63897 1.00001 5.98438 1Z" fill="currentColor"/></svg>
-          <input type="search" id="iconSearch" class="token-search" placeholder="Search icons..." aria-label="Search icons">
-          <span class="token-search-count" id="iconSearchCount"></span>
+        <div class="icons-toolbar">
+          <div class="icons-search-row">
+            <div class="spark-search-input-wrap">
+              <input type="search" id="iconSearch" class="spark-search-input" placeholder="Search icons..." aria-label="Search icons">
+              <svg class="spark-search-input-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.1034 15.1034" fill="none" aria-hidden="true"><path d="M5.98438 0C6.77029 7.96207e-06 7.5493 0.154326 8.27539 0.455078C9.00143 0.755836 9.6611 1.19724 10.2168 1.75293C10.7724 2.30857 11.2129 2.96839 11.5137 3.69434C11.8144 4.42031 11.9697 5.19859 11.9697 5.98438C11.9697 6.77028 11.8144 7.54931 11.5137 8.27539C11.2769 8.84682 10.9516 9.37574 10.5537 9.84668L14.957 14.25C15.1522 14.4453 15.1523 14.7618 14.957 14.957C14.7618 15.1522 14.4452 15.1522 14.25 14.957L9.84668 10.5537C9.37574 10.9516 8.84685 11.2769 8.27539 11.5137C7.5493 11.8144 6.77029 11.9697 5.98438 11.9697C5.19861 11.9697 4.4203 11.8144 3.69434 11.5137C2.9684 11.2129 2.30857 10.7724 1.75293 10.2168C1.19725 9.66113 0.75584 9.00139 0.455078 8.27539C0.15432 7.54931 0 6.77028 0 5.98438C0 5.1986 0.154381 4.42031 0.455078 3.69434C0.75584 2.96824 1.1972 2.30866 1.75293 1.75293C2.30867 1.1972 2.96823 0.755837 3.69434 0.455078C4.4203 0.154386 5.1986 5.47122e-05 5.98438 0ZM5.98438 1C5.32992 1.00005 4.68179 1.12944 4.07715 1.37988C3.47244 1.63039 2.92279 1.99714 2.45996 2.45996C1.99712 2.92279 1.63039 3.47244 1.37988 4.07715C1.12942 4.68181 1.00005 5.3299 1 5.98438C1.00001 6.63896 1.12938 7.28782 1.37988 7.89258C1.63039 8.49717 1.9972 9.04701 2.45996 9.50977C2.92278 9.97253 3.47249 10.3394 4.07715 10.5898C4.68178 10.8403 5.32993 10.9697 5.98438 10.9697C6.63897 10.9697 7.28781 10.8403 7.89258 10.5898C8.49724 10.3394 9.04696 9.97255 9.50977 9.50977C9.97255 9.04699 10.3393 8.4972 10.5898 7.89258C10.8403 7.28782 10.9697 6.63896 10.9697 5.98438C10.9697 5.32991 10.8403 4.6818 10.5898 4.07715C10.3394 3.47248 9.97255 2.92278 9.50977 2.45996C9.04698 1.99719 8.49721 1.63039 7.89258 1.37988C7.28781 1.12938 6.63897 1.00001 5.98438 1Z" fill="currentColor"/></svg>
+            </div>
+            <p class="icons-search-count" id="iconSearchCount"></p>
+          </div>
+          <div class="spark-segmented-control" role="group" aria-label="Preview size">
+            <button type="button" data-icon-size="medium" aria-pressed="true">Medium</button>
+            <button type="button" data-icon-size="small" aria-pressed="false">Small</button>
+          </div>
         </div>
 
-        <div class="icon-size-toggle" role="group" aria-label="Preview size">
-          <button type="button" data-icon-size="medium" aria-pressed="true">Medium preview</button>
-          <button type="button" data-icon-size="small" aria-pressed="false">Small preview</button>
-        </div>
-
-        <div id="iconGrid" class="icon-grid" data-size="medium" aria-live="polite">
+        <div id="iconGallery" aria-live="polite">
           <p class="icon-empty-state">Loading icons…</p>
         </div>
       </div>
@@ -95,7 +99,7 @@
         <ul>
           <li>Import the file you need, for example <code>assets/icons/search-medium.svg</code>.</li>
           <li>In React, override <code>fill</code> with <code>currentColor</code> so icons follow text color tokens.</li>
-          <li>Set size with <code>--semantic-button-icon-size-medium</code> or <code>--semantic-button-icon-size-small</code>, not arbitrary px in JSX.</li>
+          <li>Preview and download use SVG artboard tokens (<code>--semantic-icon-artboard-size-medium</code>, <code>--semantic-icon-artboard-size-small</code>). Inside buttons, size icons with <code>--semantic-button-icon-size-*</code> for the matching button tier.</li>
           <li>Use <code>aria-hidden="true"</code> on decorative icons; the parent control must have an accessible name.</li>
         </ul>
       </div>

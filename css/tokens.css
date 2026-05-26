@@ -505,6 +505,27 @@
   --semantic-button-icon-size-medium: 24px;
   --semantic-button-icon-size-large: 24px;
 
+  /* SVG artboard sizes (Icons Outlined exports; not button layout tokens) */
+  --semantic-icon-artboard-size-medium: 24px;
+  --semantic-icon-artboard-size-small: 16px;
+
+  /* Segmented control (icons page preview toggle; Figma Segmented Control) */
+  --semantic-segmented-control-height: var(--semantic-button-height-medium);
+  --semantic-segmented-control-padding: var(--primitive-space-1);
+  --semantic-segmented-control-gap: var(--primitive-space-1);
+  --semantic-segmented-control-radius: var(--primitive-radius-md);
+  --semantic-segmented-control-bg: var(--semantic-surface-muted);
+  --semantic-segmented-control-item-padding-x: var(--primitive-space-4);
+  --semantic-segmented-control-item-radius: var(--primitive-radius-sm);
+  --semantic-segmented-control-item-color: var(--semantic-content-secondary);
+  --semantic-segmented-control-item-color-selected: var(--semantic-content-primary);
+  --semantic-segmented-control-item-bg-selected: var(--semantic-surface-white);
+  --semantic-segmented-control-item-shadow-selected: var(--primitive-shadow-xs);
+  --semantic-segmented-control-font-family: var(--semantic-typography-body-font-family);
+  --semantic-segmented-control-font-size: var(--semantic-typography-body-base-font-size);
+  --semantic-segmented-control-font-weight: var(--primitive-font-weight-medium);
+  --semantic-segmented-control-line-height: var(--semantic-typography-body-base-line-height);
+
   /* ============================================
      PRIMITIVE SHADOWS & EFFECTS
      ============================================ */
