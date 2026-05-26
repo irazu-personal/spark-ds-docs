@@ -1099,12 +1099,13 @@ pre {
 }
 
 .icon-card.icon-card--search-match {
-  border-color: var(--semantic-action-primary-border-focus);
+  border: 2px solid var(--semantic-border-active);
   background-color: var(--semantic-surface-muted);
   box-shadow: var(--primitive-shadow-xs);
 }
 
 .icon-card.icon-card--search-match:hover {
+  border-color: var(--semantic-border-active);
   box-shadow: var(--primitive-shadow-sm);
 }
 

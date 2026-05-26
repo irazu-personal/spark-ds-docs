@@ -15,10 +15,11 @@ document.addEventListener('DOMContentLoaded', function () {
     return 'assets/icons/' + name + '-' + size + '.svg';
   }
 
-  function renderCard(name) {
+  function renderCard(name, sortIndex) {
     var article = document.createElement('article');
     article.className = 'icon-card';
     article.setAttribute('data-icon-name', name);
+    article.setAttribute('data-icon-sort', String(sortIndex));
 
     var preview = document.createElement('div');
     preview.className = 'icon-card-preview';
@@ -57,6 +58,25 @@ document.addEventListener('DOMContentLoaded', function () {
     article.appendChild(label);
     article.appendChild(actions);
     return article;
+  }
+
+  function reorderIconGrids(queryActive) {
+    gallery.querySelectorAll('.icon-grid').forEach(function (grid) {
+      var nodes = Array.prototype.slice.call(grid.querySelectorAll('.icon-card'));
+      nodes.sort(function (a, b) {
+        var ai = parseInt(a.getAttribute('data-icon-sort') || '0', 10);
+        var bi = parseInt(b.getAttribute('data-icon-sort') || '0', 10);
+        if (queryActive) {
+          var av = !a.hidden;
+          var bv = !b.hidden;
+          if (av !== bv) return av ? -1 : 1;
+        }
+        return ai - bi;
+      });
+      nodes.forEach(function (node) {
+        grid.appendChild(node);
+      });
+    });
   }
 
   function updatePreviews() {
@@ -101,6 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (searchCount) {
       searchCount.textContent = visible + ' of ' + allNames.length + ' icons';
     }
+    reorderIconGrids(!!q);
   }
 
   sizeButtons.forEach(function (btn) {
@@ -147,8 +168,8 @@ document.addEventListener('DOMContentLoaded', function () {
         grid.className = 'icon-grid';
         grid.setAttribute('data-size', currentSize);
 
-        (group.icons || []).forEach(function (name) {
-          var card = renderCard(name);
+        (group.icons || []).forEach(function (name, index) {
+          var card = renderCard(name, index);
           cards.push(card);
           grid.appendChild(card);
         });
