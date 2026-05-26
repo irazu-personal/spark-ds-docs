@@ -23,14 +23,14 @@ python3 scripts/export_figma_icons.py --from-repo-batches
 
 Set `FIGMA_ACCESS_TOKEN` (or `~/.figma_access_token`) for a full REST export from Icons Outlined (`984:12`). Without a token, the script merges cached batches under `scripts/.icon_batches/`.
 
-## SVG artboard vs button icon tokens
+## Medium and Small exports
 
-| Variant | File suffix | Artboard token | ViewBox |
-|---------|-------------|----------------|---------|
-| Medium | `-medium.svg` | `--semantic-icon-artboard-size-medium` | 24×24 |
-| Small | `-small.svg` | `--semantic-icon-artboard-size-small` | 16×16 |
+| Variant | File suffix | ViewBox |
+|---------|-------------|---------|
+| Medium | `-medium.svg` | 24×24 |
+| Small | `-small.svg` | 16×16 |
 
-Button layout uses different tokens (for example `--semantic-button-icon-size-small` is 14px, not 16px). Pick the SVG file that matches the visual size you need, then size it in CSS with the artboard or button token that fits the context.
+Icons Outlined is the shared library for the design system. Use the medium or small file that matches the icon slot in the component you are implementing, then apply that component’s documented sizing and color tokens (for example Button: `--semantic-button-icon-size-*`).
 
 ## Naming
 
@@ -51,7 +51,7 @@ Figma frame names map to kebab-case file stems:
 - Import the size you need: `import SearchMedium from 'assets/icons/search-medium.svg'`.
 - Prefer inline SVG React components or imports from a shared icons module in your app.
 - In React, override `fill` with `currentColor` (or `stroke="currentColor"`) so icons inherit token-driven text color. Exported SVGs use `fill="black"` as the Figma source default.
-- For standalone icons, use `--semantic-icon-artboard-size-*`. Inside buttons, use `--semantic-button-icon-size-*` for the matching button tier.
+- Size and color icons with the semantic tokens for the component you are building, not ad hoc pixel values.
 - Pass `aria-hidden="true"` when the icon is decorative; the parent control must expose an accessible name.
 
 ## Button icons

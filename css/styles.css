@@ -172,7 +172,7 @@ body {
   flex: 1;
   margin-left: 260px;
   padding: 2.5rem 3rem;
-  max-width: 1200px;
+  max-width: var(--semantic-docs-main-max-width);
 }
 
 .page-header {
@@ -1018,15 +1018,28 @@ pre {
 .icons-toolbar {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: flex-start;
   gap: 1rem;
   margin-bottom: 1.25rem;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  padding-top: 0.5rem;
+  padding-bottom: 0.75rem;
+  margin-top: -0.5rem;
+  background-color: var(--semantic-surface-canvas);
+  border-bottom: 1px solid var(--semantic-border-default);
+  box-shadow: 0 1px 0 rgba(29, 41, 57, 0.04);
+}
+
+.icons-toolbar .spark-segmented-control {
+  flex-shrink: 0;
 }
 
 .icons-search-row {
   flex: 1 1 280px;
-  max-width: 480px;
+  min-width: 0;
 }
 
 .icons-search-count {
@@ -1079,15 +1092,16 @@ pre {
   color: #212529;
 }
 
+/* Preview matches exported SVG viewBox (24 / 16); product code uses each component’s icon tokens */
 .icon-card-preview img {
   display: block;
-  width: var(--semantic-icon-artboard-size-medium);
-  height: var(--semantic-icon-artboard-size-medium);
+  width: 24px;
+  height: 24px;
 }
 
 .icon-grid[data-size="small"] .icon-card-preview img {
-  width: var(--semantic-icon-artboard-size-small);
-  height: var(--semantic-icon-artboard-size-small);
+  width: 16px;
+  height: 16px;
 }
 
 .icon-card-name {
@@ -1099,12 +1113,19 @@ pre {
 
 .icon-card-actions {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 0.35rem;
 }
 
 .icon-card-actions a,
 .icon-card-actions button {
+  flex: 1 1 0;
+  min-width: 0;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   font-size: 0.6875rem;
   padding: 0.25rem 0.5rem;
   border-radius: 6px;

@@ -165,6 +165,9 @@
   --semantic-surface-tooltip: var(--primitive-neutral-800);
   --semantic-surface-white: var(--primitive-neutral-0);
 
+  /* Static HTML docs layout */
+  --semantic-docs-main-max-width: 1600px;
+
   /* ============================================
      SEMANTIC TOKENS - ACTION
      ============================================ */
@@ -504,10 +507,6 @@
   --semantic-button-icon-size-small: 14px;
   --semantic-button-icon-size-medium: 24px;
   --semantic-button-icon-size-large: 24px;
-
-  /* SVG artboard sizes (Icons Outlined exports; not button layout tokens) */
-  --semantic-icon-artboard-size-medium: 24px;
-  --semantic-icon-artboard-size-small: 16px;
 
   /* Segmented control (icons page preview toggle; Figma Segmented Control) */
   --semantic-segmented-control-height: var(--semantic-button-height-medium);
