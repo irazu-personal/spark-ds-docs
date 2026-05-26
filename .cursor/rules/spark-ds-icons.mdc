@@ -8,20 +8,49 @@ alwaysApply: false
 
 ## Source
 
-Use icons from `assets/icons/` when a match exists. Each icon has two SVG files in kebab-case:
+Use icons from `assets/icons/` when a match exists. Browse and download SVGs on the [Icons](https://irazu-personal.github.io/spark-ds-docs/icons.html) docs page or in the repo at `assets/icons/`. Each icon has two SVG files in kebab-case:
 
-- `{name}-medium.svg` (24px)
-- `{name}-small.svg` (16px)
+- `{name}-medium.svg` (24×24 viewBox, 24px)
+- `{name}-small.svg` (16×16 viewBox, 16px)
 
-Examples: `search-medium.svg`, `search-small.svg`, `chevron-left-large-medium.svg`.
+Examples: `search-medium.svg`, `search-small.svg`, `chevron-left-large-medium.svg`, `category-plus-medium.svg`.
 
-Run `collect_icon_batches.py` after export to regenerate `assets/icons/` from Figma batches.
+Regenerate the folder from Figma with:
+
+```bash
+python3 scripts/export_figma_icons.py --from-repo-batches
+```
+
+Set `FIGMA_ACCESS_TOKEN` (or `~/.figma_access_token`) for a full REST export from Icons Outlined (`984:12`). Without a token, the script merges cached batches under `scripts/.icon_batches/`.
+
+## Size tokens
+
+| Variant | File suffix | Button token | Dimensions |
+|---------|-------------|--------------|------------|
+| Medium | `-medium.svg` | `--semantic-button-icon-size-medium` | 24px |
+| Small | `-small.svg` | `--semantic-button-icon-size-small` | 16px |
+
+Pick the variant that matches the component size. Do not scale a Small SVG to Medium dimensions in CSS.
+
+## Naming
+
+Figma frame names map to kebab-case file stems:
+
+1. Strip trailing ` Icons`, then trailing ` Icon`
+2. Replace ` + ` with `-plus-`
+3. Lowercase, spaces and punctuation become hyphens
+
+| Figma frame | Files |
+|-------------|-------|
+| Search Icon | `search-medium.svg`, `search-small.svg` |
+| Chevron left large Icon | `chevron-left-large-medium.svg`, `chevron-left-large-small.svg` |
+| Category + Icons | `category-plus-medium.svg`, `category-plus-small.svg` |
 
 ## Implementation
 
 - Import the size you need: `import SearchMedium from 'assets/icons/search-medium.svg'`.
 - Prefer inline SVG React components or imports from a shared icons module in your app.
-- Set `fill="currentColor"` (or `stroke="currentColor"`) so icons inherit token-driven text color.
+- In React, override `fill` with `currentColor` (or `stroke="currentColor"`) so icons inherit token-driven text color. Exported SVGs use `fill="black"` as the Figma source default.
 - Size icons with component tokens (e.g. `--semantic-button-icon-size-medium`), not fixed px in JSX.
 - Pass `aria-hidden="true"` when the icon is decorative; the parent control must expose an accessible name.
 
@@ -42,3 +71,4 @@ Run `collect_icon_batches.py` after export to regenerate `assets/icons/` from Fi
 
 - Import icon libraries (Lucide, Heroicons, Font Awesome) unless the project already standardizes on one **and** Spark has no equivalent.
 - Use emoji or bitmap images for UI icons in product code.
+- Reference undocumented icon names; browse `assets/icons/` or the Figma Icons Outlined section for available sets.

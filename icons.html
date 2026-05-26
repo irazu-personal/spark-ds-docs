@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Icons - Spark Design System</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <button class="sidebar-toggle" aria-label="Toggle navigation" aria-expanded="false">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.1035 11.0996" fill="none" aria-hidden="true"><path id="Vector" d="M14.6035 10.0996C14.8796 10.0996 15.1034 10.3236 15.1035 10.5996C15.1035 10.8757 14.8796 11.0996 14.6035 11.0996H0.5C0.224022 11.0994 0 10.8756 0 10.5996C8.38968e-05 10.3237 0.224074 10.0998 0.5 10.0996H14.6035ZM14.6035 5.0498C14.8796 5.04982 15.1035 5.27367 15.1035 5.5498C15.1035 5.82593 14.8796 6.04978 14.6035 6.0498H0.5C0.224022 6.04961 0 5.82583 0 5.5498C0 5.27378 0.224022 5.05 0.5 5.0498H14.6035ZM14.6035 0C14.8795 2.00931e-05 15.1034 0.223996 15.1035 0.5C15.1035 0.77613 14.8796 0.99998 14.6035 1H0.5C0.224023 0.999806 0 0.776023 0 0.5C0.000147373 0.224102 0.224113 0.000193524 0.5 0H14.6035Z" fill="currentColor"/></svg>
+  </button>
+
+  <div class="site-wrapper">
+    <aside class="sidebar" role="navigation" aria-label="Main navigation">
+      <div class="sidebar-header">
+        <h1>Spark DS</h1>
+        <div class="subtitle">Design System Docs</div>
+      </div>
+      <nav>
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Overview</div>
+          <a href="index.html" class="sidebar-link">Home</a>
+          <a href="accessibility.html" class="sidebar-link">Accessibility</a>
+        </div>
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Foundations</div>
+          <a href="colors.html" class="sidebar-link">Colors &amp; Tokens</a>
+          <a href="dimensions.html" class="sidebar-link">Dimensions</a>
+          <a href="shadows-effects.html" class="sidebar-link">Shadows &amp; Effects</a>
+          <a href="typography.html" class="sidebar-link">Typography</a>
+          <a href="icons.html" class="sidebar-link active">Icons</a>
+        </div>
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Components</div>
+          <a href="button.html" class="sidebar-link">Button</a>
+          <a href="modal.html" class="sidebar-link">Modal</a>
+        </div>
+      </nav>
+    </aside>
+
+    <main class="main-content" id="main">
+      <div class="page-header">
+        <h1>Icons</h1>
+        <p>130 outlined icon sets from the Spark Figma library. Each set ships as two SVG files: medium (24px) and small (16px). Download files from this page or use them directly from the repository.</p>
+      </div>
+
+      <div class="doc-section">
+        <h2>File location</h2>
+        <p>All SVGs live in <code>assets/icons/</code> in this repo. Filenames use kebab-case: <code>{name}-medium.svg</code> and <code>{name}-small.svg</code> (for example <code>search-medium.svg</code>, <code>chevron-left-large-small.svg</code>).</p>
+        <p>Published docs mirror the same paths, so a medium search icon is at <code>assets/icons/search-medium.svg</code> relative to the site root.</p>
+      </div>
+
+      <div class="doc-section">
+        <h2>Size tokens</h2>
+        <div class="token-table-wrapper">
+          <table class="token-table">
+            <thead>
+              <tr><th>Variant</th><th>File suffix</th><th>Token</th><th>Dimensions</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Medium</td><td><code>-medium.svg</code></td><td><code>--semantic-button-icon-size-medium</code></td><td>24px</td></tr>
+              <tr><td>Small</td><td><code>-small.svg</code></td><td><code>--semantic-button-icon-size-small</code></td><td>16px</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Match the SVG variant to the component size. Do not scale a small file up to medium in CSS.</p>
+      </div>
+
+      <div class="doc-section">
+        <h2>Icon library</h2>
+        <p>Search by name, preview at medium or small size, then download or copy the repo path.</p>
+
+        <div class="token-search-wrapper">
+          <svg class="token-search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.1034 15.1034" fill="none" aria-hidden="true"><path d="M5.98438 0C6.77029 7.96207e-06 7.5493 0.154326 8.27539 0.455078C9.00143 0.755836 9.6611 1.19724 10.2168 1.75293C10.7724 2.30857 11.2129 2.96839 11.5137 3.69434C11.8144 4.42031 11.9697 5.19859 11.9697 5.98438C11.9697 6.77028 11.8144 7.54931 11.5137 8.27539C11.2769 8.84682 10.9516 9.37574 10.5537 9.84668L14.957 14.25C15.1522 14.4453 15.1523 14.7618 14.957 14.957C14.7618 15.1522 14.4452 15.1522 14.25 14.957L9.84668 10.5537C9.37574 10.9516 8.84685 11.2769 8.27539 11.5137C7.5493 11.8144 6.77029 11.9697 5.98438 11.9697C5.19861 11.9697 4.4203 11.8144 3.69434 11.5137C2.9684 11.2129 2.30857 10.7724 1.75293 10.2168C1.19725 9.66113 0.75584 9.00139 0.455078 8.27539C0.15432 7.54931 6.99062e-06 6.77028 0 5.98438C4.52615e-05 5.1986 0.154381 4.42031 0.455078 3.69434C0.75584 2.96824 1.1972 2.30866 1.75293 1.75293C2.30867 1.1972 2.96823 0.755837 3.69434 0.455078C4.4203 0.154386 5.1986 5.47122e-05 5.98438 0ZM5.98438 1C5.32992 1.00005 4.68179 1.12944 4.07715 1.37988C3.47244 1.63039 2.92279 1.99714 2.45996 2.45996C1.99712 2.92279 1.63039 3.47244 1.37988 4.07715C1.12942 4.68181 1.00005 5.3299 1 5.98438C1.00001 6.63896 1.12938 7.28782 1.37988 7.89258C1.63039 8.49717 1.9972 9.04701 2.45996 9.50977C2.92278 9.97253 3.47249 10.3394 4.07715 10.5898C4.68178 10.8403 5.32993 10.9697 5.98438 10.9697C6.63897 10.9697 7.28781 10.8403 7.89258 10.5898C8.49724 10.3394 9.04696 9.97255 9.50977 9.50977C9.97255 9.04699 10.3393 8.4972 10.5898 7.89258C10.8403 7.28782 10.9697 6.63896 10.9697 5.98438C10.9697 5.32991 10.8403 4.6818 10.5898 4.07715C10.3394 3.47248 9.97255 2.92278 9.50977 2.45996C9.04698 1.99719 8.49721 1.63039 7.89258 1.37988C7.28781 1.12938 6.63897 1.00001 5.98438 1Z" fill="currentColor"/></svg>
+          <input type="search" id="iconSearch" class="token-search" placeholder="Search icons..." aria-label="Search icons">
+          <span class="token-search-count" id="iconSearchCount"></span>
+        </div>
+
+        <div class="icon-size-toggle" role="group" aria-label="Preview size">
+          <button type="button" data-icon-size="medium" aria-pressed="true">Medium preview</button>
+          <button type="button" data-icon-size="small" aria-pressed="false">Small preview</button>
+        </div>
+
+        <div id="iconGrid" class="icon-grid" data-size="medium" aria-live="polite">
+          <p class="icon-empty-state">Loading icons…</p>
+        </div>
+      </div>
+
+      <div class="doc-section">
+        <h2>Developers</h2>
+        <ul>
+          <li>Import the file you need, for example <code>assets/icons/search-medium.svg</code>.</li>
+          <li>In React, override <code>fill</code> with <code>currentColor</code> so icons follow text color tokens.</li>
+          <li>Set size with <code>--semantic-button-icon-size-medium</code> or <code>--semantic-button-icon-size-small</code>, not arbitrary px in JSX.</li>
+          <li>Use <code>aria-hidden="true"</code> on decorative icons; the parent control must have an accessible name.</li>
+        </ul>
+      </div>
+
+      <div class="doc-section">
+        <h2>Designers</h2>
+        <p>Source of truth in Figma is Icons Outlined in the <a href="https://www.figma.com/design/KYq9ka9Hg16HdfzR4gMoMH/Spark---DS">Spark DS file</a>. These SVGs are exports for handoff, prototypes outside Figma, and engineering builds. Prefer the Figma component when designing inside the library.</p>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/icons-page.js"></script>
+</body>
+</html>
