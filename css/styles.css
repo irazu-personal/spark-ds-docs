@@ -170,9 +170,10 @@ body {
 
 .main-content {
   flex: 1;
+  width: 100%;
+  max-width: var(--semantic-docs-main-max-width);
   margin-left: 260px;
   padding: 2.5rem 3rem;
-  max-width: var(--semantic-docs-main-max-width);
 }
 
 .page-header {
@@ -888,6 +889,7 @@ pre {
 
   .main-content {
     margin-left: 0;
+    width: 100%;
     padding: 1.25rem;
     padding-top: 3.5rem;
   }
@@ -1017,10 +1019,8 @@ pre {
 
 .icons-toolbar {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 0.35rem;
   margin-bottom: 1.25rem;
   position: sticky;
   top: 0;
@@ -1033,17 +1033,30 @@ pre {
   box-shadow: 0 1px 0 rgba(29, 41, 57, 0.04);
 }
 
+.icons-toolbar-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  width: 100%;
+}
+
 .icons-toolbar .spark-segmented-control {
   flex-shrink: 0;
 }
 
-.icons-search-row {
+.icons-search-field {
   flex: 1 1 280px;
   min-width: 0;
 }
 
+.icons-search-field .spark-search-input-wrap {
+  width: 100%;
+}
+
 .icons-search-count {
-  margin: 0.35rem 0 0;
+  margin: 0;
   font-size: 0.8125rem;
   color: var(--semantic-content-secondary);
 }
@@ -1076,6 +1089,7 @@ pre {
   padding: 0.75rem;
   display: flex;
   flex-direction: column;
+  align-items: stretch;
   gap: 0.5rem;
   transition: box-shadow 0.15s ease;
 }
@@ -1115,14 +1129,16 @@ pre {
   display: flex;
   flex-wrap: nowrap;
   gap: 0.35rem;
+  width: 100%;
+  min-width: 0;
 }
 
 .icon-card-actions a,
 .icon-card-actions button {
-  flex: 1 1 0;
+  flex: 1 1 0%;
   min-width: 0;
   box-sizing: border-box;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
